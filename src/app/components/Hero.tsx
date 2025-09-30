@@ -1,7 +1,10 @@
+import Image from "next/image";
+
+
 export default function Hero() {
   return (
     <section className="text-center my-10">
-      <img
+      <Image
         src="/photo1.jpg"
         alt="Pierre Arnould"
         className="mx-auto rounded-lg w-auto  object-cover"

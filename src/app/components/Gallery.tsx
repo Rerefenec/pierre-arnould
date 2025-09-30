@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface GalleryItem {
   title: string;
   image: string;
@@ -17,7 +19,7 @@ export default function Gallery() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-black gap-6">
         {galleryItems.map((item, index) => (
           <div key={index} className="flex flex-col md:flex-row items-center gap-4">
-            <img
+            <Image
               src={item.image}
               alt={item.title}
               className="w-48 h-48 object-cover rounded-lg"

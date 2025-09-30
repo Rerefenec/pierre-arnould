@@ -1,29 +1,25 @@
-import type { MetadataRoute } from 'next'
- 
+import type { MetadataRoute } from "next";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Pierre-Arnould',
-    short_name: 'Pierre-Arnould',
-    description: 'Site officiel de Pierre-Arnould',
-    start_url: '/',
-    display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#000000',
+    name: "Pierre-Arnould",
+    short_name: "P-A",
+    description: "Site officiel de Pierre-Arnould",
+    start_url: "/",
+    display: "standalone",
+    theme_color: "#ffffff",
+    background_color: "#ffffff",
     icons: [
       {
-        src: '/logo.png',
-        sizes: '192x192',
-        type: 'image/png',
+        src: "/web-app-manifest-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
       },
       {
-        src: '/logo2.png',
-        sizes: '512x512',
-        type: 'image/png',
+        src: "/web-app-manifest-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
       },
     ],
-  }
+  };
 }
-
-
-
-
