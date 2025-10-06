@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+
 
 
 export const metadata: Metadata = {
   title: "Pierre-Arnould",
   description: "Site officiel de Pierre-Arnould",
-  themeColor: "#ffffff",
   icons: [
     {
       url: "/web-app-manifest-192x192.png",
@@ -18,6 +18,10 @@ export const metadata: Metadata = {
       type: "image/png",
     },
   ],
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",       
 };
 
 export default function RootLayout({
