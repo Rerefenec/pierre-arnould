@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+
 
 interface GalleryItem {
   title: string;
@@ -41,7 +43,20 @@ export default function Gallery() {
         // Aseguramos que la imagen cubra el ancho de su columna
         className="object-cover rounded-xl w-full h-64"
       />
-      <h3 className="mt-2 text-lg font-semibold">{item.title}</h3>
+<h3 className="mt-2 text-lg font-semibold">
+  {item.title === "Compartimentés" ? (
+    <Link
+      href="/compartimentes"
+      className="hover:underline text-blue-600"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {item.title}
+    </Link>
+  ) : (
+    item.title
+  )}
+</h3>
+
     </motion.div>
   );
 
