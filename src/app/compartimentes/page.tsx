@@ -40,10 +40,10 @@ export default function CompartimentesPage() {
 
   return (
     <div className="bg-black min-h-screen text-white flex flex-col items-center justify-center p-6">
-      <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+      {/* <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">
         Sculptures, Objects & Installations
-      </h1>
-      <p className="text-gray-400 mb-8 text-center">Série : Compartimentés</p>
+      </h1> */}
+      <h1 className="text-2xl md:text-2xl font-bold mb-8 text-center">Série : Compartimentés</h1>
 
       {/* Image principale + flèches */}
       <div className="relative w-full max-w-3xl aspect-[4/3] mb-6 flex items-center justify-center">
@@ -94,7 +94,7 @@ export default function CompartimentesPage() {
       </div>
 
       {/* Titre et année */}
-      <h2 className="text-xl font-semibold mb-2">
+      <h2 className="text-gray-400 mb-2 text-center">
         {works[currentIndex].title}
       </h2>
       <p className="text-gray-400 mb-6">{works[currentIndex].year}</p>
