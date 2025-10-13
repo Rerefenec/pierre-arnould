@@ -1,101 +1,47 @@
+
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 
 interface Work {
-   title: string;
+  title: string;
   style: string;
   image: string;
   description: string; // nouveau champ pour le texte sous l'image
 }
 
 const works: Work[] = [
-   ...Array.from({ length: 26 }, (_, i) => ({
-    title: `Compartimenté ${i + 1}`,
+    ...Array.from({ length: 22 }, (_, i) => ({
+    title: `Compartimentés ${i + 1}`,
     style: "Compartimentés",
     image: `/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-${i + 1}.jpg`,
-    description: "..", 
+    description: "..",
   }))];
 
 
 export default function CompartimentesPage() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const goTo = (index: number) => {
-    if (index < 0) index = works.length - 1;
-    if (index >= works.length) index = 0;
-    setCurrentIndex(index);
-  };
-
   return (
     <div>
-      <Header />
-    
-    <div className="bg-black min-h-screen text-white flex flex-col items-center justify-center md:p-6">
-      <h1 className="text-2xl md:text-2xl font-bold mb-4 md:mb-8 text-center px-6 md:px-0">Série : Compartimentés</h1>
+    <Header />
+    <div className="bg-black min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
+      <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center px-6 md:px-0">Série : Compartimentés</h1>
 
-      {/* Image principale + flèches */}
-      <div className="relative w-full md:max-w-3xl aspect-[4/3] mb-4 md:mb-6 flex items-center justify-center">
-        {/* --- Image animée --- */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={works[currentIndex].title}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="absolute inset-0 flex items-center justify-center z-10"
-          >
+      {/* Grille responsive */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0">
+        {works.map((work, idx) => (
+          <div key={idx} className="flex flex-col items-center">
+            {/* Image réduite de moitié */}
             <img
-              src={works[currentIndex].image}
-              alt={works[currentIndex].title}
-              className="w-full h-full object-contain"
+              src={work.image}
+              alt={work.title}
+              className="w-1/2 md:w-1/2 h-auto object-contain rounded-md"
             />
-          </motion.div>
-        </AnimatePresence>
 
-         {/* Texte sous l'image */}
-<div>
-            <p className="text-gray-600 text-center mt-1">{works[currentIndex].description}</p>
-         </div>
-
-        {/* --- Flèche gauche --- */}
-        <button
-          onClick={() => goTo(currentIndex - 1)}
-          className="absolute left-2 md:left-4 p-3 rounded-full bg-white/10 hover:bg-white/20 transition z-20 pointer-events-auto"
-          aria-label="Image précédente"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" />
-          </svg>
-        </button>
-
-        {/* --- Flèche droite --- */}
-        <button
-          onClick={() => goTo(currentIndex + 1)}
-          className="absolute right-2 md:right-4 p-3 rounded-full bg-white/10 hover:bg-white/20 transition z-20 pointer-events-auto"
-          aria-label="Image suivante"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6" />
-          </svg>
-        </button>
-      </div>
-
-    
-      {/* Cercles de navigation */}
-      <div className="flex space-x-3 mb-6">
-        {works.map((_, idx) => (
-          <button
-            key={idx}
-            className={`w-4 h-4 rounded-full transition-all ${
-              idx === currentIndex ? "bg-white scale-125" : "bg-gray-600"
-            }`}
-            onClick={() => goTo(idx)}
-            aria-label={`Aller à l'image ${idx + 1}`}
-          />
+            {/* Texte sous l'image */}
+            <h2 className="text-gray-800 mt-2 text-center font-semibold">{work.title}</h2>
+            <p className="text-gray-500 text-sm text-center">{work.style}</p>
+            <p className="text-gray-600 text-center mt-1">{work.description}</p>
+          </div>
         ))}
       </div>
     </div>
