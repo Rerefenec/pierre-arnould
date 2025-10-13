@@ -41,7 +41,7 @@ export default function TroisemePeriodePage() {
           {works.map((work, idx) => (
             <div
               key={idx}
-              className="relative flex flex-col items-center justify-between text-center bg-yellow-400 rounded-md w-full max-w-sm"
+              className="relative flex flex-col items-center justify-between text-center bg-black rounded-md w-full max-w-sm"
             >
               {/* Image centrée verticalement */}
               <div className="flex-1 flex items-center justify-center p-4">
@@ -54,9 +54,9 @@ export default function TroisemePeriodePage() {
 
               {/* Bloc texte en bas */}
               <div className="pb-4">
-                <h2 className="text-black font-semibold">{work.title}</h2>
-                <p className="text-black text-sm">{work.style}</p>
-                <p className="text-black text-sm mt-1">{work.description}</p>
+                <h2 className="text-white font-semibold">{work.title}</h2>
+                <p className="text-white text-sm">{work.style}</p>
+                <p className="text-white text-sm mt-1">{work.description}</p>
               </div>
             </div>
           ))}
