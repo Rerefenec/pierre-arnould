@@ -9,19 +9,19 @@ interface Work {
 }
 
 const works: Work[] = [
-  ...Array.from({ length: 22 }, (_, i) => ({
-    title: `Compartimentés ${i + 1}`,
-    style: "Compartimentés",
-    image: `/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-${i + 1}.jpg`,
-    description: "..",
+  ...Array.from({ length: 17 }, (_, i) => ({
+    title: `3eme période ${i + 1}`,
+    style: "3eme période",
+    image: `/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-${i + 1}.jpg`,
+    description: "", // Ajoutez une description appropriée ici si nécessaire
   })),
 ];
 
-export default function CompartimentesPage() {
+export default function TroisemePeriodePage() {
   return (
-    <div className="bg-black min-h-screen text-gray-900">
+    <div className="bg-[url('/bg.jpg')] min-h-screen text-gray-900">
 
-      <header className="fixed top-0 left-0 w-full z-30 flex justify-between items-center px-6 py-4 bg-black text-white border-b border-white shadow-md">
+      <header className="fixed top-0 left-0 w-full z-30 flex justify-between items-center px-6 py-4 bg-[url('/bg.jpg')] text-black border-b border-black shadow-md">
         <div className="text-2xl font-bold">Pierre Arnould</div>
         <nav className="space-x-6">
           <Link href="/">Home</Link>
@@ -41,7 +41,7 @@ export default function CompartimentesPage() {
           {works.map((work, idx) => (
             <div
               key={idx}
-              className="relative flex flex-col items-center justify-between text-center bg-black rounded-md w-full max-w-sm"
+              className="relative flex flex-col items-center justify-between text-center bg-yellow-400 rounded-md w-full max-w-sm"
             >
               {/* Image centrée verticalement */}
               <div className="flex-1 flex items-center justify-center p-4">
@@ -54,9 +54,9 @@ export default function CompartimentesPage() {
 
               {/* Bloc texte en bas */}
               <div className="pb-4">
-                <h2 className="text-white font-semibold">{work.title}</h2>
-                <p className="text-gray-400 text-sm">{work.style}</p>
-                <p className="text-gray-300 text-sm mt-1">{work.description}</p>
+                <h2 className="text-black font-semibold">{work.title}</h2>
+                <p className="text-black text-sm">{work.style}</p>
+                <p className="text-black text-sm mt-1">{work.description}</p>
               </div>
             </div>
           ))}
