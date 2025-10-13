@@ -25,7 +25,7 @@ const galleryItems: GalleryItem[] = [
     title: "Tondos",
     image: "/1995-2020 Tondos/20250921_162047.jpg",
     description: "Une exploration circulaire...",
-    lien: "/tondos",
+    lien: "/tondo",
   },
   {
     title: "Compartimentés",
