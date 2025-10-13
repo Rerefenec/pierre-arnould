@@ -4,7 +4,7 @@ interface SidebarProps {
   setSelectedStyle: (style: string | null) => void;
 }
 
-export default function SidebarStyles({ styles, selectedStyle, setSelectedStyle }: SidebarProps) {
+export default function SideBar({ styles, selectedStyle, setSelectedStyle }: SidebarProps) {
   return (
     <div className="flex flex-col space-y-4 p-4 border-r border-gray-200">
       {styles.map((style) => (

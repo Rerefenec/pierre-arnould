@@ -4,22 +4,20 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Work {
-  title: string;
+   title: string;
+  style: string;
   image: string;
-  year: string;
+  description: string; // nouveau champ pour le texte sous l'image
 }
 
 const works: Work[] = [
-  { title: "Compartimentés #1", image: "/1969-1994 Compartimentés/pierre-arnould-artist-002.JPG", year: "2024" },
-  { title: "Compartimentés #2", image: "/1969-1994 Compartimentés/pierre-arnould-artist-003.JPG", year: "2024" },
-  { title: "Compartimentés #3", image: "/1969-1994 Compartimentés/pierre-arnould-artist-004.JPG", year: "2024" },
-  { title: "Compartimentés #4", image: "/1969-1994 Compartimentés/pierre-arnould-artist-010.JPG", year: "2024" },
-  { title: "Compartimentés #5", image: "/1969-1994 Compartimentés/pierre-arnould-artist-012.JPG", year: "2024" },
-  { title: "Compartimentés #6", image: "/1969-1994 Compartimentés/pierre-arnould-artist-016.JPG", year: "2024" },
-  { title: "Compartimentés #7", image: "/1969-1994 Compartimentés/pierre-arnould-artist-020.JPG", year: "2024" },
-  { title: "Compartimentés #8", image: "/1969-1994 Compartimentés/pierre-arnould-artist-005.JPG", year: "2024" },
-  { title: "Compartimentés #9", image: "/1969-1994 Compartimentés/pierre-arnould-artist-007.JPG", year: "2024" },
-];
+   ...Array.from({ length: 26 }, (_, i) => ({
+    title: `Compartimenté ${i + 1}`,
+    style: "Compartimentés",
+    image: `/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-${i + 1}.jpg`,
+    description: "..", 
+  }))];
+
 
 export default function CompartimentesPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -54,6 +52,11 @@ export default function CompartimentesPage() {
           </motion.div>
         </AnimatePresence>
 
+         {/* Texte sous l'image */}
+<div>
+            <p className="text-gray-600 text-center mt-1">{works[currentIndex].description}</p>
+         </div>
+
         {/* --- Flèche gauche --- */}
         <button
           onClick={() => goTo(currentIndex - 1)}
@@ -77,12 +80,7 @@ export default function CompartimentesPage() {
         </button>
       </div>
 
-      {/* Titre et année */}
-      <h2 className="text-gray-400 mb-2 text-center px-6">
-        {works[currentIndex].title}
-      </h2>
-      <p className="text-gray-400 mb-6">{works[currentIndex].year}</p>
-
+    
       {/* Cercles de navigation */}
       <div className="flex space-x-3 mb-6">
         {works.map((_, idx) => (

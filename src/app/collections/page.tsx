@@ -2,17 +2,17 @@
 
 import { useState, useEffect } from "react";
 import SearchBar from "@/components/SearchBar";
-import SidebarStyles from "@/components/SideBar";
+import SideBar from "@/components/SideBar";
 import Footer from "@/components/Footer";
 import GalleryCollections from "@/components/GalleryCollections";
 import HeaderCollections from "@/components/HeaderCollections";
 
 const galleryItems = [
   // 🔹 3eme période (8 imágenes)
-  ...Array.from({ length: 8 }, (_, i) => ({
-    title: `3eme période ${i + 10}`,
+  ...Array.from({ length: 17 }, (_, i) => ({
+    title: `3eme période ${i + 1}`,
     style: "3eme période",
-    image: `/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-${i + 10}.jpg`,
+    image: `/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-${i + 1}.jpg`,
   })),
 
   // 🔹 Tondos (22 imágenes)
@@ -33,9 +33,10 @@ const galleryItems = [
 
 const styles = ["3eme période", "Tondos", "Compartimentés"];
 
-export default function HomePage() {
+export default function Collections() {
   const [query, setQuery] = useState("");
   const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
+ const shuffledGalleryItems = [...galleryItems].sort(() => Math.random() - 0.5);
 
 
 
@@ -44,13 +45,13 @@ export default function HomePage() {
         <HeaderCollections />
         <SearchBar query={query} setQuery={setQuery} />
       <div className="flex relative p-18 pb-1 bg-white z-1">
-        <SidebarStyles
+        <SideBar
           styles={styles}
           selectedStyle={selectedStyle}
           setSelectedStyle={setSelectedStyle}
         />
         <GalleryCollections
-          items={galleryItems}
+          items={shuffledGalleryItems}
           selectedStyle={selectedStyle}
           query={query}
         />
