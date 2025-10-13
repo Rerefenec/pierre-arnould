@@ -1,6 +1,7 @@
 
 "use client";
 
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
 interface Work {
@@ -45,6 +46,7 @@ export default function TondoPage() {
         ))}
       </div>
     </div>
+    <Footer />
     </div>
   );
 }
