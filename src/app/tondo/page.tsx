@@ -40,7 +40,7 @@ const works: Work[] = [
 export default function TondoPage() {
   return (
     <div className="bg-white min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
-      <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center px-6 md:px-0">Série : Compartimentés</h1>
+      <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center px-6 md:px-0">Série : Tondos</h1>
 
       {/* Grille responsive */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0">
@@ -50,7 +50,7 @@ export default function TondoPage() {
             <img
               src={work.image}
               alt={work.title}
-              className="w-1/2 md:w-1/2 h-auto object-contain rounded-md shadow-md"
+              className="w-1/2 md:w-1/2 h-auto object-contain rounded-md"
             />
 
             {/* Texte sous l'image */}
