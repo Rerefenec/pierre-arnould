@@ -10,15 +10,15 @@ interface Work {
 }
 
 const works: Work[] = [
-  { title: "Compartimentés #1", image: "/compartimentes/pierre-arnould-artist-002.JPG", year: "2024" },
-  { title: "Compartimentés #2", image: "/compartimentes/pierre-arnould-artist-003.JPG", year: "2024" },
-  { title: "Compartimentés #3", image: "/compartimentes/pierre-arnould-artist-004.JPG", year: "2024" },
-  { title: "Compartimentés #4", image: "/compartimentes/pierre-arnould-artist-010.JPG", year: "2024" },
-  { title: "Compartimentés #5", image: "/compartimentes/pierre-arnould-artist-012.JPG", year: "2024" },
-  { title: "Compartimentés #6", image: "/compartimentes/pierre-arnould-artist-016.JPG", year: "2024" },
-  { title: "Compartimentés #7", image: "/compartimentes/pierre-arnould-artist-020.JPG", year: "2024" },
-  { title: "Compartimentés #8", image: "/compartimentes/pierre-arnould-artist-005.JPG", year: "2024" },
-  { title: "Compartimentés #9", image: "/compartimentes/pierre-arnould-artist-007.JPG", year: "2024" },
+  { title: "Compartimentés #1", image: "/1969-1994 Compartimentés/pierre-arnould-artist-002.JPG", year: "2024" },
+  { title: "Compartimentés #2", image: "/1969-1994 Compartimentés/pierre-arnould-artist-003.JPG", year: "2024" },
+  { title: "Compartimentés #3", image: "/1969-1994 Compartimentés/pierre-arnould-artist-004.JPG", year: "2024" },
+  { title: "Compartimentés #4", image: "/1969-1994 Compartimentés/pierre-arnould-artist-010.JPG", year: "2024" },
+  { title: "Compartimentés #5", image: "/1969-1994 Compartimentés/pierre-arnould-artist-012.JPG", year: "2024" },
+  { title: "Compartimentés #6", image: "/1969-1994 Compartimentés/pierre-arnould-artist-016.JPG", year: "2024" },
+  { title: "Compartimentés #7", image: "/1969-1994 Compartimentés/pierre-arnould-artist-020.JPG", year: "2024" },
+  { title: "Compartimentés #8", image: "/1969-1994 Compartimentés/pierre-arnould-artist-005.JPG", year: "2024" },
+  { title: "Compartimentés #9", image: "/1969-1994 Compartimentés/pierre-arnould-artist-007.JPG", year: "2024" },
 ];
 
 export default function CompartimentesPage() {
