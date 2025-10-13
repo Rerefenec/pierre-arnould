@@ -1,41 +1,63 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 
 export default function Hero() {
-  const words = ["Pierre", "Arnould"];
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10); // 🔹 cambia apenas empiece el scroll
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <section className="text-center mt-20 ">
-      <Image
-        src="/photo1.jpg"
-        alt="Pierre Arnould"
-        width={1200}
-        height={600}
-        className="mx-auto rounded-lg object-cover mb-30"
-      />
+    <>
+      {/* Imagen de fondo fija y estática detrás de todo */}
+      <div className="fixed inset-0 -z-10">
+        <Image
+          src="/photo1.jpg"
+          alt="Pierre Arnould, plasticien"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        {/* capa negra semitransparente */}
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
 
-      <h1 className="mb-40 text-6xl font-bold text-black my-10 inline-flex justify-center items-center group cursor-pointer">
-        <span
-          className="inline-block transition-transform duration-500"
-          style={{ transitionTimingFunction: "cubic-bezier(0.19, 1, 0.22, 1)" }}
-        >
-          {/* Pierre sube */}
-          <span className="block group-hover:-translate-y-5">{words[0]}</span>
-        </span>
+      {/* Header */}
+      <header
+        className={`fixed top-0 left-0 w-full z-30 flex justify-between items-center px-6 py-4 transition-all duration-500 ${
+          scrolled
+            ? "bg-white text-black shadow-md"
+            : "bg-transparent text-white"
+        }`}
+      >
+        <div className="text-2xl font-bold">Pierre Arnould</div>
+        <nav className="space-x-6">
+          <Link href="/">Home</Link>
+          <Link href="/A propos">À propos</Link>
+          <Link href="/collections">Collections</Link>
+          <Link href="/faqs">FAQs</Link>
+        </nav>
+      </header>
 
-        {/* Espacio entre palabras */}
-        <span className="w-4"></span>
-
-        <span
-          className="inline-block transition-transform duration-500"
-          style={{ transitionTimingFunction: "cubic-bezier(0.19, 1, 0.22, 1)" }}
-        >
-          {/* Arnould baja */}
-          <span className="block group-hover:translate-y-5">{words[1]}</span>
-        </span>
-      </h1>
-    </section>
+      {/* Hero content (solo ocupa la pantalla inicial) */}
+      <section className=" h-165 flex flex-col justify-center text-center text-white">
+        <h1 className="flex-col animate__animated animate__fadeInDown text-6xl font-bold inline-flex ">
+         <span>Pierre Arnould </span> 
+        < br />
+           <span>Plasticien</span>
+          </h1>
+      </section>
+    </>
   );
 }
+
+
