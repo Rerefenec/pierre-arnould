@@ -4,24 +4,21 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Hero() {
+export default function HeaderCollections() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10); // 🔹 cambia apenas empiece el scroll
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <>
-      {/* Imagen de fondo fija y estática detrás de todo */}
-      <div className="fixed inset-0 -z-10">
+    <div className="relative h-[20vh]">
+      {/* 🔹 Imagen de fondo solo para el área del header */}
+      <div className="absolute inset-0 -z-10">
         <Image
-          src="/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-26.jpg"
+          src="/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-7.jpg"
           alt="Pierre Arnould, plasticien"
           fill
           priority
@@ -31,7 +28,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
-      {/* Header */}
+      {/* 🔹 Header flotante */}
       <header
         className={`fixed top-0 left-0 w-full z-30 flex justify-between items-center px-6 py-4 transition-all duration-500 ${
           scrolled
@@ -48,16 +45,10 @@ export default function Hero() {
         </nav>
       </header>
 
-      {/* Hero content (solo ocupa la pantalla inicial) */}
-      <section className=" h-165 flex flex-col justify-center text-center text-white">
-        <h1 className="flex-col animate__animated animate__fadeInDown text-6xl font-bold inline-flex ">
-         <span>Pierre Arnould </span> 
-        < br />
-           <span>Plasticien</span>
-          </h1>
-      </section>
-    </>
+      {/* 🔹 Texto o placeholder opcional en el centro del fondo */}
+      <div className="animate__animated animate__fadeInDown flex justify-center items-center h-full text-white text-4xl font-bold">
+        Collections
+      </div>
+    </div>
   );
 }
-
-
