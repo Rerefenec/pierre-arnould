@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Header from "@/components/Header";
 
 interface Work {
    title: string;
@@ -29,6 +30,9 @@ export default function CompartimentesPage() {
   };
 
   return (
+    <div>
+      <Header />
+    
     <div className="bg-black min-h-screen text-white flex flex-col items-center justify-center md:p-6">
       <h1 className="text-2xl md:text-2xl font-bold mb-4 md:mb-8 text-center px-6 md:px-0">Série : Compartimentés</h1>
 
@@ -94,6 +98,7 @@ export default function CompartimentesPage() {
           />
         ))}
       </div>
+    </div>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 
 "use client";
 
+import Header from "@/components/Header";
+
 interface Work {
   title: string;
   style: string;
@@ -19,6 +21,8 @@ const works: Work[] = [
 
 export default function TondoPage() {
   return (
+    <div>
+    <Header />
     <div className="bg-white min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center px-6 md:px-0">Série : Tondos</h1>
 
@@ -40,6 +44,7 @@ export default function TondoPage() {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 }
