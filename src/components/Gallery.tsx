@@ -52,9 +52,21 @@ export default function Gallery() {
     >
       {item.title}
     </Link>
+  ) : 
+  
+    
+    item.title === "Tondos" ? (
+    <Link
+      href="/tondo"
+      className="hover:underline text-blue-600"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {item.title}
+    </Link>
   ) : (
     item.title
   )}
+  
 </h3>
 
     </motion.div>
