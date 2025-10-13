@@ -42,8 +42,8 @@ export default function Hero() {
         <div className="text-2xl font-bold">Pierre Arnould</div>
         <nav className="space-x-6">
           <Link href="/">Home</Link>
-          <Link href="/A propos">À propos</Link>
           <Link href="/collections">Collections</Link>
+          <Link href="/A propos">À propos</Link>
           <Link href="/faqs">FAQs</Link>
         </nav>
       </header>

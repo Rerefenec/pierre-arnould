@@ -98,7 +98,7 @@ export default function Gallery() {
             <h3 className="mt-4 text-lg flex justify-center font-semibold">
               <Link
                 href={item.lien}
-                className="hover:underline text-blue-600"
+                className="hover:underline text-black-600"
                 onClick={(e) => e.stopPropagation()}
               >
                 {item.title}
