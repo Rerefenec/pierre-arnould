@@ -2,6 +2,7 @@
 "use client";
 
 import Header from "@/components/Header";
+import HeroCompartimentes from "@/components/Hero-compartimentes";
 
 interface Work {
   title: string;
@@ -11,7 +12,7 @@ interface Work {
 }
 
 const works: Work[] = [
-    ...Array.from({ length: 22 }, (_, i) => ({
+    ...Array.from({ length: 9 }, (_, i) => ({
     title: `Compartimentés ${i + 1}`,
     style: "Compartimentés",
     image: `/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-${i + 1}.jpg`,
@@ -22,9 +23,9 @@ const works: Work[] = [
 export default function CompartimentesPage() {
   return (
     <div>
-    <Header />
+    <HeroCompartimentes />
     <div className="bg-black min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
-      <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center px-6 md:px-0">Série : Compartimentés</h1>
+      {/* <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center px-6 md:px-0">Série : Compartimentés</h1> */}
 
       {/* Grille responsive */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0">

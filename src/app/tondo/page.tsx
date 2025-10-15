@@ -2,6 +2,8 @@
 "use client";
 
 import Header from "@/components/Header";
+import HeroTondo from "@/components/Hero-tondo";
+
 
 interface Work {
   title: string;
@@ -11,7 +13,7 @@ interface Work {
 }
 
 const works: Work[] = [
-    ...Array.from({ length: 22 }, (_, i) => ({
+    ...Array.from({ length: 21 }, (_, i) => ({
     title: `Tondo ${i + 1}`,
     style: "Tondos",
     image: `/1995-2020-Tondos/pierre-arnould-artist-tondo-${i + 1}.jpg`,
@@ -22,9 +24,9 @@ const works: Work[] = [
 export default function TondoPage() {
   return (
     <div>
-    <Header />
+    <HeroTondo/>
     <div className="bg-white min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
-      <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center px-6 md:px-0">Série : Tondos</h1>
+      {/* <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center px-6 md:px-0">Série : Tondos</h1> */}
 
       {/* Grille responsive */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0">
