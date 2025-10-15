@@ -2,10 +2,7 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import HeroTondo from "@/components/Hero-tondo";
-
-
+import Hero from "@/components/Hero";
 interface Work {
   title: string;
   style: string;
@@ -25,9 +22,8 @@ const works: Work[] = [
 export default function TondoPage() {
   return (
     <div>
-    <HeroTondo/>
+    <Hero />
     <div className="bg-white min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
-      {/* <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center px-6 md:px-0">Série : Tondos</h1> */}
 
       {/* Grille responsive */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0">
@@ -48,7 +44,9 @@ export default function TondoPage() {
         ))}
       </div>
     </div>
-    <Footer />
+     <div className="relative p-1 bg-white z-1">
+          <Footer />
+        </div>
     </div>
   );
 }

@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import SearchBar from "@/components/SearchBar";
 import SideBar from "@/components/SideBar";
 import Footer from "@/components/Footer";
 import GalleryCollections from "@/components/GalleryCollections";
-import HeaderCollections from "@/components/HeaderCollections";
+import Header from "@/components/Header";
 
 const galleryItems = [
   // 🔹 3eme période (8 imágenes)
@@ -16,14 +16,14 @@ const galleryItems = [
   })),
 
   // 🔹 Tondos (22 imágenes)
-  ...Array.from({ length: 22 }, (_, i) => ({
+  ...Array.from({ length: 21 }, (_, i) => ({
     title: `Tondo ${i + 1}`,
     style: "Tondos",
     image: `/1995-2020-Tondos/pierre-arnould-artist-tondo-${i + 1}.jpg`,
   })),
 
   // 🔹 Compartimentés (26 imágenes)
-  ...Array.from({ length: 26 }, (_, i) => ({
+  ...Array.from({ length: 9 }, (_, i) => ({
     title: `Compartimenté ${i + 1}`,
     style: "Compartimentés",
     image: `/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-${i + 1}.jpg`,
@@ -59,8 +59,11 @@ export default function Collections() {
   
   return (
     <main className="overflow-x-hidden">
-      <HeaderCollections />
-
+      <Header />
+      <div className="mt-40">
+        <h1 className="flex justify-center animate__animated animate__fadeInDown text-6xl font-bold ">
+          Collections
+        </h1>
       <SearchBar
         query={query}
         setQuery={setQuery}
@@ -81,8 +84,11 @@ export default function Collections() {
           query={query}
         />
       </div>
+      </div >
 
-      <Footer />
+      <div className="relative p-1 bg-white z-1">
+                <Footer />
+              </div>
     </main>
   );
 }

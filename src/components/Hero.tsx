@@ -1,48 +1,74 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Header from "./Header";
+import { usePathname } from "next/navigation";
 
 export default function Hero() {
-  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10); // 🔹 cambia apenas empiece el scroll
-    };
+  // 🔹 Image selon la page
+  let heroImage = "/Details/pierre-arnould-artist-compartimentes-detail-12.jpg";
+  if (pathname === "/tondo") {
+    heroImage = "/Details/pierre-arnould-artist-tondo-detail-01.jpg";
+  } else if (pathname === "/Troisieme-periode") {
+    heroImage = "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-14.jpg";
+  } else if (pathname === "/compartimentes") {
+    heroImage = "/Details/pierre-arnould-artist-compartimentes-detail-4.jpg";
+  }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // 🔹 Texte du titre
+  let textHeader;
+  if (pathname === "/tondo") {
+    textHeader = <>Tondos</>;
+  } else if (pathname === "/Troisieme-periode") {
+    textHeader = <>Troisième période</>;
+  } else if (pathname === "/compartimentes") {
+    textHeader = <>Compartimentés</>;
+  } else if (pathname === "/collections") {
+    textHeader = <>Collections</>;
+  } else {
+    textHeader = (
+      <>
+        Pierre Arnould
+        <br />
+        Plasticien
+      </>
+    );
+  }
+
+  // 🔹 Hauteur du Hero selon la page
+  let heroHeight = "h-[300px]"; // hauteur par défaut
+  if (pathname === "/") heroHeight = "h-[700px]"; // page d'accueil plein écran
+  else if (pathname === "/compartimentes") heroHeight = "h-[300px]";
+  else if (pathname === "/tondo") heroHeight = "h-[300px]";
+  else if (pathname === "/Troisieme-periode") heroHeight = "h-[300px]";
 
   return (
     <>
-      {/* Imagen de fondo fija y estática detrás de todo */}
+      {/* 🔹 Image de fond */}
       <div className="fixed inset-0 -z-10">
         <Image
-          src="/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-26.jpg"
+          src={heroImage}
           alt="Pierre Arnould, plasticien"
           fill
           priority
           className="object-cover object-center"
         />
-        {/* capa negra semitransparente */}
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
-      {/* Header */}
-     <Header />
+      {/* 🔹 Header */}
+      <Header />
 
-      {/* Hero content (solo ocupa la pantalla inicial) */}
-      <section className=" h-165 flex flex-col justify-center text-center text-white">
-        <h1 className="flex-col animate__animated animate__fadeInDown text-6xl font-bold inline-flex ">
-         <span>Pierre Arnould </span> 
-           <span>Plasticien</span>
-          </h1>
+      {/* 🔹 Section Hero avec hauteur dynamique */}
+      <section
+        className={`${heroHeight} flex flex-col justify-center text-center text-white`}
+      >
+        <h1 className="flex-col animate__animated animate__fadeInDown text-6xl font-bold inline-flex">
+          <span>{textHeader}</span>
+        </h1>
       </section>
     </>
   );
 }
-
-
