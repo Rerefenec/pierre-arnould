@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import Header from "@/components/Header";
+
 interface Work {
   title: string;
   style: string;
@@ -13,37 +14,32 @@ const works: Work[] = [
     title: `3eme période ${i + 1}`,
     style: "3eme période",
     image: `/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-${i + 1}.jpg`,
-    description: "", // Ajoutez une description appropriée ici si nécessaire
+    description: "",
   })),
 ];
 
 export default function TroisemePeriodePage() {
   return (
-    <div className="bg-[url('/bg.jpg')] min-h-screen text-gray-900">
+    <div className="bg-[url('/146.jpg')] bg-cover bg-center min-h-screen text-gray-900">
+      {/* 🔹 Header */}
+      <Header />
 
-      <header className="fixed top-0 left-0 w-full z-30 flex justify-between items-center px-6 py-4 bg-[url('/bg.jpg')] text-black border-b border-black shadow-md">
-        <div className="text-2xl font-bold">Pierre Arnould</div>
-        <nav className="space-x-6">
-          <Link href="/">Home</Link>
-          <Link href="/collections">Collections</Link>
-          <Link href="/A propos">À propos</Link>
-          <Link href="/faqs">FAQs</Link>
-        </nav>
-      </header>
-
-      <div className="flex flex-col items-center justify-center md:p-6">
-        <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center px-6 md:px-0 text-white">
-          Série : Compartimentés
+      {/* 🔹 Contenu principal */}
+      <div className="flex flex-col items-center justify-center pt-32 md:p-6">
+        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center text-black drop-shadow-lg">
+          Série : 3ème période
         </h1>
 
-        {/* Grille responsive centrée */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-0 justify-items-center">
+        {/* 🔹 Grille responsive */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4 md:px-8 justify-items-center">
           {works.map((work, idx) => (
             <div
               key={idx}
-              className="relative flex flex-col items-center justify-between text-center bg-black rounded-md w-full max-w-sm"
+              className="relative flex flex-col items-center justify-between text-center 
+              bg-white/10 backdrop-blur-sm border border-white/20
+              rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 w-full max-w-sm"
             >
-              {/* Image centrée verticalement */}
+              {/* Image */}
               <div className="flex-1 flex items-center justify-center p-4">
                 <img
                   src={work.image}
@@ -52,11 +48,10 @@ export default function TroisemePeriodePage() {
                 />
               </div>
 
-              {/* Bloc texte en bas */}
-              <div className="pb-4">
-                <h2 className="text-white font-semibold">{work.title}</h2>
-                <p className="text-white text-sm">{work.style}</p>
-                <p className="text-white text-sm mt-1">{work.description}</p>
+              {/* Texte */}
+              <div className="pb-4 text-black">
+                <h2 className="font-semibold text-lg">{work.title}</h2>
+                <p className="text-sm opacity-90">{work.style}</p>
               </div>
             </div>
           ))}
