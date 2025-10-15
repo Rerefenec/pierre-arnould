@@ -29,7 +29,7 @@ const galleryItems: GalleryItem[] = [
   },
   {
     title: "Compartimentés",
-    image: "/1995-2020-Tondos/pierre-arnould-artist-tondo-2.jpg",
+    image: "/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-2.jpg",
     description: "La structure du fragment...",
     lien: "/compartimentes",
   },
