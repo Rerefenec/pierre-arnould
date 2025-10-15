@@ -112,7 +112,6 @@ export default function Gallery() {
       <AnimationGallery
         selected={selected}
         onClose={() => setSelected(null)}
-        items={galleryItems}
       />
     </section>
   );

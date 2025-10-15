@@ -1,6 +1,7 @@
 
 "use client";
 
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroTondo from "@/components/Hero-tondo";
 
@@ -47,6 +48,7 @@ export default function TondoPage() {
         ))}
       </div>
     </div>
+    <Footer />
     </div>
   );
 }

@@ -34,15 +34,16 @@ export default function GalleryCollections({ items, selectedStyle, query }: Gall
 
   return (
     <div className="flex flex-col w-full">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
+      {/* 🔹 Grille centrée */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4 justify-items-center">
         {currentItems.map((item) => (
-          <div key={item.title} className="relative cursor-pointer">
+          <div key={item.title} className="relative cursor-pointer flex flex-col items-center">
             <Image
               src={item.image}
               alt={item.title}
               width={400}
               height={400}
-              className="object-cover rounded-md w-full h-64"
+              className="object-cover rounded-md w-full h-60"
             />
             <h3 className="mt-2 text-center font-semibold">{item.title}</h3>
           </div>

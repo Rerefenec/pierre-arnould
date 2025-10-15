@@ -1,16 +1,16 @@
+// AnimationGallery.tsx
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import  { GalleryItem } from "./Gallery"; // importe uniquement le type/interface Gallery
+import { GalleryItem } from "./Gallery";
 
 interface GalleryModalProps {
   selected: GalleryItem | null;
   onClose: () => void;
-  items: GalleryItem[];
 }
 
-export default function AnimationGallery({ selected, onClose, items }: GalleryModalProps) {
+export default function AnimationGallery({ selected, onClose }: GalleryModalProps) {
   return (
     <AnimatePresence>
       {selected && (
@@ -23,32 +23,24 @@ export default function AnimationGallery({ selected, onClose, items }: GalleryMo
         >
           <motion.div
             layoutId={selected.title}
-            className="bg-white rounded-2xl overflow-hidden shadow-2xl w-full max-w-6xl mx-4 p-4"
+            className="bg-white rounded-2xl overflow-hidden shadow-2xl w-full max-w-2xl mx-4 p-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-2xl font-bold mb-6 text-center">
-              {selected.title}
-            </h2>
+            <h2 className="text-2xl font-bold mb-6 text-center">{selected.title}</h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {items.map((item) => (
-                <motion.div
-                  key={item.title}
-                  className="cursor-pointer"
-                  layoutId={`modal-${item.title}`}
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={400}
-                    height={400}
-                    className="object-cover rounded-xl w-full h-64"
-                  />
-                  <p className="text-gray-600 text-sm mt-2">
-                    {item.description}
-                  </p>
-                </motion.div>
-              ))}
+            <div className="flex justify-center">
+              <motion.div key={selected.title} className="cursor-pointer">
+                <Image
+                  src={selected.image} // <-- imagen dinámica
+                  alt={selected.title}
+                  width={400}
+                  height={400}
+                  className="object-cover rounded-xl w-auto h-80"
+                />
+                <p className="text-gray-600 text-sm mt-2">
+                  {selected.description} {/* <-- descripción dinámica */}
+                </p>
+              </motion.div>
             </div>
 
             <div className="flex justify-center mt-6">
