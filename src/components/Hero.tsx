@@ -8,13 +8,17 @@ export default function Hero() {
   const pathname = usePathname();
 
   // 🔹 Image selon la page
-  let heroImage = "/Details/pierre-arnould-artist-compartimentes-detail-12.jpg";
+  let heroImage: string;
   if (pathname === "/tondo") {
     heroImage = "/Details/pierre-arnould-artist-tondo-detail-01.jpg";
   } else if (pathname === "/Troisieme-periode") {
     heroImage = "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-14.jpg";
   } else if (pathname === "/compartimentes") {
     heroImage = "/Details/pierre-arnould-artist-compartimentes-detail-4.jpg";
+  } else if (pathname === "/") {
+    heroImage = "/Details/bg.jpg";
+  } else {
+    heroImage = "/Details/bg.jpg";
   }
 
   // 🔹 Texte du titre
@@ -38,7 +42,7 @@ export default function Hero() {
   }
 
   // 🔹 Hauteur du Hero selon la page
-  let heroHeight = "h-[300px]"; // hauteur par défaut
+  let heroHeight; 
   if (pathname === "/") heroHeight = "h-[700px]"; // page d'accueil plein écran
   else if (pathname === "/compartimentes") heroHeight = "h-[300px]";
   else if (pathname === "/tondo") heroHeight = "h-[300px]";
