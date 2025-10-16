@@ -8,13 +8,13 @@ export default function Hero() {
   const pathname = usePathname();
 
   // 🔹 Image selon la page
-  let heroImage = "/Details/pierre-arnould-artist-compartimentes-detail-12.jpg";
+  let heroImage = "";
   if (pathname === "/tondo") {
-    heroImage = "/Details/pierre-arnould-artist-tondo-detail-01.jpg";
+    heroImage = "";
   } else if (pathname === "/Troisieme-periode") {
-    heroImage = "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-14.jpg";
+    heroImage = "";
   } else if (pathname === "/compartimentes") {
-    heroImage = "/Details/pierre-arnould-artist-compartimentes-detail-4.jpg";
+    heroImage = "";
   }
 
   // 🔹 Texte du titre

@@ -17,19 +17,19 @@ export interface GalleryItem {
 const galleryItems: GalleryItem[] = [
   {
     title: "3eme période",
-    image: "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-6.jpg",
+    image: "",
     description: "La fusion conceptuelle...",
     lien: "/Troisieme-periode",
   },
   {
     title: "Tondos",
-    image: "/1995-2020-Tondos/pierre-arnould-artist-tondo-13.jpg",
+    image: "",
     description: "Une exploration circulaire...",
     lien: "/tondo",
   },
   {
     title: "Compartimentés",
-    image: "/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-2.jpg",
+    image: "",
     description: "La structure du fragment...",
     lien: "/compartimentes",
   },
