@@ -29,7 +29,7 @@ const galleryItems: GalleryItem[] = [
   },
   {
     title: "Compartimentés",
-    image: "",
+    image: "/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-2.JPG",
     description: "La structure du fragment...",
     lien: "/compartimentes",
   },
