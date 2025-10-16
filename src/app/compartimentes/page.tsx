@@ -14,7 +14,7 @@ const works: Work[] = [
   ...Array.from({ length: 9 }, (_, i) => ({
     title: `Compartimentés ${i + 1}`,
     style: "Compartimentés",
-    image: `/1969-1994-Compartimentes/pierre-arnould-plasticien-compartimentes-${
+    image: `/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-${
       i + 1
     }.jpg`,
     description: "..",
