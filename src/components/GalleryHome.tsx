@@ -17,7 +17,7 @@ export interface GalleryItem {
 const galleryItems: GalleryItem[] = [
   {
     title: "3eme période",
-    image: "",
+    image: "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-6.jpg",
     description: "La fusion conceptuelle...",
     lien: "/Troisieme-periode",
   },

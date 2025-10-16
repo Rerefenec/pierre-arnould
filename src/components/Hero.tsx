@@ -10,11 +10,11 @@ export default function Hero() {
   // 🔹 Image selon la page
   let heroImage = "/Details/bg.JPG";
   if (pathname === "/tondo") {
-    heroImage = "";
+    heroImage = "/Details/pierre-arnould-artist-tondo-detail-01.jpg";
   } else if (pathname === "/Troisieme-periode") {
-    heroImage = "";
+    heroImage = "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-14.jpg";
   } else if (pathname === "/compartimentes") {
-    heroImage = "";
+    heroImage = "/Details/pierre-arnould-artist-compartimentes-detail-4.jpg";
   }
 
   // 🔹 Texte du titre
