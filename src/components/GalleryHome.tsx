@@ -23,13 +23,13 @@ const galleryItems: GalleryItem[] = [
   },
   {
     title: "Tondos",
-    image: "/1995-2020-Tondos/pierre-arnould-artist-tondo-9.jpg",
+    image: "/1995-2020-Tondos/pierre-arnould-plasticien-tondo-9.jpg",
     description: "Une exploration circulaire...",
     lien: "/tondo",
   },
   {
     title: "Compartimentés",
-    image: "/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-2.JPG",
+    image: "/1969-1994-Compartimentes/pierre-arnould-plasticien-compartimentes-2.JPG",
     description: "La structure du fragment...",
     lien: "/compartimentes",
   },
