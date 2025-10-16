@@ -23,7 +23,7 @@ const galleryItems: GalleryItem[] = [
   },
   {
     title: "Tondos",
-    image: "",
+    image: "/1995-2020-Tondos/pierre-arnould-artist-tondo-9.jpg",
     description: "Une exploration circulaire...",
     lien: "/tondo",
   },

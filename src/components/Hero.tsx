@@ -8,7 +8,7 @@ export default function Hero() {
   const pathname = usePathname();
 
   // 🔹 Image selon la page
-  let heroImage = "";
+  let heroImage = "/Details/bg.JPG";
   if (pathname === "/tondo") {
     heroImage = "";
   } else if (pathname === "/Troisieme-periode") {
