@@ -38,7 +38,7 @@ export default function Hero() {
   }
 
   // 🔹 Hauteur du Hero selon la page
-  let heroHeight = "h-[300px]"; // hauteur par défaut
+  let heroHeight; 
   if (pathname === "/") heroHeight = "h-[700px]"; // page d'accueil plein écran
   else if (pathname === "/compartimentes") heroHeight = "h-[300px]";
   else if (pathname === "/tondo") heroHeight = "h-[300px]";
