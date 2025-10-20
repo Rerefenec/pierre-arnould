@@ -3,6 +3,7 @@
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import { useState } from "react";
+import Image from "next/image"; 
 
 interface Work {
   title: string;
@@ -41,7 +42,7 @@ export default function TondoPage() {
         {failedImages.length > 0 && (
           <div className="bg-red-50 border-l-4 border-red-500 p-4 m-6">
             <p className="font-semibold text-red-800">
-              Images qui n'ont pas pu être chargées :
+              Images qui n&apos;ont pas pu être chargées :
             </p>
             <ul className="list-disc list-inside text-red-700 mt-2">
               {failedImages.map((idx) => (
@@ -64,7 +65,7 @@ export default function TondoPage() {
                 className="flex flex-col items-center justify-center text-center rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out p-8"
               >
                 <div className="relative w-full md:w-1/2">
-                  <img
+                  <Image
                     src={work.image}
                     alt={work.title}
                     className="w-full h-auto object-contain rounded-md"

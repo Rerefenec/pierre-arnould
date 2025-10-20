@@ -2,6 +2,7 @@
 
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 interface Work {
   title: string;
@@ -40,10 +41,12 @@ export default function TroisiemePeriodePage() {
               >
                 {/* Imagen centrada vertical y horizontalmente */}
                 <div className="flex items-center justify-center h-80">
-                  <img
+                  <Image
                     src={work.image}
                     alt={work.title}
                     className="max-h-full max-w-full object-contain rounded-md transition-transform duration-500 hover:scale-105"
+                    width={500}
+                    height={500}
                   />
                 </div>
 

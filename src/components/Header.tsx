@@ -3,12 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { usePathname } from "next/navigation"; // 🔹 hook pour récupérer la route
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname(); // 🔹 la route actuelle
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
