@@ -8,15 +8,18 @@ export default function Hero() {
   const pathname = usePathname();
 
   // 🔹 Image selon la page
-  let heroImage = "/details/bg.jpg";
+    // 🔹 Image selon la page
+ let heroImage = "/details/bg.jpg";
   if (pathname === "/tondo") {
-    heroImage = "/details/pierre-arnould-artist-tondo-detail-01.jpg";
+    heroImage = "/details/pierre-arnould-artist-tondo-detail-1.jpg";
   } else if (pathname === "/Troisieme-periode") {
-    heroImage =
-      "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-14.jpg";
+    heroImage = "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-14.jpg";
   } else if (pathname === "/compartimentes") {
     heroImage = "/details/pierre-arnould-artist-compartimentes-detail-4.jpg";
   }
+
+  console.log("🖼️ Current pathname:", pathname);
+  console.log("🖼️ Loading image:", heroImage);
 
   // 🔹 Texte du titre
   let textHeader;
