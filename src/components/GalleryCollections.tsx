@@ -61,7 +61,7 @@ export default function GalleryCollections({ items, selectedStyle, query }: Gall
             ← Précédent
           </button>
 
-          <span>
+          <span className="text-white">
             {currentPage} / {totalPages}
           </span>
 
