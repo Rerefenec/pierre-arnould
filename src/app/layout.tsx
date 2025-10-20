@@ -6,6 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Pierre-Arnould",
   description: "Site officiel de Pierre-Arnould",
+  viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
   icons: [
     {
       url: "/web-app-manifest-192x192.png",
