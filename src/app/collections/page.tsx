@@ -12,21 +12,21 @@ const galleryItems = [
   ...Array.from({ length: 17 }, (_, i) => ({
     title: `3eme période ${i + 1}`,
     style: "3eme période",
-    image: `/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-${i + 1}.jpg`,
+    image: `/2021-20xx-3eme-periode-mini/pierre-arnould-artist-3eme-periode-${i + 1}.webp`,
   })),
 
   // 🔹 Tondos (22 imágenes)
   ...Array.from({ length: 21 }, (_, i) => ({
     title: `Tondo ${i + 1}`,
     style: "Tondos",
-    image: `/1995-2020-Tondos/pierre-arnould-artist-tondo-${i + 1}.jpg`,
+    image: `/1995-2020-Tondos/pierre-arnould-artist-tondo-${i + 1}.webp`,
   })),
 
   // 🔹 Compartimentés (26 imágenes)
   ...Array.from({ length: 9 }, (_, i) => ({
     title: `Compartimenté ${i + 1}`,
     style: "Compartimentés",
-    image: `/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-${i + 1}.jpg`,
+    image: `/1969-1994-Compartimentes-mini/pierre-arnould-artist-compartimentes-${i + 1}.webp`,
   })),
 
 
@@ -58,10 +58,10 @@ export default function Collections() {
   ).length;
   
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-hidden bg-black ">
       <Header />
       <div className="mt-40">
-        <h1 className="flex justify-center animate__animated animate__fadeInDown text-6xl font-bold ">
+        <h1 className=" text-white flex justify-center animate__animated animate__fadeInDown text-6xl font-bold ">
           Collections
         </h1>
       <SearchBar
@@ -71,7 +71,7 @@ export default function Collections() {
         resetFilters={resetFilters}
       />
 
-      <div className="flex relative p-18 pb-1 bg-white z-1">
+      <div className="flex relative p-18 pb-1 bg-black z-1">
         <SideBar
           styles={styles}
           selectedStyle={selectedStyle}
@@ -86,7 +86,7 @@ export default function Collections() {
       </div>
       </div >
 
-      <div className="relative p-1 bg-white z-1">
+      <div className="relative p-1 bg-black z-1">
                 <Footer />
               </div>
     </main>

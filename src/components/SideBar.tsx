@@ -16,8 +16,8 @@ export default function SideBar({ styles, selectedStyle, setSelectedStyle }: Sid
           <button
             key={style}
             onClick={() => setSelectedStyle(isAll ? null : style)}
-            className={`text-left px-3 py-2 rounded transition-all duration-200 
-              ${isSelected ? "bg-black text-white font-semibold" : "bg-gray-100 hover:bg-gray-200"}`}
+            className={`text-center px-3 py-2 rounded transition-all duration-200 
+              ${isSelected ? "bg-white text-black font-semibold" : "bg-gray-500 hover:bg-gray-200"}`}
           >
             {style}
           </button>
