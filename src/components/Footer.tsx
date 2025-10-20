@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="text-center p-6 mt-16">
+    <footer className="p-10 bg-black text-center text-white text-sm">
       © {new Date().getFullYear()} Pierre Arnould. Tous droits réservés.
     </footer>
   );
