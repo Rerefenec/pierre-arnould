@@ -12,7 +12,8 @@ export default function Hero() {
   if (pathname === "/tondo") {
     heroImage = "/Details/pierre-arnould-artist-tondo-detail-01.jpg";
   } else if (pathname === "/Troisieme-periode") {
-    heroImage = "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-14.jpg";
+    heroImage =
+      "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-14.jpg";
   } else if (pathname === "/compartimentes") {
     heroImage = "/Details/pierre-arnould-artist-compartimentes-detail-4.jpg";
   }
@@ -38,7 +39,7 @@ export default function Hero() {
   }
 
   // 🔹 Hauteur du Hero selon la page
-  let heroHeight; 
+  let heroHeight;
   if (pathname === "/") heroHeight = "h-[580px]"; // page d'accueil plein écran
   else if (pathname === "/compartimentes") heroHeight = "h-[300px]";
   else if (pathname === "/tondo") heroHeight = "h-[300px]";
@@ -65,13 +66,14 @@ export default function Hero() {
       <section
         className={`${heroHeight} flex flex-col justify-center text-center text-white`}
       >
-       <h1 className="animate__animated animate__fadeInDown 
+        <h1
+          className="animate__animated animate__fadeInDown 
                text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl 2xl:text-9xl 2xl:mt-40
-               font-bold inline-flex flex-col">
-  <span>{textHeader}</span>
-</h1>
-
+               font-bold inline-flex flex-col"
+        >
+          <span>{textHeader}</span>
+        </h1>
       </section>
-      </>
+    </>
   );
 }

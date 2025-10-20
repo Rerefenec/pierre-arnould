@@ -43,13 +43,22 @@ export default function GalleryHome() {
   // 🔹 Écouter le scroll global et masquer la flèche quand l'utilisateur descend
   useEffect(() => {
     const handleScroll = () => {
-      // Masquer la flèche dès que l'utilisateur scroll un peu (10px)
       if (window.scrollY > 10) setShowArrow(false);
       else setShowArrow(true);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // 🔹 Fonction pour scroller vers la galerie
+  const scrollToGallery = () => {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ 
+        behavior: "smooth", 
+        block: "start" 
+      });
+    }
+  };
 
   return (
     <section 
@@ -66,14 +75,18 @@ export default function GalleryHome() {
             transition={{ duration: 0.4 }}
             className="absolute -top-18 left-1/2 -translate-x-1/2 z-30" 
           >
-            <div className="flex items-center justify-center bg-white text-black rounded-full p-2 shadow-md animate-bounce">
+            <button
+              onClick={scrollToGallery}
+              className="flex items-center justify-center bg-white text-black rounded-full p-2 shadow-md animate-bounce hover:bg-gray-100 transition-colors cursor-pointer"
+              aria-label="Défiler vers la galerie"
+            >
               <ArrowDown className="w-5 h-5" />
-            </div>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Galérie des périodes (maintenant sous la ligne de flottaison sur grands écrans) */}
+      {/* Galérie des périodes */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-white items-center">
         {galleryItems.map((item, index) => (
           <motion.div
@@ -82,7 +95,7 @@ export default function GalleryHome() {
             onClick={() => setSelected(item)}
             className={`cursor-pointer relative flex flex-col justify-center items-center ${
               index === 1
-                ? "md:col-span-2" // milieu occupe 2 colonnes
+                ? "md:col-span-2"
                 : "md:col-span-1"
             }`}
           >

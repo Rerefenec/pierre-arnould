@@ -6,6 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Pierre-Arnould",
   description: "Site officiel de Pierre-Arnould",
+  
   icons: [
     {
       url: "/web-app-manifest-192x192.png",
@@ -21,7 +22,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",       
+  themeColor: "#ffffff",  
+    width:"device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",   
 };
 
 export default function RootLayout({

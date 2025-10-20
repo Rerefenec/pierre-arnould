@@ -15,9 +15,7 @@ const works: Work[] = [
   ...Array.from({ length: 17 }, (_, i) => ({
     title: `3eme période ${i + 1}`,
     style: "3eme période",
-    image: `/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-${
-      i + 1
-    }.jpg`,
+    image: `/2021-20xx-3eme-periode-mini/pierre-arnould-artist-3eme-periode-${ i + 1}.webp`,
     description: "..",
   })),
 ];
