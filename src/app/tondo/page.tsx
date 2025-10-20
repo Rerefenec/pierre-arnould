@@ -71,6 +71,8 @@ export default function TondoPage() {
                     className="w-full h-auto object-contain rounded-md"
                     onError={() => handleImageError(idx, work.image)}
                     onLoad={() => handleImageLoad(idx)}
+                    width={500}
+                    height={500}
                   />
                   {failedImages.includes(idx) && (
                     <div className="absolute inset-0 bg-gray-200 flex items-center justify-center rounded-md">
