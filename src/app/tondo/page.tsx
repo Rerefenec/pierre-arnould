@@ -16,7 +16,7 @@ const works: Work[] = [
   ...Array.from({ length: 21 }, (_, i) => ({
     title: `Tondo ${i + 1}`,
     style: "Tondos",
-    image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-${i + 1}.jpg`,
+    image: `/1995-2020-Tondos-mini/pierre-arnould-artiste-tondo-${i + 1}.webp`,
     description: "..",
   })),
 ];
