@@ -11,7 +11,7 @@ export default function Hero() {
     // 🔹 Image selon la page
  let heroImage = "/details/bg.jpg";
   if (pathname === "/tondo") {
-    heroImage = "/details/pierre-arnould-artist-tondo-detail-1.jpg";
+    heroImage = "/details/pierre-arnould-artist-tondo-detail-01.jpg";
   } else if (pathname === "/Troisieme-periode") {
     heroImage = "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-14.jpg";
   } else if (pathname === "/compartimentes") {
