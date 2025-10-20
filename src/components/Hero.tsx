@@ -8,7 +8,7 @@ export default function Hero() {
   const pathname = usePathname();
 
   // 🔹 Image selon la page
-  let heroImage = "/details/pierre-arnould-artist-compartimentes-detail-1.jpg";
+  let heroImage = "/details/bg.jpg";
   if (pathname === "/tondo") {
     heroImage = "/details/pierre-arnould-artist-tondo-detail-01.jpg";
   } else if (pathname === "/Troisieme-periode") {
