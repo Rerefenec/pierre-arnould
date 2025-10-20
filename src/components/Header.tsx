@@ -16,23 +16,23 @@ export default function Header() {
 
   return (
     <>
-      {/* 🔹 Header principal */}
+      {/* Header principal */}
       <header
-        className={`fixed top-0 left-0 w-full z-40 flex justify-between items-center px-6 py-4 transition-all duration-700 ease-in-out
-          ${
-            scrolled
-              ? "bg-black/95 text-white shadow-md backdrop-blur-sm border-b border-white/30"
-              : "text-white  bg-cover bg-center bg-no-repeat shadow-md backdrop-blur-sm" // 🔹 au début
-          }`}
+        className="fixed top-0 left-0 w-full z-40 flex justify-between items-center px-6 py-4 transition-all duration-700 ease-in-out text-white"
       >
-        {/* voile noir léger pour lisibilité du texte */}
-        {!scrolled && (
-          <div className="absolute inset-0 bg-black/40 -z-10 transition-opacity duration-700"></div>
-        )}
+        {/* Fond avec transition fluide */}
+        <div 
+          className={`absolute inset-0 -z-10 transition-all duration-700 ease-in-out
+            ${
+              scrolled
+                ? "bg-black/95 backdrop-blur-sm border-b border-white/30"
+                : "bg-black/40 backdrop-blur-sm border-b border-transparent"
+            }`}
+        />
 
         <div className="text-2xl font-bold relative z-10">Pierre Arnould</div>
 
-        {/* 🔹 Menu desktop */}
+        {/* Menu desktop */}
         <nav className="hidden md:flex space-x-6 relative z-10">
           <Link href="/">Home</Link>
           <Link href="/collections">Collections</Link>
@@ -40,7 +40,7 @@ export default function Header() {
           <Link href="/faqs">FAQs</Link>
         </nav>
 
-        {/* 🔹 Bouton hamburger mobile */}
+        {/* Bouton hamburger mobile */}
         <button
           className="md:hidden focus:outline-none relative z-10"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -50,14 +50,14 @@ export default function Header() {
         </button>
       </header>
 
-      {/* 🔹 Menu mobile déroulant */}
+      {/* Menu mobile déroulant */}
       {menuOpen && (
         <div
-          className={`fixed top-16 left-0 w-full z-30 text-black md:hidden transition-all duration-300
+          className={`fixed top-16 left-0 w-full z-30 md:hidden transition-all duration-300
             ${
               scrolled
-                ? "bg-white/95"
-                : "bg-black/40 backdrop-sm text-white backdrop-blur-sm"
+                ? "bg-white/95 text-black"
+                : "bg-black/40 backdrop-blur-sm text-white"
             }
           `}
         >
