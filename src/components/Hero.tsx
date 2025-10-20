@@ -44,9 +44,9 @@ export default function Hero() {
   // 🔹 Hauteur du Hero selon la page
   let heroHeight;
   if (pathname === "/") heroHeight = "h-[580px]"; // page d'accueil plein écran
-  else if (pathname === "/compartimentes") heroHeight = "h-[300px]";
-  else if (pathname === "/tondo") heroHeight = "h-[300px]";
-  else if (pathname === "/Troisieme-periode") heroHeight = "h-[300px]";
+  else if (pathname === "/compartimentes") heroHeight = "h-[400px]";
+  else if (pathname === "/tondo") heroHeight = "h-[400px]";
+  else if (pathname === "/Troisieme-periode") heroHeight = "h-[400px]";
 
   return (
     <>
@@ -71,8 +71,8 @@ export default function Hero() {
       >
         <h1
           className="animate__animated animate__fadeInDown 
-               text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl 2xl:text-9xl 2xl:mt-40
-               font-bold inline-flex flex-col"
+               text-5xl sm:text-4xl md:text-5xl md:mb-20 lg:text-6xl xl:text-8xl 2xl:text-9xl 2xl:mt-40
+               font-bold flex-col"
         >
           <span>{textHeader}</span>
         </h1>

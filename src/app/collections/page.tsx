@@ -19,7 +19,7 @@ const galleryItems = [
   ...Array.from({ length: 21 }, (_, i) => ({
     title: `Tondo ${i + 1}`,
     style: "Tondos",
-    image: `/1995-2020-Tondos/pierre-arnould-artist-tondo-${i + 1}.webp`,
+    image: `/1995-2020-Tondos/pierre-arnould-artist-tondo-mini${i + 1}.webp`,
   })),
 
   // 🔹 Compartimentés (26 imágenes)

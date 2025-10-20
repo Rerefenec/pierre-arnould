@@ -64,15 +64,15 @@ export default function TondoPage() {
                 key={idx}
                 className="flex flex-col items-center justify-center text-center rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out p-8"
               >
-                <div className="relative w-full md:w-1/2">
+                <div className="relative">
                   <Image
                     src={work.image}
                     alt={work.title}
-                    className="w-full h-auto object-contain rounded-md"
+                    className="object-contain rounded-md"
                     onError={() => handleImageError(idx, work.image)}
                     onLoad={() => handleImageLoad(idx)}
-                    width={500}
-                    height={500}
+                    width={300}
+                    height={300}
                   />
                   {failedImages.includes(idx) && (
                     <div className="absolute inset-0 bg-gray-200 flex items-center justify-center rounded-md">

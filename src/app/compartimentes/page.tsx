@@ -15,7 +15,9 @@ const works: Work[] = [
   ...Array.from({ length: 9 }, (_, i) => ({
     title: `Compartimentés ${i + 1}`,
     style: "Compartimentés",
-    image: `/1969-1994-Compartimentes-mini/pierre-arnould-artist-compartimentes-${ i + 1}.webp`,
+    image: `/1969-1994-Compartimentes-mini/pierre-arnould-artist-compartimentes-${
+      i + 1
+    }.webp`,
     description: "..",
   })),
 ];
@@ -27,33 +29,36 @@ export default function CompartimentesPage() {
         <Hero />
 
         {/* 🔹 Fond global noir */}
-        <div className="bg-black min-h-screen text-white flex flex-col items-center justify-center md:p-10">
+        <div className="bg-black min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
           {/* 🔹 Grille des œuvres */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl px-6 justify-items-center mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0">
             {works.map((work, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center justify-center text-center
-              bg-white/10 backdrop-blur-sm border border-white/20 
-              rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02]
-              transition-all duration-500 ease-in-out w-full max-w-sm p-8"
+                className="flex flex-col items-center justify-center text-center rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out p-8"
               >
                 {/*  Image centrée */}
-                <div className="flex items-center justify-center h-80">
+                <div className="relative w-full aspect-square flex items-center justify-center bg-black rounded-md overflow-hidden">
                   <Image
                     src={work.image}
                     alt={work.title}
-                    className="max-h-full max-w-full object-contain rounded-md transition-transform duration-500 hover:scale-105"
-                    width={500}
-                    height={500}
+                   width={800}
+    height={800}
+                    className="object-contain p-2"
                   />
                 </div>
 
                 {/* Texte */}
-                <div className="mt-6 text-white">
-                  <h2 className="font-semibold text-lg">{work.title}</h2>
-                  <p className="text-sm opacity-90">{work.style}</p>
-                  <p className="text-sm mt-1 opacity-80">{work.description}</p>
+                <div className="mt-4 w-full bg-white/10 backdrop-blur-sm border  rounded-xl shadow-lg p-2">
+                  <h2 className="text-white mt-2 text-center font-semibold">
+                    {work.title}
+                  </h2>
+                  <p className="text-gray-500 text-sm text-center">
+                    {work.style}
+                  </p>
+                  <p className="text-gray-600 text-center mt-1">
+                    {work.description}
+                  </p>
                 </div>
               </div>
             ))}
