@@ -62,7 +62,7 @@ export default function GalleryHome() {
       transition={{ duration: 0.4 }}
       className="absolute -top-25 left-1/2 -translate-x-1/2 z-30" // centrada en la pantalla
     >
-      <div className="flex items-center justify-center bg-white/80 text-black rounded-full p-2 shadow-md animate-bounce">
+      <div className="flex items-center justify-center bg-white text-black rounded-full p-2 shadow-md animate-bounce">
         <ArrowDown className="w-5 h-5" />
       </div>
     </motion.div>
@@ -74,7 +74,7 @@ export default function GalleryHome() {
 
 
       {/* Galería */}
-      <div className="grid grid-cols-1 md:grid-cols-4 sm:gap-6 text-black">
+      <div className="grid grid-cols-1 md:grid-cols-4 sm:gap-6 text-white">
         {galleryItems.map((item, index) => (
           <motion.div
             key={item.title}
@@ -98,7 +98,7 @@ export default function GalleryHome() {
             <h3 className="mt-4 text-lg flex justify-center font-semibold">
               <Link
                 href={item.lien}
-                className="hover:underline text-black-600"
+                className="hover:underline text-white"
                 onClick={(e) => e.stopPropagation()}
               >
                 {item.title}

@@ -5,32 +5,16 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation"; // 🔹 hook pour récupérer la route
 
-
-
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname(); // 🔹 la route actuelle
-
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
- 
-   let scrollColor = "bg-white/95 text-black shadow-md backdrop-blur-sm" 
-  if (pathname ===  "/compartimentes") {
-    scrollColor = "bg-black/95 text-white shadow-md backdrop-blur-sm" 
-  } else if (pathname === "/tondo") {
-    scrollColor ="bg-white/95 text-black shadow-md backdrop-blur-sm" 
-  } else if (pathname === "/Troisieme-periode") {
-    scrollColor = "bg-[url('/146.jpg')] text-white shadow-md backdrop-blur-sm"
-  } else if (pathname === "/collections") {
-    scrollColor = "bg-white/95 text-black shadow-md backdrop-blur-sm"
-  }
-
 
   return (
     <>
@@ -39,7 +23,7 @@ export default function Header() {
         className={`fixed top-0 left-0 w-full z-40 flex justify-between items-center px-6 py-4 transition-all duration-700 ease-in-out
           ${
             scrolled
-              ? scrollColor
+              ? "bg-black/95 text-white shadow-md backdrop-blur-sm border-b border-white/30"
               : "text-white  bg-cover bg-center bg-no-repeat shadow-md backdrop-blur-sm" // 🔹 au début
           }`}
       >
