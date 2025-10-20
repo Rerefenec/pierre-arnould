@@ -52,10 +52,13 @@ export default function TondoPage() {
         </div>
       )}
 
-      <div className="bg-white min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
+      <div className="bg-black min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0">
           {works.map((work, idx) => (
-            <div key={idx} className="flex flex-col items-center">
+            <div key={idx}   className="flex flex-col items-center justify-center text-center
+              bg-white/10 backdrop-blur-sm border border-white/20 
+              rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02]
+              transition-all duration-500 ease-in-out w-full max-w-sm p-8">
               <div className="relative w-1/2 md:w-1/2">
                 <img
                   src={work.image}
