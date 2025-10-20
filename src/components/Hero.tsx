@@ -9,13 +9,13 @@ export default function Hero() {
 
   // 🔹 Image selon la page
     // 🔹 Image selon la page
- let heroImage = "/Details/bg.jpg";
+ let heroImage = "/details/bg.jpg";
   if (pathname === "/tondo") {
-    heroImage = "/Details/pierre-arnould-artist-tondo-detail-1.jpg";
+    heroImage = "/details/pierre-arnould-artist-tondo-detail-1.jpg";
   } else if (pathname === "/Troisieme-periode") {
     heroImage = "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-14.jpg";
   } else if (pathname === "/compartimentes") {
-    heroImage = "/Details/pierre-arnould-artist-compartimentes-detail-4.jpg";
+    heroImage = "/details/pierre-arnould-artist-compartimentes-detail-4.jpg";
   }
 
   console.log("🖼️ Current pathname:", pathname);
