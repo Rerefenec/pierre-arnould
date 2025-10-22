@@ -3,7 +3,7 @@
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Image from "next/image";
-
+import Link from "next/link";
 interface Work {
   title: string;
   style: string;
@@ -37,17 +37,21 @@ export default function CompartimentesPage() {
                 key={idx}
                 className="flex flex-col items-center justify-center text-center rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out p-8"
               >
-                {/*  Image centrée */}
-                <div className="relative w-full aspect-square flex items-center justify-center bg-black rounded-md overflow-hidden">
-                  <Image
-                    src={work.image}
-                    alt={work.title}
-                   width={800}
-    height={800}
-                    className="object-contain p-2"
-                  />
-                </div>
 
+                {/* 🔗 On envoie l’index de l’image via un paramètre d’URL */}
+                <Link href={`/compartimentes/diaporama?index=${idx}`}>
+                  {/*  Image centrée */}
+                  <div className="relative w-full aspect-square flex items-center justify-center bg-black rounded-md overflow-hidden">
+                    <Image
+                     src={work.image}
+                     alt={work.title}
+                     width={800}
+                     height={800}
+                     className="object-contain p-2"
+                     />
+                  </div>
+                </Link>
+                
                 {/* Texte */}
                 <div className="mt-4 w-full bg-white/10 backdrop-blur-sm border  rounded-xl shadow-lg p-2">
                   <h2 className="text-white mt-2 text-center font-semibold">
