@@ -4,10 +4,14 @@ interface SidebarProps {
   setSelectedStyle: (style: string | null) => void;
 }
 
-export default function SideBar({ styles, selectedStyle, setSelectedStyle }: SidebarProps) {
+export default function SideBar({
+  styles,
+  selectedStyle,
+  setSelectedStyle,
+}: SidebarProps) {
   return (
-    <div className="flex flex-col space-y-4 p-4 border-r border-gray-200 min-w-[180px]">
-      {styles.map((style) => {
+    <div className="flex flex-col space-y-4 p-4 border-r border-gray-200 min-w-[180px]">      
+    {styles.map((style) => {
         const isAll = style === "Toutes les œuvres";
         const isSelected =
           (isAll && selectedStyle === null) || selectedStyle === style;
@@ -17,9 +21,13 @@ export default function SideBar({ styles, selectedStyle, setSelectedStyle }: Sid
             key={style}
             onClick={() => setSelectedStyle(isAll ? null : style)}
             className={`text-center px-3 py-2 rounded transition-all duration-200 
-              ${isSelected ? "bg-white text-black font-semibold" : "bg-gray-500 hover:bg-gray-200"}`}
+${
+              isSelected
+                ? "bg-white text-black font-semibold"
+                : "bg-gray-500 hover:bg-gray-200"
+            }`}
           >
-            {style}
+             {style}
           </button>
         );
       })}

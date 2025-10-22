@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import AnimationGallery from "./AnimationGalleryHome";
 import Link from "next/link";
 import { ArrowDown } from "lucide-react";
 
@@ -40,32 +39,23 @@ export default function GalleryHome() {
   const [showArrow, setShowArrow] = useState(true);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // 🔹 Écouter le scroll global et masquer la flèche quand l'utilisateur descend
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) setShowArrow(false);
-      else setShowArrow(true);
+      setShowArrow(window.scrollY <= 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 🔹 Fonction pour scroller vers la galerie
   const scrollToGallery = () => {
     if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({ 
-        behavior: "smooth", 
-        block: "start" 
-      });
+      sectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   return (
-    <section 
-      ref={sectionRef} 
-      className="relative px-7 mb-10 lg:pt-13 xl:pt-13" 
-    >
-      {/* 🔹 Flèche de défilement vers le bas */}
+    <section ref={sectionRef} className="relative px-7 mb-10 lg:pt-13 xl:pt-13">
+      {/* Flèche de défilement */}
       <AnimatePresence>
         {showArrow && (
           <motion.div
@@ -73,7 +63,7 @@ export default function GalleryHome() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.4 }}
-            className="absolute -top-18 left-1/2 -translate-x-1/2 z-30" 
+            className="absolute -top-18 left-1/2 -translate-x-1/2 z-30"
           >
             <button
               onClick={scrollToGallery}
@@ -86,45 +76,47 @@ export default function GalleryHome() {
         )}
       </AnimatePresence>
 
-      {/* Galérie des périodes */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-white items-center">
-        {galleryItems.map((item, index) => (
-          <motion.div
-            key={item.title}
-            layoutId={item.title}
-            onClick={() => setSelected(item)}
-            className={`cursor-pointer relative flex flex-col justify-center items-center ${
-              index === 1
-                ? "md:col-span-2"
-                : "md:col-span-1"
-            }`}
-          >
-            <Image
-              src={item.image}
-              alt={item.title}
-              width={400}
-              height={400}
-              className={`object-contain rounded-xl w-full 
-              h-[13rem] sm:h-[12rem] md:h-[20rem] lg:h-[25rem] xl:h-[30rem]`}
-            />
-            <h3 className="mt-2 sm:mt-4 text-base sm:text-lg md:text-xl lg:text-2xl flex justify-center font-semibold">
-              <Link
-                href={item.lien}
-                className="hover:underline text-white"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {item.title}
-              </Link>
-            </h3>
-          </motion.div>
-        ))}
-      </div>
+      {/* Galerie */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-white items-center">
+        {galleryItems.map((item) => {
+          let orderClass = "";
+          let colSpanClass = "md:col-span-1";
 
-      {/* Modal séparé */}
-      <AnimationGallery
-        selected={selected}
-        onClose={() => setSelected(null)}
-      />
+          if (item.title === "Tondos") {
+            orderClass = "order-first"; // Toujours premier
+            colSpanClass = "sm:col-span-2 md:col-span-4"; // Tondos prend toute la largeur
+          } else {
+            orderClass = "order-last"; // Les autres après Tondos
+            colSpanClass = "sm:col-span-1 md:col-span-2"; // Sur mobile côte à côte, desktop moitié de ligne
+          }
+
+          return (
+            <motion.div
+              key={item.title}
+              layoutId={item.title}
+              onClick={() => setSelected(item)}
+              className={`cursor-pointer relative flex flex-col justify-center items-center ${orderClass} ${colSpanClass}`}
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={400}
+                height={400}
+                className="object-contain rounded-xl w-full h-52 sm:h-48 md:h-80 lg:h-100 xl:h-120"
+              />
+              <h3 className="mt-2 sm:mt-4 text-base sm:text-lg md:text-xl lg:text-2xl flex justify-center font-semibold">
+                <Link
+                  href={item.lien}
+                  className="hover:underline text-white"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {item.title}
+                </Link>
+              </h3>
+            </motion.div>
+          );
+        })}
+      </div>
     </section>
   );
 }
