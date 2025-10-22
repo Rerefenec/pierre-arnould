@@ -3,6 +3,7 @@
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Work {
   title: string;
@@ -34,6 +35,8 @@ export default function TroisiemePeriodePage() {
                 key={idx}
                 className="flex flex-col items-center justify-start text-center rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out p-4"
               >
+                {/* 🔗 On envoie l’index de l’image via un paramètre d’URL */}
+                <Link href={`/compartimentes/diaporama?index=${idx}`}>
                 {/* Conteneur de l'image pour le centrage */}
                 <div className="flex items-center justify-center w-full h-[400px]">
                   <Image
@@ -44,6 +47,7 @@ export default function TroisiemePeriodePage() {
                     height={400}
                   />
                 </div>
+                </Link>
 
                 {/* Texte */}
                 <div className=" w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-2">

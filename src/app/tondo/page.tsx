@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import { useState } from "react";
 import Image from "next/image"; 
+import Link from "next/link";
 
 interface Work {
   title: string;
@@ -64,6 +65,8 @@ export default function TondoPage() {
                 key={idx}
                 className="flex flex-col items-center justify-center text-center rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out p-8"
               >
+                 {/* 🔗 On envoie l’index de l’image via un paramètre d’URL */}
+                <Link href={`/compartimentes/diaporama?index=${idx}`}>
                 <div className="relative">
                   <Image
                     src={work.image}
@@ -94,6 +97,7 @@ export default function TondoPage() {
                     <p className="text-gray-600 text-center mt-1">{work.description}</p>
                   </div>
                 </div>
+                </Link>
               </div>
             ))}
           </div>
