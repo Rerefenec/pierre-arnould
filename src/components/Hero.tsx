@@ -10,9 +10,9 @@ export default function Hero() {
   // 🔹 Image selon la page
     // 🔹 Image selon la page
  let heroImage = "/details/bg.jpg";
-  if (pathname === "/tondo") {
+  if (pathname === "/tondos") {
     heroImage = "/details/pierre-arnould-artist-tondo-detail-01.jpg";
-  } else if (pathname === "/Troisieme-periode") {
+  } else if (pathname === "/troisieme-periode") {
     heroImage = "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-14.jpg";
   } else if (pathname === "/compartimentes") {
     heroImage = "/details/pierre-arnould-artist-compartimentes-detail-4.jpg";
@@ -23,9 +23,9 @@ export default function Hero() {
 
   // 🔹 Texte du titre
   let textHeader;
-  if (pathname === "/tondo") {
+  if (pathname === "/tondos") {
     textHeader = <>Tondos</>;
-  } else if (pathname === "/Troisieme-periode") {
+  } else if (pathname === "/troisieme-periode") {
     textHeader = <>Troisième période</>;
   } else if (pathname === "/compartimentes") {
     textHeader = <>Compartimentés</>;
@@ -45,8 +45,8 @@ export default function Hero() {
   let heroHeight;
   if (pathname === "/") heroHeight = "h-[580px]"; // page d'accueil plein écran
   else if (pathname === "/compartimentes") heroHeight = "h-[400px]";
-  else if (pathname === "/tondo") heroHeight = "h-[400px]";
-  else if (pathname === "/Troisieme-periode") heroHeight = "h-[400px]";
+  else if (pathname === "/tondos") heroHeight = "h-[400px]";
+  else if (pathname === "/troisieme-periode") heroHeight = "h-[400px]";
 
   return (
     <>
