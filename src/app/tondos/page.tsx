@@ -2,8 +2,8 @@
 
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import WorkImage from "@/components/WorkImage";
 import { useState } from "react";
-import Image from "next/image"; 
 
 interface Work {
   title: string;
@@ -24,13 +24,8 @@ const works: Work[] = [
 export default function TondoPage() {
   const [failedImages, setFailedImages] = useState<number[]>([]);
 
-  const handleImageError = (index: number, imagePath: string) => {
-    console.error(`❌ Error loading image ${index + 1}: ${imagePath}`);
+  const handleImageError = (index: number) => {
     setFailedImages((prev) => [...prev, index]);
-  };
-
-  const handleImageLoad = (index: number) => {
-    console.log(`✅ Image ${index + 1} loaded successfully`);
   };
 
   return (
@@ -38,7 +33,7 @@ export default function TondoPage() {
       <main className="overflow-x-hidden">
         <Hero />
 
-        {/* Mostrar imágenes con errores */}
+        {/* Afficher les images avec erreurs */}
         {failedImages.length > 0 && (
           <div className="bg-red-50 border-l-4 border-red-500 p-4 m-6">
             <p className="font-semibold text-red-800">
@@ -62,36 +57,32 @@ export default function TondoPage() {
             {works.map((work, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center justify-center text-center rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out p-8"
+                className="flex flex-col items-center justify-center text-center rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out p-8"
               >
                 <div className="relative">
-                  <Image
+                  <WorkImage
                     src={work.image}
                     alt={work.title}
-                    className="object-contain rounded-md"
-                    onError={() => handleImageError(idx, work.image)}
-                    onLoad={() => handleImageLoad(idx)}
+                    title={work.title}
                     width={300}
                     height={300}
+                    className="object-contain rounded-md"
+                    workSeries="tondos"
+                    workIndex={idx}
+                    onError={() => handleImageError(idx)}
                   />
-                  {failedImages.includes(idx) && (
-                    <div className="absolute inset-0 bg-gray-200 flex items-center justify-center rounded-md">
-                      <div className="text-center p-4">
-                        <span className="text-4xl">🖼️</span>
-                        <p className="text-xs text-gray-600 mt-2">
-                          Image non trouvée
-                        </p>
-                      </div>
-                    </div>
-                  )}
 
-                  {/* Texto: ocupa el mismo ancho que la imagen */}
+                  {/* Informations de l'œuvre */}
                   <div className="mt-4 w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-2">
                     <h2 className="text-white mt-2 text-center font-semibold">
                       {work.title}
                     </h2>
-                    <p className="text-gray-500 text-sm text-center">{work.style}</p>
-                    <p className="text-gray-600 text-center mt-1">{work.description}</p>
+                    <p className="text-gray-400 text-sm text-center">
+                      {work.style}
+                    </p>
+                    <p className="text-gray-500 text-center mt-1">
+                      {work.description}
+                    </p>
                   </div>
                 </div>
               </div>

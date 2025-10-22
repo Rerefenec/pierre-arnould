@@ -18,13 +18,13 @@ const galleryItems: GalleryItem[] = [
     title: "3eme période",
     image: "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-6.jpg",
     description: "La fusion conceptuelle...",
-    lien: "/Troisieme-periode",
+    lien: "/troisieme-periode",
   },
   {
     title: "Tondos",
     image: "/1995-2020-Tondos/pierre-arnould-artiste-tondo-9.jpg",
     description: "Une exploration circulaire...",
-    lien: "/tondo",
+    lien: "/tondos",
   },
   {
     title: "Compartimentés",
@@ -35,14 +35,11 @@ const galleryItems: GalleryItem[] = [
 ];
 
 export default function GalleryHome() {
-  const [selected, setSelected] = useState<GalleryItem | null>(null);
   const [showArrow, setShowArrow] = useState(true);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setShowArrow(window.scrollY <= 10);
-    };
+    const handleScroll = () => setShowArrow(window.scrollY <= 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -83,37 +80,32 @@ export default function GalleryHome() {
           let colSpanClass = "md:col-span-1";
 
           if (item.title === "Tondos") {
-            orderClass = "order-first"; // Toujours premier
-            colSpanClass = "sm:col-span-2 md:col-span-4"; // Tondos prend toute la largeur
+            orderClass = "order-first";
+            colSpanClass = "sm:col-span-2 md:col-span-4";
           } else {
-            orderClass = "order-last"; // Les autres après Tondos
-            colSpanClass = "sm:col-span-1 md:col-span-2"; // Sur mobile côte à côte, desktop moitié de ligne
+            orderClass = "order-last";
+            colSpanClass = "sm:col-span-1 md:col-span-2";
           }
 
           return (
-            <motion.div
+            <Link
               key={item.title}
-              layoutId={item.title}
-              onClick={() => setSelected(item)}
+              href={item.lien}
               className={`cursor-pointer relative flex flex-col justify-center items-center ${orderClass} ${colSpanClass}`}
             >
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={400}
-                height={400}
-                className="object-contain rounded-xl w-full h-52 sm:h-48 md:h-80 lg:h-100 xl:h-120"
-              />
-              <h3 className="mt-2 sm:mt-4 text-base sm:text-lg md:text-xl lg:text-2xl flex justify-center font-semibold">
-                <Link
-                  href={item.lien}
-                  className="hover:underline text-white"
-                  onClick={(e) => e.stopPropagation()}
-                >
+              <motion.div layoutId={item.title} className="w-full">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={400}
+                  height={400}
+                  className="object-contain rounded-xl w-full h-52 sm:h-48 md:h-80 lg:h-100 xl:h-120"
+                />
+                <h3 className="mt-2 sm:mt-4 text-base sm:text-lg md:text-xl lg:text-2xl flex justify-center font-semibold">
                   {item.title}
-                </Link>
-              </h3>
-            </motion.div>
+                </h3>
+              </motion.div>
+            </Link>
           );
         })}
       </div>
