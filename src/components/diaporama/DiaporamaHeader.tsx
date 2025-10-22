@@ -11,7 +11,7 @@ interface DiaporamaHeaderProps {
 
 export function DiaporamaHeader({ isZoomed, onZoom, onShare, onClose }: DiaporamaHeaderProps) {
   return (
-    <header className="absolute top-4 left-4 right-4 flex justify-between items-start z-30 transition-opacity">
+    <header className="absolute p-4 mb-4 top-4 left-4 right-4 flex justify-between items-start z-30 transition-opacity">
       <div className={`flex space-x-2 ${isZoomed ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <button onClick={onZoom} className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition">
           <MaximizeIcon />

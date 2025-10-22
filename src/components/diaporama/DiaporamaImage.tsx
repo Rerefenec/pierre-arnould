@@ -20,8 +20,15 @@ export function DiaporamaImage({
         isZoomed ? "flex-1" : "md:w-2/3"
       }`}
     >
-      {/* IMAGE */}
-      <div className="flex items-center justify-center w-full h-[60vh] sm:h-[65vh] md:h-[80vh]">
+      {/* === IMAGE === */}
+      <div
+        className="
+          flex items-center justify-center
+          w-full
+          px-4 sm:px-6 md:px-8
+          h-[60vh] sm:h-[60vh] md:h-[75vh]
+        "
+      >
         <AnimatePresence mode="wait">
           <motion.img
             key={currentWork.title + (isZoomed ? "-zoom" : "")}
@@ -31,7 +38,13 @@ export function DiaporamaImage({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="object-contain max-w-full max-h-full"
+            className="
+              object-contain 
+              max-w-full 
+              max-h-full 
+              rounded-xl 
+              shadow-lg
+            "
           />
         </AnimatePresence>
       </div>
@@ -83,7 +96,7 @@ export function DiaporamaImage({
           </div>
 
           {/* === Tablettes & téléphones : flèches en bas === */}
-          <div className="md:hidden w-full flex justify-center gap-8 py-4 mt-2 bg-black/40">
+          <div className="md:hidden w-full flex justify-center gap-8 py-4 mt-3 bg-black/40">
             <button
               onClick={onPrev}
               className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition"

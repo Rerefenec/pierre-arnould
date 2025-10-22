@@ -65,16 +65,13 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
   }, [indexUrl, isZoomed]);
 
   if (worksCount === 0)
-    return <p className="text-center mt-20 text-white bg-black min-h-screen">Oeuvre inconnue</p>;
+    return <p className="text-center mt-18 text-white bg-black min-h-screen">Oeuvre inconnue</p>;
 
   return (
-    <div className={isZoomed ? "fixed inset-0 bg-black flex items-center justify-center" : "fixed inset-0 bg-black flex flex-col"}>
+    <div className={isZoomed ? "fixed inset-0 bg-black flex items-center justify-center" : "fixed inset-0 bg-black flex flex-col gap-4"}>
       <DiaporamaHeader isZoomed={isZoomed} onZoom={handleZoom} onShare={handleShare} onClose={handleClose} />
-     <main
-  className={`flex flex-1 flex-col md:flex-row ${
-    isZoomed ? "items-center justify-center" : ""
-  }`}
->
+  <main className={`flex flex-1 flex-col md:flex-row pt-16 ${isZoomed ? "items-center justify-center" : ""}`}>
+
   {/* IMAGE */}
   <DiaporamaImage
     currentWork={currentWork}
