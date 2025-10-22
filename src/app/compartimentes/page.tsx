@@ -2,7 +2,6 @@
 
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Link from "next/link";
 import WorkImage from "@/components/WorkImage";
 import { useState } from "react";
 interface Work {

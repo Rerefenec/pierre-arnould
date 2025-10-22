@@ -52,45 +52,48 @@ export default function TondoPage() {
           </div>
         )}
 
-        <div className="bg-black min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0">
-            {works.map((work, idx) => (
-              <div
-                key={idx}
-                className="flex flex-col items-center justify-center text-center rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out p-8"
-              >
-                <div className="relative">
-                  <WorkImage
-                    src={work.image}
-                    alt={work.title}
-                    title={work.title}
-                    width={300}
-                    height={300}
-                    className="object-contain rounded-md"
-                    workSeries="tondos"
-                    workIndex={idx}
-                    onError={() => handleImageError(idx)}
-                  />
-
-                  {/* Informations de l'œuvre */}
-                  <div className="mt-4 w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-2">
-                    <h2 className="text-white mt-2 text-center font-semibold">
-                      {work.title}
-                    </h2>
-                    <p className="text-gray-400 text-sm text-center">
-                      {work.style}
-                    </p>
-                    <p className="text-gray-500 text-center mt-1">
-                      {work.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </div>
-  );
-}
+       {/* 🔹 Fond global noir */}
+               <div className="bg-black min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
+                 {/* 🔹 Grille des œuvres */}
+                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0">
+                   {works.map((work, idx) => (
+                     <div
+                       key={idx}
+                       className="flex flex-col items-center justify-center text-center rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out p-8"
+                     >
+                       <div className="relative">
+                         <WorkImage
+                           src={work.image}
+                           alt={work.title}
+                           title={work.title}
+                           width={300}
+                           height={300}
+                           className="object-contain rounded-md"
+                           workSeries="tondos"
+                           workIndex={idx}
+                           onError={() => handleImageError(idx)}
+                         />
+       
+                         {/* Informations de l'œuvre */}
+                         <div className="mt-4 w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-2">
+                           <h2 className="text-white mt-2 text-center font-semibold">
+                             {work.title}
+                           </h2>
+                           <p className="text-gray-400 text-sm text-center">
+                             {work.style}
+                           </p>
+                           <p className="text-gray-500 text-center mt-1">
+                             {work.description}
+                           </p>
+                         </div>
+                       </div>
+                     </div>
+                   ))}
+                 </div>
+               </div>
+             </main>
+             <Footer />
+           </div>
+         );
+       }
+       
