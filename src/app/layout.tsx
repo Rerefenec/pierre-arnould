@@ -65,6 +65,45 @@ export default function RootLayout({
               href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&display=swap"
               rel="stylesheet"
             />
+
+            {/* zalando */}
+            {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+            <link
+              href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet"
+            /> */}
+
+            {/* sanchez */}
+            {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+            <link
+              href="https://fonts.googleapis.com/css2?family=Sanchez:ital@0;1&display=swap"
+              rel="stylesheet"
+            /> */}
+
+          {/* changa */}
+          {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Changa:wght@200..800&display=swap"
+            rel="stylesheet"
+          /> */}
+
+          {/* space mono */}
+          {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&displa=swap"
+            rel="stylesheet"
+          /> */}
+
+          {/* rubik mono one */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap"
+            rel="stylesheet"
+          />
       </head>
       <body>{children}</body>
     </html>
