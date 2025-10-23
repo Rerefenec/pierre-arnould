@@ -56,7 +56,7 @@ export default function Header() {
           className={`fixed top-16 left-0 w-full z-30 md:hidden transition-all duration-300
             ${
               scrolled
-                ? "bg-white/95 text-black"
+                ? "bg-black/40 backdrop-blur-sm text-white border-b border-b-white/15"
                 : "bg-black/40 backdrop-blur-sm text-white"
             }
           `}

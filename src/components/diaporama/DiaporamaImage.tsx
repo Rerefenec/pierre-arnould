@@ -20,6 +20,27 @@ export function DiaporamaImage({
         isZoomed ? "flex-1" : "md:w-2/3 md:h-[80vh]"
       }`}
     >
+      {/* === Mode Zoom (Fullscreen) === */}
+    {isZoomed && (
+        <div className="flex items-center justify-center w-screen h-screen p-5">
+          {/* Image centrale en fullscreen */}
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentWork.title + "-zoomed"}
+              src={currentWork.image}
+              alt={currentWork.title}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              style={{ maxWidth: '100%', maxHeight: '90%' }}
+              className="object-contain rounded-xl shadow-lg"
+            />
+          </AnimatePresence>
+        </div>
+      )}
+       
+
       {/* === Desktop : flex 3 colonnes === */}
       {!isZoomed && (
         <div className="hidden md:flex w-full h-full items-center justify-between px-10">
@@ -44,7 +65,7 @@ export function DiaporamaImage({
             </svg>
           </button>
 
-         {/* Image centrale */}
+          {/* Image centrale */}
           <div className="flex-1 flex justify-center h-full">
             <AnimatePresence mode="wait">
               <motion.img
@@ -55,7 +76,7 @@ export function DiaporamaImage({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="object-contain h-full max-h-full **w-full max-w-full** rounded-xl shadow-lg"
+                className="object-contain h-full max-h-full w-full max-w-full rounded-xl shadow-lg"
               />
             </AnimatePresence>
           </div>
@@ -84,7 +105,7 @@ export function DiaporamaImage({
       )}
 
       {/* === Mobile : flèches en bas === */}
-      {isZoomed || (
+      {!isZoomed && (
         <div className="md:hidden flex flex-col items-center h-full pt-5">
           <AnimatePresence mode="wait">
             <motion.img

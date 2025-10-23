@@ -14,7 +14,7 @@ interface WorkImageProps {
   onError?: () => void;
   onLoad?: () => void;
   workSeries: string; // nom de la série
-  workIndex: number;  // index de l'image
+  workIndex: number;  // index de l'image (commence à 0 depuis .map)
 }
 
 export default function WorkImage({
@@ -46,10 +46,14 @@ export default function WorkImage({
     onLoad?.();
   };
 
-const handleClick = () => {
-  // Naviguer vers le diaporama avec le nom de la série
-  router.push(`/diaporama/${workSeries}?index=${workIndex}`);
-};
+  const handleClick = () => {
+    // ✅ CORRECTION : Naviguer vers /diaporama/{série}?index={numéro}
+    // workIndex commence à 0, mais le diaporama attend index=1 pour la première image
+    const targetIndex = workIndex + 1;
+    console.log(`🔍 Click sur image - workIndex: ${workIndex}, targetIndex: ${targetIndex}, série: ${workSeries}`);
+    console.log(`📍 Navigation vers: /diaporama/${workSeries}?index=${targetIndex}`);
+    router.push(`/diaporama/${workSeries}?index=${targetIndex}`);
+  };
 
   return (
     <div className="relative group cursor-pointer" onClick={handleClick}>
