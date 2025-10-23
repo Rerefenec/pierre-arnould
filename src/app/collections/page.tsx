@@ -18,13 +18,13 @@ const galleryItems = [
     image: `/2021-20xx-3eme-periode-mini/pierre-arnould-artist-3eme-periode-${
       i + 1
     }.webp`,
-  })), // 🔹 Tondos
+  })), 
 
   ...Array.from({ length: 21 }, (_, i) => ({
     title: `Tondo ${i + 1}`,
     style: "Tondos",
-    image: `/1995-2020-Tondos/pierre-arnould-artist-tondo-mini${i + 1}.webp`,
-  })), // 🔹 Compartimentés
+    image: `/1995-2020-Tondos-mini/pierre-arnould-artist-tondo-${i + 1}.webp`,
+  })), 
 
   ...Array.from({ length: 9 }, (_, i) => ({
     title: `Compartimenté ${i + 1}`,

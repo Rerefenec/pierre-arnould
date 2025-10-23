@@ -16,87 +16,90 @@ export function DiaporamaImage({
 }: DiaporamaImageProps) {
   return (
     <div
-      className={`relative flex flex-col items-center justify-center w-full ${
-        isZoomed ? "flex-1" : "md:w-2/3"
+      className={`flex items-center justify-center w-full h-full ${
+        isZoomed ? "flex-1" : "md:w-2/3 md:h-[80vh]"
       }`}
     >
-      {/* === IMAGE === */}
-      <div
-        className="
-          flex items-center justify-center
-          w-full
-          px-4 sm:px-6 md:px-8
-          h-[60vh] sm:h-[60vh] md:h-[75vh]
-        "
-      >
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={currentWork.title + (isZoomed ? "-zoom" : "")}
-            src={currentWork.image}
-            alt={currentWork.title}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="
-              object-contain 
-              max-w-full 
-              max-h-full 
-              rounded-xl 
-              shadow-lg
-            "
-          />
-        </AnimatePresence>
-      </div>
-
-      {/* === Flèches === */}
+      {/* === Desktop : flex 3 colonnes === */}
       {!isZoomed && (
-        <>
-          {/* === Desktop : flèches latérales === */}
-          <div className="hidden md:flex">
-            <button
-              onClick={onPrev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 transition z-20"
-              aria-label="Image précédente"
+        <div className="hidden md:flex w-full h-full items-center justify-between px-10">
+          {/* Flèche gauche */}
+          <button
+            onClick={onPrev}
+            className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition self-center"
+            aria-label="Image précédente"
+          >
+            <svg
+              className="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <svg
-                className="w-6 h-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
 
-            <button
-              onClick={onNext}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 transition z-20"
-              aria-label="Image suivante"
-            >
-              <svg
-                className="w-6 h-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
+         {/* Image centrale */}
+          <div className="flex-1 flex justify-center h-full">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentWork.title + "-desktop"}
+                src={currentWork.image}
+                alt={currentWork.title}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="object-contain h-full max-h-full **w-full max-w-full** rounded-xl shadow-lg"
+              />
+            </AnimatePresence>
           </div>
 
-          {/* === Tablettes & téléphones : flèches en bas === */}
-          <div className="md:hidden w-full flex justify-center gap-8 py-4 mt-3 bg-black/40">
+          {/* Flèche droite */}
+          <button
+            onClick={onNext}
+            className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition self-center"
+            aria-label="Image suivante"
+          >
+            <svg
+              className="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+      )}
+
+      {/* === Mobile : flèches en bas === */}
+      {isZoomed || (
+        <div className="md:hidden flex flex-col items-center h-full pt-5">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentWork.title + "-mobile"}
+              src={currentWork.image}
+              alt={currentWork.title}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="object-contain h-[60vh] w-full rounded-xl shadow-lg"
+            />
+          </AnimatePresence>
+
+          <div className="flex w-full mt-2 gap-5 justify-center">
             <button
               onClick={onPrev}
               className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition"
@@ -137,7 +140,7 @@ export function DiaporamaImage({
               </svg>
             </button>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

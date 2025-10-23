@@ -29,14 +29,13 @@ export function DiaporamaDescription({
         md:p-8 
         text-center
         md:gap-8
-        md:justify-center   /* Centrage vertical */
-        md:min-h-screen     /* S'assure que ça prend toute la hauteur disponible */
+        md:justify-center
+        md:min-h-screen
       "
     >
       {/* === Texte descriptif === */}
       <div className="overflow-y-auto">
-        <h1 className="text-2xl font-bold mb-2">Série : {work.style}</h1>
-        <p className="text-gray-400 text-lg mb-3">
+        <p className="text-gray-400 text-lg mb-3 mt-2">
           {work.title} ({index} / {total})
         </p>
         <p className="text-gray-300 italic mb-3">{work.description}</p>
@@ -48,6 +47,7 @@ export function DiaporamaDescription({
         <button
           onClick={() => router.push(`/${ouvres}`)}
           className="
+            hidden md:inline-block   /* 🔹 caché sur mobile, visible md+ */
             w-full 
             md:w-auto 
             px-6 py-3 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { seriesData } from "./data/seriesData";
 import { DiaporamaHeader } from "./DiaporamaHeader";
 import { DiaporamaImage } from "./DiaporamaImage";
@@ -18,22 +18,13 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
   const currentIndex = ((indexUrl - 1 + worksCount) % worksCount);
   const currentWork = works[currentIndex];
 
-  const goTo = (direction: "next" | "prev") => {
-    if (isZoomed) return;
-    const newIndex = direction === "next"
-      ? (indexUrl % worksCount) + 1
-      : ((indexUrl - 2 + worksCount) % worksCount) + 1;
-    const newParams = new URLSearchParams(searchParams);
-    newParams.set("index", newIndex.toString());
-    router.replace(`/diaporama/${ouvres}?${newParams.toString()}`);
-  };
-
+  
   const handleZoom = () => {
     if (!isZoomed) document.documentElement.requestFullscreen?.();
     else document.exitFullscreen?.();
     setIsZoomed(!isZoomed);
   };
-
+  
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
@@ -47,22 +38,35 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
     }
   };
 
-  const handleClose = () => {
-    if (isZoomed) {
-      document.exitFullscreen?.();
-      setIsZoomed(false);
-    } else router.push(`/${ouvres}`);
-  };
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") goTo("next");
-      else if (e.key === "ArrowLeft") goTo("prev");
-      else if (e.key === "Escape") handleClose();
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [indexUrl, isZoomed]);
+const goTo = useCallback((direction: "next" | "prev") => {
+  if (isZoomed) return;
+  const newIndex = direction === "next"
+    ? (indexUrl % worksCount) + 1
+    : ((indexUrl - 2 + worksCount) % worksCount) + 1;
+  const newParams = new URLSearchParams(searchParams);
+  newParams.set("index", newIndex.toString());
+  router.replace(`/diaporama/${ouvres}?${newParams.toString()}`);
+}, [isZoomed, indexUrl, worksCount, searchParams, router, ouvres]);
+
+const handleClose = useCallback(() => {
+  if (isZoomed) {
+    document.exitFullscreen?.();
+    setIsZoomed(false);
+  } else router.push(`/${ouvres}`);
+}, [isZoomed, router, ouvres]);
+
+
+useEffect(() => {
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "ArrowRight") goTo("next");
+    else if (e.key === "ArrowLeft") goTo("prev");
+    else if (e.key === "Escape") handleClose();
+  };
+  window.addEventListener("keydown", handleKeyDown);
+  return () => window.removeEventListener("keydown", handleKeyDown);
+}, [goTo, handleClose]);
+
 
   if (worksCount === 0)
     return <p className="text-center mt-18 text-white bg-black min-h-screen">Oeuvre inconnue</p>;

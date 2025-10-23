@@ -12,13 +12,13 @@ interface Work {
   description: string;
 }
 
+const SERIES_KEY = "troisieme-periode";
+
 const works: Work[] = [
   ...Array.from({ length: 17 }, (_, i) => ({
     title: `3eme période ${i + 1}`,
     style: "3eme période",
-    image: `/2021-20xx-3eme-periode-mini/pierre-arnould-artist-3eme-periode-${
-      i + 1
-    }.webp`,
+    image: `/2021-20xx-3eme-periode-mini/pierre-arnould-artist-3eme-periode-${i + 1}.webp`,
     description: "..",
   })),
 ];
@@ -59,37 +59,32 @@ export default function TroisiemePeriodePage() {
           {/* 🔹 Grille des œuvres */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0">
             {works.map((work, idx) => (
-              <div
-                key={idx}
-                className="flex flex-col items-center justify-center text-center rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out p-8"
-              >
-                <div className="relative">
-                  <WorkImage
-                    src={work.image}
-                    alt={work.title}
-                    title={work.title}
-                    width={300}
-                    height={300}
-                    className="object-contain rounded-md"
-                    workSeries="troisieme-periode"
-                    workIndex={idx}
-                    onError={() => handleImageError(idx)}
-                  />
+            <div
+  key={idx}
+  className="flex flex-col rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out p-4 bg-white/5 w-full max-w-xs h-full"
+>
+  {/* Image avec limite de hauteur et centrage */}
+  <div className="flex-1 flex justify-center items-center w-full min-h-[350px] max-h-[500px] mb-4 overflow-hidden">
+    <WorkImage
+      src={work.image}
+      alt={work.title}
+      title={work.title}
+      width={400}
+      height={400}
+      className="object-contain max-h-full max-w-full rounded-md"
+      workSeries={SERIES_KEY}
+      workIndex={idx + 1}
+      onError={() => handleImageError(idx)}
+    />
+  </div>
 
-                  {/* Informations de l'œuvre */}
-                  <div className="mt-4 w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-2">
-                    <h2 className="text-white mt-2 text-center font-semibold">
-                      {work.title}
-                    </h2>
-                    <p className="text-gray-400 text-sm text-center">
-                      {work.style}
-                    </p>
-                    <p className="text-gray-500 text-center mt-1">
-                      {work.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
+  {/* Informations de l'œuvre toujours en bas */}
+  <div className="mt-auto w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-3">
+    <h2 className="text-white text-center font-semibold">{work.title}</h2>
+    <p className="text-gray-400 text-sm text-center">{work.style}</p>
+    <p className="text-gray-500 text-center mt-1">{work.description}</p>
+  </div>
+</div>
             ))}
           </div>
         </div>
