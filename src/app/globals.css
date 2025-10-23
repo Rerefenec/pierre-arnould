@@ -1,3 +1,36 @@
 @import "tailwindcss";
-@import 'animate.css';
+@import "animate.css";
 
+/* 🔹 Appliquer la police à tout le site */
+/* html, body {
+  font-family: "Bitcount Grid Single", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+} */
+
+/* .michroma-regular {
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
+
+
+/* html,body {
+  font-family: "SUSE Mono", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+} */
+
+.cinzel {
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 🔹 Titres plus gras */
+h1, h2, h3 {
+  font-weight: 600;
+}

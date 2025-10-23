@@ -8,6 +8,7 @@ export default function HomePage() {
   return (
     <div>
       <main className="overflow-x-hidden">
+        
         <div className="relative  lg:h-[80vh] xl:h-[80vh] 2xl:h-[90vh]">
       <Hero />
       </div>
