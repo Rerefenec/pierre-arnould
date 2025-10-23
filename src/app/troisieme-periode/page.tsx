@@ -61,7 +61,7 @@ export default function TroisiemePeriodePage() {
             {works.map((work, idx) => (
             <div
   key={idx}
-  className="flex flex-col rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out p-4 bg-white/5 w-full max-w-xs h-full"
+  className="flex flex-col rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out p-4  w-full max-w-xs h-full"
 >
   {/* Image avec limite de hauteur et centrage */}
   <div className="flex-1 flex justify-center items-center w-full min-h-[350px] max-h-[500px] mb-4 overflow-hidden">
@@ -73,7 +73,7 @@ export default function TroisiemePeriodePage() {
       height={400}
       className="object-contain max-h-full max-w-full rounded-md"
       workSeries={SERIES_KEY}
-      workIndex={idx + 1}
+      workIndex={idx}
       onError={() => handleImageError(idx)}
     />
   </div>
