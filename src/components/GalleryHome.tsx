@@ -76,16 +76,28 @@ export default function GalleryHome() {
       {/* Galerie */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-white items-center">
         {galleryItems.map((item) => {
+          // === Logique responsive ===
           let orderClass = "";
-          let colSpanClass = "md:col-span-1";
+          let colSpanClass = "";
 
           if (item.title === "Tondos") {
-            orderClass = "order-first";
-            colSpanClass = "sm:col-span-2 md:col-span-4";
-          } else {
-            orderClass = "order-last";
-            colSpanClass = "sm:col-span-1 md:col-span-2";
+            // Mobile : premier (même taille)
+            // Desktop : au milieu, plus large
+            orderClass = "order-1 md:order-2";
+            colSpanClass = "col-span-1 md:col-span-2";
+          } else if (item.title === "3eme période") {
+            orderClass = "order-2 md:order-1";
+            colSpanClass = "col-span-1 md:col-span-1";
+          } else if (item.title === "Compartimentés") {
+            orderClass = "order-3 md:order-3";
+            colSpanClass = "col-span-1 md:col-span-1";
           }
+
+          // Hauteur : égale sur mobile, Tondos plus grand dès md+
+          const imageHeight =
+            item.title === "Tondos"
+              ? "h-60 sm:h-72 md:h-[28rem] lg:h-[32rem]"
+              : "h-60 sm:h-72 md:h-80";
 
           return (
             <Link
@@ -94,14 +106,17 @@ export default function GalleryHome() {
               className={`cursor-pointer relative flex flex-col justify-center items-center ${orderClass} ${colSpanClass}`}
             >
               <motion.div layoutId={item.title} className="w-full">
+                {/* Image cliquable */}
                 <Image
                   src={item.image}
                   alt={item.title}
                   width={400}
                   height={400}
-                  className="object-contain rounded-xl w-full h-52 sm:h-48 md:h-80 lg:h-100 xl:h-120"
+                  className={`object-contain rounded-xl w-full ${imageHeight} transition-transform duration-300 hover:scale-105`}
                 />
-                <h3 className="mt-2 sm:mt-4 text-base sm:text-lg md:text-xl lg:text-2xl flex justify-center font-semibold">
+
+                {/* Titre cliquable */}
+                <h3 className="mt-2 sm:mt-4 text-base sm:text-lg md:text-xl lg:text-2xl flex justify-center font-semibold hover:underline">
                   {item.title}
                 </h3>
               </motion.div>
