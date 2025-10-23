@@ -92,7 +92,7 @@ const handleClick = () => {
           
           {/* Overlay au survol */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 rounded-md flex items-center justify-center opacity-0 group-hover:opacity-100">
-            <div className="text-white text-center">
+            <div className="text-zinc-400 text-center">
               <svg
                 className="w-12 h-12 mx-auto mb-2"
                 fill="none"

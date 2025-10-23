@@ -1,12 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-
-
 export const metadata: Metadata = {
   title: "Pierre-Arnould",
   description: "Site officiel de Pierre-Arnould",
-  
   icons: [
     {
       url: "/web-app-manifest-192x192.png",
@@ -22,8 +19,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",  
-    width:"device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",   
+  themeColor: "#ffffff",
+  width: "device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
 };
 
 export default function RootLayout({
@@ -35,8 +32,42 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         <link rel="manifest" href="/manifest.webmanifest" />
+
+        {/* 🔹 Lien Google Fonts direct biscoin*/}
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap"
+          rel="stylesheet"
+        /> */}
+
+        {/* michroma static */}
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+           href="https://fonts.googleapis.com/css2?family=Michroma&display=swap"
+            rel="stylesheet"
+        /> */}
+
+
+          {/* suse mono */}
+          {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=SUSE+Mono:wght@300&display=swap"
+            rel="stylesheet"
+          /> */}
+
+            {/*Cinzel */}
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+            <link
+              href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&display=swap"
+              rel="stylesheet"
+            />
       </head>
       <body>{children}</body>
     </html>
   );
 }
+
