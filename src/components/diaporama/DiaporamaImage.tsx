@@ -21,9 +21,8 @@ export function DiaporamaImage({
       }`}
     >
       {/* === Mode Zoom (Fullscreen) === */}
-    {isZoomed && (
+      {isZoomed && (
         <div className="flex items-center justify-center w-screen h-screen p-5">
-          {/* Image centrale en fullscreen */}
           <AnimatePresence mode="wait">
             <motion.img
               key={currentWork.title + "-zoomed"}
@@ -33,13 +32,12 @@ export function DiaporamaImage({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              style={{ maxWidth: '100%', maxHeight: '90%' }}
-              className="object-contain rounded-xl shadow-lg"
+              style={{ maxWidth: "100%", maxHeight: "90%" }}
+              className="object-contain rounded-xl shadow-lg select-none touch-pinch-zoom"
             />
           </AnimatePresence>
         </div>
       )}
-       
 
       {/* === Desktop : flex 3 colonnes === */}
       {!isZoomed && (
@@ -76,7 +74,7 @@ export function DiaporamaImage({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="object-contain h-full max-h-full w-full max-w-full rounded-xl shadow-lg"
+                className="object-contain h-full max-h-full w-full max-w-full rounded-xl shadow-lg select-none touch-pinch-zoom"
               />
             </AnimatePresence>
           </div>
@@ -116,7 +114,7 @@ export function DiaporamaImage({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="object-contain h-[60vh] w-full rounded-xl shadow-lg"
+              className="object-contain h-[60vh] w-full rounded-xl shadow-lg select-none touch-pinch-zoom"
             />
           </AnimatePresence>
 

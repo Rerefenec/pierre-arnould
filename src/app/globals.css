@@ -69,3 +69,8 @@ html, body {
 h1, h2, h3 {
   font-weight: 500;
 }
+
+.touch-pinch-zoom {
+  touch-action: pinch-zoom;
+}
+
