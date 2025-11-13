@@ -30,7 +30,9 @@ export default function Header() {
             }`}
         />
 
-        <div className="text-2xl font-bold relative z-10">Pierre Arnould</div>
+<div className="font-bold relative z-10 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight">
+  Pierre Arnould
+</div>
 
         {/* Menu desktop */}
         <nav className="hidden md:flex space-x-6 relative z-10">

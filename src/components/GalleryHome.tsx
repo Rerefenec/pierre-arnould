@@ -15,20 +15,20 @@ export interface GalleryItem {
 
 const galleryItems: GalleryItem[] = [
   {
-    title: "3eme période",
-    image: "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-6.jpg",
+    title: "Geometrique",
+    image: "/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-13.jpg",
     description: "La fusion conceptuelle...",
-    lien: "/troisieme-periode",
+    lien: "/geometrique",
   },
   {
     title: "Tondos",
-    image: "/1995-2020-Tondos/pierre-arnould-artiste-tondo-9.jpg",
+    image: "/1995-2020-Tondos/pierre-arnould-artiste-tondo-20.jpg",
     description: "Une exploration circulaire...",
     lien: "/tondos",
   },
   {
     title: "Compartimentés",
-    image: "/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-3.jpg",
+    image: "/1969-1994-Compartimentes/pierre-arnould-artiste-compartimentes-11.jpg",
     description: "La structure du fragment...",
     lien: "/compartimentes",
   },
@@ -85,7 +85,7 @@ export default function GalleryHome() {
             // Desktop : au milieu, plus large
             orderClass = "order-1 md:order-2";
             colSpanClass = "col-span-1 md:col-span-2";
-          } else if (item.title === "3eme période") {
+          } else if (item.title === "Geometriques") {
             orderClass = "order-2 md:order-1";
             colSpanClass = "col-span-1 md:col-span-1";
           } else if (item.title === "Compartimentés") {

@@ -8,7 +8,8 @@ export interface Work {
 }
 
 export const seriesData: Record<string, Work[]> = {
-  compartimentes: Array.from({ length: 9 }, (_, i) => ({
+
+  compartimentes: Array.from({ length: 27 }, (_, i) => ({
     title: `Compartimentés #${i + 1}`,
     image: `/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-${
       i + 1
@@ -18,7 +19,8 @@ export const seriesData: Record<string, Work[]> = {
     year: "2025",
     lien: "compartimentes",
   })),
-  tondos: Array.from({ length: 53 }, (_, i) => ({
+
+  tondos: Array.from({ length: 59 }, (_, i) => ({
     title: `Tondos #${i + 1}`,
     image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-${i + 1}.jpg`,
     style: "Tondos",
@@ -27,14 +29,26 @@ export const seriesData: Record<string, Work[]> = {
     lien: "tondos",
   })),
 
-  "troisieme-periode": Array.from({ length: 17 }, (_, i) => ({
-    title: `3eme période #${i + 1}`,
-    image: `/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-${
+  geometrique: Array.from({ length: 24 }, (_, i) => ({
+    title: `Geometrique #${i + 1}`,
+    image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-${
       i + 1
     }.jpg`,
-    style: "3eme période",
-    description: "Description de l'œuvre (3eme période)",
+    style: "geometrique",
+    description: "Description de l'œuvre (Geometrique)",
     year: "2025",
-    lien: "troisieme-periode",
+    lien: "geometrique",
   })),
+
+   baroque: Array.from({ length: 23 }, (_, i) => ({
+    title: `Baroque #${i + 1}`,
+    image: `/2021-2025-Baroque/pierre-arnould-artiste-baroque-${
+      i + 1
+    }.jpg`,
+    style: "baroque",
+    description: "Description de l'œuvre (Baroque)",
+    year: "2025",
+    lien: "baroque",
+  })),
+
 };

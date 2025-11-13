@@ -12,8 +12,8 @@ export default function Hero() {
  let heroImage = "/details/bg.jpg";
   if (pathname === "/tondos") {
     heroImage = "/details/pierre-arnould-artist-tondo-detail-01.jpg";
-  } else if (pathname === "/troisieme-periode") {
-    heroImage = "/2021-20xx-3eme-periode/pierre-arnould-artist-3eme-periode-14.jpg";
+  } else if (pathname === "/geometrique") {
+    heroImage = "/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-16.jpg";
   } else if (pathname === "/compartimentes") {
     heroImage = "/details/pierre-arnould-artist-compartimentes-detail-4.jpg";
   }
@@ -25,8 +25,8 @@ export default function Hero() {
   let textHeader;
   if (pathname === "/tondos") {
     textHeader = <>Tondos</>;
-  } else if (pathname === "/troisieme-periode") {
-    textHeader = <>Troisième période</>;
+  } else if (pathname === "/geometrique") {
+    textHeader = <>Geometrique</>;
   } else if (pathname === "/compartimentes") {
     textHeader = <>Compartimentés</>;
   } else if (pathname === "/collections") {
@@ -46,7 +46,7 @@ export default function Hero() {
   if (pathname === "/") heroHeight = "h-[580px]"; // page d'accueil plein écran
   else if (pathname === "/compartimentes") heroHeight = "h-[400px]";
   else if (pathname === "/tondos") heroHeight = "h-[400px]";
-  else if (pathname === "/troisieme-periode") heroHeight = "h-[400px]";
+  else if (pathname === "/geometrique") heroHeight = "h-[400px]";
 
   return (
     <>
@@ -69,13 +69,14 @@ export default function Hero() {
       <section
         className={`${heroHeight} flex flex-col justify-center text-center text-white`}
       >
-        <h1
-          className="animate__animated animate__fadeInDown 
-               text-5xl sm:text-4xl md:text-5xl md:mb-20 lg:text-6xl xl:text-8xl 2xl:text-9xl 2xl:mt-40
-               font-bold flex-col"
-        >
-          <span>{textHeader}</span>
-        </h1>
+       <h1
+  className="animate__animated animate__fadeInDown 
+    text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl
+    font-bold leading-tight text-center px-4"
+>
+  <span>{textHeader}</span>
+</h1>
+
       </section>
     </>
   );

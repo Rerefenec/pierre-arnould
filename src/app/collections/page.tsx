@@ -11,32 +11,41 @@ import Header from "@/components/Header";
 
 // ... (galleryItems et styles restent inchangés)
 const galleryItems = [
-  // 🔹 3eme période
-  ...Array.from({ length: 17 }, (_, i) => ({
-    title: `3eme période ${i + 1}`,
-    style: "3eme période",
-    image: `/2021-20xx-3eme-periode-mini/pierre-arnould-artist-3eme-periode-${
+  ...Array.from({ length: 24 }, (_, i) => ({
+    title: `Geometrique ${i + 1}`,
+    style: "geometrique",
+    image: `/2021-2025-Geometriques-mini/pierre-arnould-artiste-geometrique-${
       i + 1
     }.webp`,
   })), 
 
-  ...Array.from({ length: 21 }, (_, i) => ({
+  ...Array.from({ length: 23 }, (_, i) => ({
+    title: `Baroque ${i + 1}`,
+    style: "Baroque",
+    image: `/2021-2025-Baroque-mini/pierre-arnould-artiste-baroque-${
+      i + 1
+    }.webp`,
+  })),
+
+  ...Array.from({ length: 59 }, (_, i) => ({
     title: `Tondo ${i + 1}`,
     style: "Tondos",
     image: `/1995-2020-Tondos-mini/pierre-arnould-artist-tondo-${i + 1}.webp`,
   })), 
 
-  ...Array.from({ length: 9 }, (_, i) => ({
+  ...Array.from({ length: 27 }, (_, i) => ({
     title: `Compartimenté ${i + 1}`,
     style: "Compartimentés",
     image: `/1969-1994-Compartimentes-mini/pierre-arnould-artist-compartimentes-${
       i + 1
     }.webp`,
   })),
+  
 ];
 
 const styles = [
-  "3eme période",
+  "Geometrique",
+  "Baroque",
   "Tondos",
   "Compartimentés",
   "Toutes les œuvres",
