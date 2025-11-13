@@ -18,7 +18,7 @@ export const seriesData: Record<string, Work[]> = {
     year: "2025",
     lien: "compartimentes",
   })),
-  tondos: Array.from({ length: 41 }, (_, i) => ({
+  tondos: Array.from({ length: 53 }, (_, i) => ({
     title: `Tondos #${i + 1}`,
     image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-${i + 1}.jpg`,
     style: "Tondos",

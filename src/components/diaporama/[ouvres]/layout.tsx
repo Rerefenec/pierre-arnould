@@ -1,7 +1,12 @@
+// app/diaporama/[ouvres]/layout.tsx
 import type { Viewport } from "next";
 
 export const viewport: Viewport = {
-  width: "device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes",
+  width: "device-width",
+  initialScale: 1.0,
+  maximumScale: 5.0,
+  userScalable: true,
+  themeColor: "#000000",
 };
 
 export default function DiaporamaLayout({
