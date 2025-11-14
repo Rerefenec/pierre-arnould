@@ -11,7 +11,7 @@ export const seriesData: Record<string, Work[]> = {
 
   compartimentes: Array.from({ length: 27 }, (_, i) => ({
     title: `Compartimentés #${i + 1}`,
-    image: `/1969-1994-Compartimentes/pierre-arnould-artist-compartimentes-${
+    image: `/1969-1994-Compartimentes/pierre-arnould-artiste-compartimentes-${
       i + 1
     }.jpg`,
     style: "Compartimentés",

@@ -30,13 +30,13 @@ const galleryItems = [
   ...Array.from({ length: 59 }, (_, i) => ({
     title: `Tondo ${i + 1}`,
     style: "Tondos",
-    image: `/1995-2020-Tondos-mini/pierre-arnould-artist-tondo-${i + 1}.webp`,
+    image: `/1995-2020-Tondos-mini/pierre-arnould-artiste-tondo-${i + 1}.webp`,
   })), 
 
   ...Array.from({ length: 27 }, (_, i) => ({
     title: `Compartimenté ${i + 1}`,
     style: "Compartimentés",
-    image: `/1969-1994-Compartimentes-mini/pierre-arnould-artist-compartimentes-${
+    image: `/1969-1994-Compartimentes-mini/pierre-arnould-artiste-compartimentes-${
       i + 1
     }.webp`,
   })),

@@ -72,6 +72,7 @@ export default function Hero() {
        <h1
   className="animate__animated animate__fadeInDown 
     text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl
+
     font-bold leading-tight text-center px-4"
 >
   <span>{textHeader}</span>
@@ -81,4 +82,3 @@ export default function Hero() {
     </>
   );
 }
-// debug  numero 2

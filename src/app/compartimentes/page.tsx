@@ -15,10 +15,10 @@ interface Work {
 const SERIES_KEY = "compartimentes";
 
 const works: Work[] = [
-  ...Array.from({ length: 9 }, (_, i) => ({
+  ...Array.from({ length: 27 }, (_, i) => ({
     title: `Compartimentés ${i + 1}`,
     style: "Compartimentés",
-    image: `/1969-1994-Compartimentes-mini/pierre-arnould-artist-compartimentes-${
+    image: `/1969-1994-Compartimentes-mini/pierre-arnould-artiste-compartimentes-${
       i + 1
     }.webp`,
     description: "..",
