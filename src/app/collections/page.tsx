@@ -22,7 +22,7 @@ const galleryItems = [
   ...Array.from({ length: 23 }, (_, i) => ({
     title: `Baroque ${i + 1}`,
     style: "Baroque",
-    image: `/2021-2025-Baroque-mini/pierre-arnould-artiste-baroque-${
+    image: `/2021-2025-Baroques-mini/pierre-arnould-artiste-baroque-${
       i + 1
     }.webp`,
   })),
@@ -50,7 +50,6 @@ const styles = [
   "Compartimentés",
   "Toutes les œuvres",
 ];
-// ... (fin de galleryItems et styles)
 
 export default function Collections() {
   const [query, setQuery] = useState("");

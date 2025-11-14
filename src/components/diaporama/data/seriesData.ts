@@ -42,7 +42,7 @@ export const seriesData: Record<string, Work[]> = {
 
    baroque: Array.from({ length: 23 }, (_, i) => ({
     title: `Baroque #${i + 1}`,
-    image: `/2021-2025-Baroque/pierre-arnould-artiste-baroque-${
+    image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-${
       i + 1
     }.jpg`,
     style: "baroque",
