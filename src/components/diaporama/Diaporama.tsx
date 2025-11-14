@@ -51,18 +51,33 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
     }
   }; // 🔹 Partage (inchangé)
 
-  const handleShare = () => {
-    if (navigator.share && currentWork) {
-      navigator.share({
+const handleShare = () => {
+  if (!currentWork) return;
+
+  // ✅ Si le navigateur supporte navigator.share (mobile natif)
+  if (navigator.share) {
+    navigator
+      .share({
         title: currentWork.title,
         text: `Découvrez l'œuvre : ${currentWork.title}`,
         url: window.location.href,
-      });
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert("Lien copié !");
-    }
-  }; // 🔹 Navigation
+      })
+      .catch((err) => console.log("Erreur partage :", err));
+  } 
+  // ✅ Sinon, fallback vers le copier-coller si disponible
+  else if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard
+      .writeText(window.location.href)
+      .then(() => alert("Lien copié !"))
+      .catch((err) => console.log("Impossible de copier :", err));
+  } 
+  // ✅ Dernier fallback : prompt
+  else {
+    window.prompt("Copiez ce lien :", window.location.href);
+  }
+};
+
+
 
   const goTo = useCallback(
     (direction: "next" | "prev") => {
@@ -107,47 +122,47 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
   if (worksCount === 0)
     return (
       <p className="text-center mt-18 text-white bg-black min-h-screen">
-                        Oeuvre inconnue            {" "}
+         Oeuvre inconnue 
       </p>
     );
 
-  return (
-    <div
-      ref={containerRef}
-      className={
-        isZoomed
-          ? "fixed inset-0 bg-black flex items-center justify-center z-50"
-          : "fixed inset-0 bg-black flex flex-col gap-4"
-      }
-    >
-                 {" "}
+ return (
+  <div
+    ref={containerRef}
+    className={
+      isZoomed
+        ? "fixed inset-0 bg-black flex items-center justify-center z-50"
+        : "fixed inset-0 bg-black flex flex-col"
+        // ☝️ Enlevé gap-4 pour mobile
+    }
+  >
+     
       <DiaporamaHeader
-        isZoomed={isZoomed}
-        onZoom={handleZoom}
-        onShare={handleShare}
-        onClose={handleClose}
-      />
-                 {" "}
-      <main
-        className={`flex flex-1 flex-col md:flex-row pt-16 ${
-          isZoomed ? "items-center justify-center" : ""
-        }`}
-      >
+      isZoomed={isZoomed}
+      onZoom={handleZoom}
+      onShare={handleShare}
+      onClose={handleClose}
+    />
+    <main
+      className={`flex flex-1 flex-col md:flex-row ${
+        isZoomed ? "items-center justify-center" : "pt-0 sm:pt-16"
+        // ☝️ pt-0 sur mobile, pt-16 sur tablette+
+      }`}
+    >
                        {" "}
         <DiaporamaImage
-          currentWork={currentWork}
-          isZoomed={isZoomed}
-          onNext={() => goTo("next")}
-          onPrev={() => goTo("prev")}
-        />
-                       {" "}
-        <DiaporamaDescription
-          work={currentWork}
-          index={currentIndex + 1} // Index 1-based pour l'affichage
-          total={worksCount}
-          ouvres={ouvres}
-          isZoomed={isZoomed}
-        />
+        currentWork={currentWork}
+        isZoomed={isZoomed}
+        onNext={() => goTo("next")}
+        onPrev={() => goTo("prev")}
+      />
+      <DiaporamaDescription
+        work={currentWork}
+        index={currentIndex + 1}
+        total={worksCount}
+        ouvres={ouvres}
+        isZoomed={isZoomed}
+      />
                    {" "}
       </main>
              {" "}
