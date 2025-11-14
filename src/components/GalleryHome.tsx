@@ -28,7 +28,8 @@ const galleryItems: GalleryItem[] = [
   },
   {
     title: "Compartimentés",
-    image: "/1969-1994-Compartimentes/pierre-arnould-artiste-compartimentes-11.jpg",
+    image:
+      "/1969-1994-Compartimentes/pierre-arnould-artiste-compartimentes-11.jpg",
     description: "La structure du fragment...",
     lien: "/compartimentes",
   },
@@ -76,19 +77,16 @@ export default function GalleryHome() {
       {/* Galerie */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-white items-center">
         {galleryItems.map((item) => {
-          // === Logique responsive ===
           let orderClass = "";
           let colSpanClass = "";
 
           if (item.title === "Tondos") {
-            // Mobile : premier (même taille)
-            // Desktop : au milieu, plus large
             orderClass = "order-1 md:order-2";
             colSpanClass = "col-span-1 md:col-span-2";
-          } else if (item.title === "Geometriques") {
+          } else if (item.title === "Compartimentés") {
             orderClass = "order-2 md:order-1";
             colSpanClass = "col-span-1 md:col-span-1";
-          } else if (item.title === "Compartimentés") {
+          } else if (item.title === "Geometrique") {
             orderClass = "order-3 md:order-3";
             colSpanClass = "col-span-1 md:col-span-1";
           }
@@ -96,8 +94,8 @@ export default function GalleryHome() {
           // Hauteur : égale sur mobile, Tondos plus grand dès md+
           const imageHeight =
             item.title === "Tondos"
-              ? "h-60 sm:h-72 md:h-[28rem] lg:h-[32rem]"
-              : "h-60 sm:h-72 md:h-80";
+              ? "h-80 sm:h-72 md:h-[28rem] lg:h-[32rem]"
+              : "h-70 sm:h-72 md:h-80";
 
           return (
             <Link

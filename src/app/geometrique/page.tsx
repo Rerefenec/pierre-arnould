@@ -44,7 +44,7 @@ export default function GeometriquePage() {
             <ul className="list-disc list-inside text-red-700 mt-2">
               {failedImages.map((idx) => (
                 <li key={idx}>
-                  Tondo {idx + 1}:{" "}
+                  geometrique {idx + 1}:{" "}
                   <code className="bg-red-100 px-2 py-1 rounded text-sm">
                     {works[idx].image}
                   </code>
