@@ -56,8 +56,14 @@
   font-style: normal;
 } */
 
-html, body {
+/* html, body {
   font-family: "Rubik Mono One", monospace;
+  font-weight: 300;
+  font-style: normal;
+} */
+
+html, body {
+  font-family: "Oxygen Mono", monospace;
   font-weight: 300;
   font-style: normal;
 }

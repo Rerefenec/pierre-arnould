@@ -104,6 +104,14 @@ export default function RootLayout({
             href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap"
             rel="stylesheet"
           />
+
+             {/* oxygen mono one */}
+               <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap"
+            rel="stylesheet"
+          />
       </head>
       <body>{children}</body>
     </html>
