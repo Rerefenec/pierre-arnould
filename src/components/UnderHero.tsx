@@ -4,14 +4,13 @@ import Image from "next/image";
 import Header from "./Header";
 import { usePathname } from "next/navigation";
 
-export default function Hero() {
+export default function UnderHero() {
   const pathname = usePathname();
 
   // 🔹 Image selon la page
+    // 🔹 Image selon la page
  let heroImage = "/details/bg.jpg";
-  if (pathname === "/tondos") {
-    heroImage = "/details/pierre-arnould-artist-tondo-detail-01.jpg";
-  } else if (pathname === "/geometrique") {
+  if (pathname === "/geometrique") {
     heroImage = "/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-16.jpg";
   } else if (pathname === "/compartimentes") {
     heroImage = "/details/pierre-arnould-artist-compartimentes-detail-4.jpg";
@@ -24,29 +23,33 @@ export default function Hero() {
   let textHeader;
   if (pathname === "/tondos") {
     textHeader = <>Tondos</>;
-  } else if (pathname === "/baroques") {
-    textHeader = <>Baroques</>;
-     } else if (pathname === "/compartimentes") {
-    textHeader = <>Cloisonnés</>;
-  } else if (pathname === "/compartimentes+geometriques") {
-    textHeader = <>Compartimentés et Géométriques</>;
+  } else if (pathname === "/geometrique") {
+    textHeader = <>Geometrique</>;
+  } else if (pathname === "/compartimentes") {
+    textHeader = <>Compartimentés</>;
   } else if (pathname === "/collections") {
     textHeader = <>Collections</>;
   } else {
     textHeader = (
       <>
-        Pierre Arnould
+        Cloisonnés
         <br />
-        Plasticien
+        et Géométriques
       </>
     );
   }
 
   // 🔹 Hauteur du Hero selon la page
-let heroHeight = "h-[200px] sm:h-[220px] md:h-[300px] lg:h-[300px]";
+let heroHeight;
 
-if (pathname === "/") { heroHeight = "h-[580px]"; // page d'accueil plein écran
+if (pathname === "/") {
+  // Hero plein écran propre
+  heroHeight = "min-h-screen";
+} else {
+  // Héros plus petit mais suffisant pour compenser le header
+  heroHeight = "min-h-[480px] sm:min-h-[520px] md:min-h-[580px]";
 }
+
 
   return (
     <>
@@ -72,7 +75,8 @@ if (pathname === "/") { heroHeight = "h-[580px]"; // page d'accueil plein écran
        <h1
   className="animate__animated animate__fadeInDown 
     text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl
-    font-bold leading-tight text-center mt-20"
+
+    font-bold leading-tight text-center px-4"
 >
   <span>{textHeader}</span>
 </h1>

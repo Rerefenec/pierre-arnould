@@ -15,27 +15,22 @@ export interface GalleryItem {
 
 const galleryItems: GalleryItem[] = [
   {
-    title: "Baroques",
-    image: "/2021-2025-Baroques-mini/pierre-arnould-artiste-baroque-7.webp",
+    title: "Geometriques",
+    image: "/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-13.jpg",
     description: "La fusion conceptuelle...",
-    lien: "/baroques",
+    lien: "/geometrique",
   },
+
   {
-    title: "Tondos",
-    image: "/1995-2020-Tondos/pierre-arnould-artiste-tondo-20.jpg",
-    description: "Une exploration circulaire...",
-    lien: "/tondos",
-  },
-  {
-    title: "Cloisonnés et Géométriques",
+    title: "Cloisonnés",
     image:
       "/1969-1994-Compartimentes/pierre-arnould-artiste-compartimentes-11.jpg",
     description: "La structure du fragment...",
-    lien: "/compartimentes+geometriques",
+    lien: "/compartimentes",
   },
 ];
 
-export default function GalleryHome() {
+export default function UnderGallery() {
   const [showArrow, setShowArrow] = useState(true);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -75,18 +70,16 @@ export default function GalleryHome() {
       </AnimatePresence>
 
       {/* Galerie */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-white items-center">
+     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-32 text-white items-center justify-center w-fit mx-auto">
+
         {galleryItems.map((item) => {
           let orderClass = "";
           let colSpanClass = "";
 
-          if (item.title === "Tondos") {
-            orderClass = "order-1 md:order-2";
-            colSpanClass = "col-span-1 md:col-span-2";
-          } else if (item.title === "Compartimentés et Géométriques") {
+        if (item.title === "Compartimentés") {
             orderClass = "order-2 md:order-1";
             colSpanClass = "col-span-1 md:col-span-1";
-          } else if (item.title === "Baroques") {
+          } else if (item.title === "Geometriques") {
             orderClass = "order-3 md:order-3";
             colSpanClass = "col-span-1 md:col-span-1";
           }
@@ -114,15 +107,15 @@ export default function GalleryHome() {
                 />
 
                 {/* Titre cliquable */}
-              <h3 className="mt-3 text-center text-base sm:text-lg md:text-xl lg:text-2xl font-semibold hover:underline">
-  {item.title}
-</h3>
-
+                <h3 className="mt-2 sm:mt-4 text-base sm:text-lg md:text-xl lg:text-2xl flex justify-center font-semibold hover:underline">
+                  {item.title}
+                </h3>
               </motion.div>
             </Link>
           );
         })}
       </div>
+      {/* avant version pro */}
     </section>
   );
 }

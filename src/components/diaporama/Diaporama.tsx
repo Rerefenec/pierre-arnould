@@ -11,7 +11,9 @@ import { DiaporamaDescription } from "./DiaporamaDescription";
 export default function Diaporama({ ouvres }: { ouvres: string }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const works = seriesData[ouvres] || [];
+  const key = (ouvres || "").toLowerCase();  // minuscule
+const works = seriesData[key] || [];
+
   const worksCount = works.length; // 🚨 IMPORTANT : Lire l'index actuel directement depuis l'URL (1-based)
 
   const indexUrl = parseInt(searchParams.get("index") || "1", 10); // 🚨 Convertir en index de tableau (0-based) et assurer qu'il est valide

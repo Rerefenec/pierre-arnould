@@ -3,6 +3,7 @@
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import WorkImage from "@/components/WorkImage";
+import { s } from "framer-motion/client";
 import { useState } from "react";
 interface Work {
   title: string;
@@ -17,7 +18,7 @@ const SERIES_KEY = "compartimentes";
 const works: Work[] = [
   ...Array.from({ length: 27 }, (_, i) => ({
     title: `Compartimentés ${i + 1}`,
-    style: "Compartimentés",
+    style: "Cloisonnés",
     image: `/1969-1994-Compartimentes-mini/pierre-arnould-artiste-compartimentes-${
       i + 1
     }.webp`,

@@ -15,7 +15,7 @@ interface Work {
 const SERIES_KEY = "baroques";
 
 const works: Work[] = [
-  ...Array.from({ length: 24 }, (_, i) => ({
+  ...Array.from({ length: 23 }, (_, i) => ({
     title: `Baroques ${i + 1}`,
     style: "baroques",
     image: `/2021-2025-Baroques-mini/pierre-arnould-artiste-baroque-${i + 1}.webp`,
