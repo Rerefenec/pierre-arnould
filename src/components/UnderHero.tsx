@@ -4,15 +4,13 @@ import Image from "next/image";
 import Header from "./Header";
 import { usePathname } from "next/navigation";
 
-export default function Hero() {
+export default function UnderHero() {
   const pathname = usePathname();
 
   // 🔹 Image selon la page
     // 🔹 Image selon la page
  let heroImage = "/details/bg.jpg";
-  if (pathname === "/tondos") {
-    heroImage = "/details/pierre-arnould-artist-tondo-detail-01.jpg";
-  } else if (pathname === "/geometrique") {
+  if (pathname === "/geometrique") {
     heroImage = "/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-16.jpg";
   } else if (pathname === "/compartimentes") {
     heroImage = "/details/pierre-arnould-artist-compartimentes-detail-4.jpg";
@@ -25,30 +23,33 @@ export default function Hero() {
   let textHeader;
   if (pathname === "/tondos") {
     textHeader = <>Tondos</>;
-  } else if (pathname === "/baroques") {
-    textHeader = <>Baroques</>;
-     } else if (pathname === "/compartimentes") {
-    textHeader = <>Cloisonnés</>;
-  } else if (pathname === "/compartimentes+geometriques") {
-    textHeader = <>Compartimentés et Géométriques</>;
+  } else if (pathname === "/geometrique") {
+    textHeader = <>Geometrique</>;
+  } else if (pathname === "/compartimentes") {
+    textHeader = <>Compartimentés</>;
   } else if (pathname === "/collections") {
     textHeader = <>Collections</>;
   } else {
     textHeader = (
       <>
-        Pierre Arnould
+        Cloisonnés
         <br />
-        Plasticien
+        et Géométriques
       </>
     );
   }
 
   // 🔹 Hauteur du Hero selon la page
-  let heroHeight;
-  if (pathname === "/") heroHeight = "h-[580px]"; // page d'accueil plein écran
-  else if (pathname === "/compartimentes") heroHeight = "h-[400px]";
-  else if (pathname === "/tondos") heroHeight = "h-[400px]";
-  else if (pathname === "/baroques") heroHeight = "h-[400px]";
+let heroHeight;
+
+if (pathname === "/") {
+  // Hero plein écran propre
+  heroHeight = "min-h-screen";
+} else {
+  // Héros plus petit mais suffisant pour compenser le header
+  heroHeight = "min-h-[480px] sm:min-h-[520px] md:min-h-[580px]";
+}
+
 
   return (
     <>

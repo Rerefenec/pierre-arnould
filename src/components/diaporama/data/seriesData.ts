@@ -10,12 +10,12 @@ export interface Work {
 export const seriesData: Record<string, Work[]> = {
 
   compartimentes: Array.from({ length: 27 }, (_, i) => ({
-    title: `Compartimentés #${i + 1}`,
+    title: `Cloisonné #${i + 1}`,
     image: `/1969-1994-Compartimentes/pierre-arnould-artiste-compartimentes-${
       i + 1
     }.jpg`,
     style: "Compartimentés",
-    description: "Description de l'œuvre (Compartimentés)",
+    description: "Description de l'œuvre (Cloisonnés)",
     year: "2025",
     lien: "compartimentes",
   })),
