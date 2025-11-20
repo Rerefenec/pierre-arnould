@@ -83,9 +83,8 @@ const handleShare = () => {
 
   const goTo = useCallback(
     (direction: "next" | "prev") => {
-      if (isZoomed) return; // Utilise l'index 0-basé actuel, lu directement du composant
-
       let new0Index;
+
       if (direction === "next") {
         // Logique de bouclage Next : (index + 1) % total
         new0Index = (currentIndex + 1) % worksCount;
@@ -152,12 +151,14 @@ const handleShare = () => {
       }`}
     >
                        {" "}
-        <DiaporamaImage
-        currentWork={currentWork}
-        isZoomed={isZoomed}
-        onNext={() => goTo("next")}
-        onPrev={() => goTo("prev")}
-      />
+      <DiaporamaImage
+  currentWork={currentWork}
+  isZoomed={isZoomed}
+  onNext={() => goTo("next")}
+  onPrev={() => goTo("prev")}
+  onExitFullscreen={() => document.exitFullscreen()}
+/>
+
       <DiaporamaDescription
         work={currentWork}
         index={currentIndex + 1}

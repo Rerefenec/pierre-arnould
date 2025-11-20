@@ -59,39 +59,43 @@ export default function CompartimentesPage() {
 
         {/* 🔹 Fond global noir */}
         <div className="bg-black min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
+          {" "}
           {/* 🔹 Grille des œuvres */}
-          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-30">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-30 mt-10 md:mt-0">
+            {" "}
             {works.map((work, idx) => (
-      <div
+             <div
   key={idx}
-  className="flex flex-col rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out p-4 w-full max-w-xs h-full"
+  className="flex flex-col rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out p-4 **w-full max-w-xs** mb-10 md:mb-0 overflow-hidden"
 >
-  {/* Image avec limite de hauteur et centrage */}
-<div
-  className="flex justify-center items-center w-full mb-4
-    min-h-[420px] sm:min-h-[480px] md:min-h-[100px] lg:min-h-[580px]
-    max-h-[900px] overflow-hidden"
->    <WorkImage
-      src={work.image}
-      alt={work.title}
-      title={work.title}
-      width={400}
-      height={400}
-      className="object-contain max-h-full max-w-full rounded-md"
-      workSeries={SERIES_KEY}
-      workIndex={idx}
-      onError={() => handleImageError(idx)}
-    />
-  </div>
+                {/* Image avec limite de hauteur et centrage */}
+                <div className="aspect-3/4 w-full flex items-center justify-center bg-black/20 mb-4">
+                  <WorkImage
+                    src={work.image}
+                    alt={work.title}
+                    title={work.title}
+                    width={400}
+                    height={400}
+                    className="object-contain max-w-full max-h-full"
+                    workSeries={SERIES_KEY}
+                    workIndex={idx}
+                    onError={() => handleImageError(idx)}
+                  />
+                </div>
 
-  {/* Informations de l'œuvre toujours en bas */}
-  <div className="mt-auto w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-3">
-    <h2 className="text-white text-center font-semibold">{work.title}</h2>
-    <p className="text-gray-400 text-sm text-center">{work.style}</p>
-    <p className="text-gray-500 text-center mt-1">{work.description}</p>
-  </div>
-</div>
-
+                {/* Informations de l'œuvre toujours en bas */}
+                <div className="mt-auto w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-3 md:p-4 flex flex-col items-center justify-center">
+                  <h2 className="text-white text-center font-semibold text-sm md:text-base lg:text-lg">
+                    {work.title}
+                  </h2>
+                  <p className="text-gray-400 text-xs md:text-sm lg:text-base">
+                    {work.style}
+                  </p>
+                  <p className="text-gray-500 wrap-break-word overflow-hidden line-clamp-3 w-full text-xs md:text-sm lg:text-base">
+                    {work.description}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>

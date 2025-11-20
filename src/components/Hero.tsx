@@ -8,7 +8,6 @@ export default function Hero() {
   const pathname = usePathname();
 
   // 🔹 Image selon la page
-    // 🔹 Image selon la page
  let heroImage = "/details/bg.jpg";
   if (pathname === "/tondos") {
     heroImage = "/details/pierre-arnould-artist-tondo-detail-01.jpg";
@@ -44,11 +43,10 @@ export default function Hero() {
   }
 
   // 🔹 Hauteur du Hero selon la page
-  let heroHeight;
-  if (pathname === "/") heroHeight = "h-[580px]"; // page d'accueil plein écran
-  else if (pathname === "/compartimentes") heroHeight = "h-[400px]";
-  else if (pathname === "/tondos") heroHeight = "h-[400px]";
-  else if (pathname === "/baroques") heroHeight = "h-[400px]";
+let heroHeight = "h-[200px] sm:h-[220px] md:h-[300px] lg:h-[300px]";
+
+if (pathname === "/") { heroHeight = "h-[580px]"; // page d'accueil plein écran
+}
 
   return (
     <>
@@ -74,8 +72,7 @@ export default function Hero() {
        <h1
   className="animate__animated animate__fadeInDown 
     text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl
-
-    font-bold leading-tight text-center px-4"
+    font-bold leading-tight text-center mt-20"
 >
   <span>{textHeader}</span>
 </h1>

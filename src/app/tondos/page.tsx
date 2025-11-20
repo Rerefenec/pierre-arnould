@@ -53,9 +53,9 @@ export default function TondoPage() {
         )}
 
        {/* 🔹 Fond global noir */}
-               <div className="bg-black min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
+               <div className="bg-black min-h-screen text-gray-900 flex flex-col items-center justify-center pt-10">
                  {/* 🔹 Grille des œuvres */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-30">
+<div className="grid grid-cols-1 md:grid-cols-3 gap-20 ">
                    {works.map((work, idx) => (
              <div
          key={idx}
@@ -64,9 +64,10 @@ export default function TondoPage() {
          {/* Image avec limite de hauteur et centrage */}
 <div
   className="flex justify-center items-center w-full 
-    min-h-[420px] sm:min-h-[480px] md:min-h-[100px] lg:min-h-[580px]
+    min-h-[200px] sm:min-h-[300px] md:min-h-[400px]
     max-h-[900px] overflow-hidden"
 >
+
 
            <WorkImage
              src={work.image}
