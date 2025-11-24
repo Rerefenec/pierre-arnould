@@ -20,7 +20,7 @@ export const seriesData: Record<string, Work[]> = {
     lien: "compartimentes",
   })),
 
-  tondos: Array.from({ length: 59 }, (_, i) => ({
+  tondos: Array.from({ length: 57 }, (_, i) => ({
     title: `Tondos #${i + 1}`,
     image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-${i + 1}.jpg`,
     style: "Tondos",
