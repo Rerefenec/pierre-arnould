@@ -13,7 +13,7 @@ import Header from "@/components/Header";
 const galleryItems = [
   ...Array.from({ length: 24 }, (_, i) => ({
     title: `Geometrique ${i + 1}`,
-    style: "geometrique",
+    style: "Géometriques",
     image: `/2021-2025-Geometriques-mini/pierre-arnould-artiste-geometrique-${
       i + 1
     }.webp`,
@@ -21,13 +21,13 @@ const galleryItems = [
 
   ...Array.from({ length: 23 }, (_, i) => ({
     title: `Baroque ${i + 1}`,
-    style: "Baroque",
+    style: "Baroques",
     image: `/2021-2025-Baroques-mini/pierre-arnould-artiste-baroque-${
       i + 1
     }.webp`,
   })),
 
-  ...Array.from({ length: 59 }, (_, i) => ({
+  ...Array.from({ length: 57 }, (_, i) => ({
     title: `Tondo ${i + 1}`,
     style: "Tondos",
     image: `/1995-2020-Tondos-mini/pierre-arnould-artiste-tondo-${i + 1}.webp`,
@@ -35,7 +35,7 @@ const galleryItems = [
 
   ...Array.from({ length: 27 }, (_, i) => ({
     title: `Compartimenté ${i + 1}`,
-    style: "Compartimentés",
+    style: "Cloisonnés",
     image: `/1969-1994-Compartimentes-mini/pierre-arnould-artiste-compartimentes-${
       i + 1
     }.webp`,
@@ -44,10 +44,10 @@ const galleryItems = [
 ];
 
 const styles = [
-  "Geometrique",
-  "Baroque",
+  "Géometriques",
+  "Baroques",
   "Tondos",
-  "Compartimentés",
+  "Cloisonnés",
   "Toutes les œuvres",
 ];
 
