@@ -17,7 +17,7 @@ const SERIES_KEY = "baroques";
 const works: Work[] = [
   ...Array.from({ length: 23 }, (_, i) => ({
     title: `Baroques ${i + 1}`,
-    style: "baroques",
+    style: "Baroques",
     image: `/2021-2025-Baroques-mini/pierre-arnould-artiste-baroque-${i + 1}.webp`,
     description: "..",
   })),
