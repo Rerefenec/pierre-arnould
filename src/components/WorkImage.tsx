@@ -8,21 +8,17 @@ interface WorkImageProps {
   src: string;
   alt: string;
   title: string;
-  width: number;
-  height: number;
   className?: string;
   onError?: () => void;
   onLoad?: () => void;
-  workSeries: string; // nom de la série
-  workIndex: number;  // index de l'image (commence à 0 depuis .map)
+  workSeries: string;
+  workIndex: number;
 }
 
 export default function WorkImage({
   src,
   alt,
   title,
-  width,
-  height,
   className = "",
   onError,
   onLoad,
@@ -47,8 +43,6 @@ export default function WorkImage({
   };
 
   const handleClick = () => {
-    // ✅ CORRECTION : Naviguer vers /diaporama/{série}?index={numéro}
-    // workIndex commence à 0, mais le diaporama attend index=1 pour la première image
     const targetIndex = workIndex + 1;
     console.log(`🔍 Click sur image - workIndex: ${workIndex}, targetIndex: ${targetIndex}, série: ${workSeries}`);
     console.log(`📍 Navigation vers: /diaporama/${workSeries}?index=${targetIndex}`);
@@ -56,12 +50,13 @@ export default function WorkImage({
   };
 
   return (
-    <div className="relative group cursor-pointer" onClick={handleClick}>
-      {/* Loader pendant le chargement */}
+    // Es CRUCIAL que este padre de Image (o su abuelo en la página principal) sea 'relative'
+    <div className="relative group cursor-pointer w-full h-full" onClick={handleClick}> 
+      
+      {/* Loader: Utiliza absolute inset-0 para llenar el contenedor padre dimensionado */}
       {isLoading && !hasError && (
         <div
           className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-md animate-pulse"
-          style={{ width, height }}
         >
           <div className="text-center">
             <div className="w-8 h-8 border-4 border-gray-300 border-t-gray-600 rounded-full animate-spin mx-auto" />
@@ -70,11 +65,10 @@ export default function WorkImage({
         </div>
       )}
 
-      {/* Image avec erreur */}
+      {/* Image avec erreur: Utiliza absolute inset-0 para llenar el contenedor padre dimensionado */}
       {hasError ? (
         <div
-          className="flex items-center justify-center bg-gray-200 rounded-md"
-          style={{ width, height }}
+          className="absolute inset-0 flex items-center justify-center bg-gray-200 rounded-md"
         >
           <div className="text-center p-4">
             <span className="text-4xl">🖼️</span>
@@ -87,8 +81,8 @@ export default function WorkImage({
           <Image
             src={src}
             alt={alt}
-            width={width}
-            height={height}
+            fill={true} // Ocupa todo el contenedor padre
+            sizes="(max-width: 768px) 100vw, 33vw" // Obligatorio con 'fill'
             className={`${className} transition-all duration-300 group-hover:opacity-90 group-hover:scale-[1.02]`}
             onError={handleError}
             onLoad={handleLoad}
