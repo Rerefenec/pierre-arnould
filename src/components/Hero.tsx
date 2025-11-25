@@ -8,13 +8,14 @@ export default function Hero() {
   const pathname = usePathname();
 
   // 🔹 Image selon la page
- let heroImage = "/details/bg.jpg";
+  let heroImage = "/details/bg.jpg";
   if (pathname === "/tondos") {
     heroImage = "/details/pierre-arnould-artist-tondo-detail-01.jpg";
   } else if (pathname === "/geometrique") {
-    heroImage = "/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-16.jpg";
-  } else if (pathname === "/compartimentes") {
-    heroImage = "/details/pierre-arnould-artist-compartimentes-detail-4.jpg";
+    heroImage =
+      "/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-16.jpg";
+  } else if (pathname === "/cloisonnes") {
+    heroImage = "/details/pierre-arnould-artist-cloisonnes-detail-4.jpg";
   }
 
   console.log("🖼️ Current pathname:", pathname);
@@ -26,10 +27,10 @@ export default function Hero() {
     textHeader = <>Tondos</>;
   } else if (pathname === "/baroques") {
     textHeader = <>Baroques</>;
-     } else if (pathname === "/compartimentes") {
+  } else if (pathname === "/cloisonnes") {
     textHeader = <>Cloisonnés</>;
-  } else if (pathname === "/compartimentes+geometriques") {
-    textHeader = <>Compartimentés et Géométriques</>;
+  } else if (pathname === "/cloisonnes+geometriques") {
+    textHeader = <>Cloisonnés et Géométriques</>;
   } else if (pathname === "/collections") {
     textHeader = <>Collections</>;
   } else {
@@ -43,10 +44,11 @@ export default function Hero() {
   }
 
   // 🔹 Hauteur du Hero selon la page
-let heroHeight = "h-[200px] sm:h-[220px] md:h-[300px] lg:h-[300px]";
+  let heroHeight = "h-[200px] sm:h-[220px] md:h-[300px] lg:h-[300px]";
 
-if (pathname === "/") { heroHeight = "h-[580px]"; // page d'accueil plein écran
-}
+  if (pathname === "/") {
+    heroHeight = "h-[580px]"; // page d'accueil plein écran
+  }
 
   return (
     <>
@@ -69,14 +71,13 @@ if (pathname === "/") { heroHeight = "h-[580px]"; // page d'accueil plein écran
       <section
         className={`${heroHeight} flex flex-col justify-center text-center text-white`}
       >
-       <h1
-  className="animate__animated animate__fadeInDown 
+        <h1
+          className="animate__animated animate__fadeInDown 
     text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl
     font-bold leading-tight text-center mt-20"
->
-  <span>{textHeader}</span>
-</h1>
-
+        >
+          <span>{textHeader}</span>
+        </h1>
       </section>
     </>
   );

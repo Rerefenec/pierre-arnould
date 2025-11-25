@@ -3,8 +3,8 @@
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import WorkImage from "@/components/WorkImage";
-import { s } from "framer-motion/client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 interface Work {
   title: string;
   style: string;
@@ -13,49 +13,42 @@ interface Work {
 }
 
 // 🔹 Clé de série pour le diaporama
-const SERIES_KEY = "compartimentes";
+const SERIES_KEY = "cloisonnes";
 
 const works: Work[] = [
   ...Array.from({ length: 27 }, (_, i) => ({
-    title: `Compartimentés ${i + 1}`,
+    title: `Cloisonnes ${i + 1}`,
     style: "Cloisonnés",
-    image: `/1969-1994-Compartimentes-mini/pierre-arnould-artiste-compartimentes-${
+    image: `/1969-1994-Cloisonnes-mini/pierre-arnould-artiste-cloisonnes-${
       i + 1
     }.webp`,
     description: "..",
   })),
 ];
 
-export default function CompartimentesPage() {
+export default function CloisonnesPage() {
   const [failedImages, setFailedImages] = useState<number[]>([]);
 
   const handleImageError = (index: number) => {
     setFailedImages((prev) => [...prev, index]);
   };
 
-  return (
+useEffect(() => {
+  if (failedImages.length > 0) {
+    console.log(
+      "Images échouées :",
+      failedImages.map((idx) => ({
+        index: idx + 1,
+        src: works[idx].image,
+      }))
+    );
+  }
+}, [failedImages]);
+
+return (
     <div>
       <main className="overflow-x-hidden">
         <Hero />
-
-        {/* Afficher les images avec erreurs */}
-        {failedImages.length > 0 && (
-          <div className="bg-red-50 border-l-4 border-red-500 p-4 m-6">
-            <p className="font-semibold text-red-800">
-              Images qui n&apos;ont pas pu être chargées :
-            </p>
-            <ul className="list-disc list-inside text-red-700 mt-2">
-              {failedImages.map((idx) => (
-                <li key={idx}>
-                  compartimentés {idx + 1}:{" "}
-                  <code className="bg-red-100 px-2 py-1 rounded text-sm">
-                    {works[idx].image}
-                  </code>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
 
         {/* 🔹 Fond global noir */}
         <div className="bg-black min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">

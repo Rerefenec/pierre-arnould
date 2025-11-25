@@ -12,8 +12,8 @@ export default function UnderHero() {
  let heroImage = "/details/bg.jpg";
   if (pathname === "/geometrique") {
     heroImage = "/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-16.jpg";
-  } else if (pathname === "/compartimentes") {
-    heroImage = "/details/pierre-arnould-artist-compartimentes-detail-4.jpg";
+  } else if (pathname === "/cloisonnes") {
+    heroImage = "/details/pierre-arnould-artist-cloisonnes-detail-4.jpg";
   }
 
   console.log("🖼️ Current pathname:", pathname);
@@ -25,8 +25,8 @@ export default function UnderHero() {
     textHeader = <>Tondos</>;
   } else if (pathname === "/geometrique") {
     textHeader = <>Geometrique</>;
-  } else if (pathname === "/compartimentes") {
-    textHeader = <>Compartimentés</>;
+  } else if (pathname === "/cloisonnes") {
+    textHeader = <>Cloisonnés</>;
   } else if (pathname === "/collections") {
     textHeader = <>Collections</>;
   } else {

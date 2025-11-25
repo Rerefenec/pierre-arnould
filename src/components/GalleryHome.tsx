@@ -29,9 +29,9 @@ const galleryItems: GalleryItem[] = [
   {
     title: "Cloisonnés et Géométriques",
     image:
-      "/1969-1994-Compartimentes/pierre-arnould-artiste-compartimentes-11.jpg",
+      "/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-11.jpg",
     description: "La structure du fragment...",
-    lien: "/compartimentes+geometriques",
+    lien: "/cloisonnes+geometriques",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function GalleryHome() {
           if (item.title === "Tondos") {
             orderClass = "order-1 md:order-2";
             colSpanClass = "col-span-1 md:col-span-2";
-          } else if (item.title === "Compartimentés et Géométriques") {
+          } else if (item.title === "Cloisonnés et Géométriques") {
             orderClass = "order-2 md:order-1";
             colSpanClass = "col-span-1 md:col-span-1";
           } else if (item.title === "Baroques") {

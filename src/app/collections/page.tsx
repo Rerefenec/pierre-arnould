@@ -34,9 +34,9 @@ const galleryItems = [
   })), 
 
   ...Array.from({ length: 27 }, (_, i) => ({
-    title: `Compartimenté ${i + 1}`,
+    title: `Cloisonnes ${i + 1}`,
     style: "Cloisonnés",
-    image: `/1969-1994-Compartimentes-mini/pierre-arnould-artiste-compartimentes-${
+    image: `/1969-1994-Cloisonnes-mini/pierre-arnould-artiste-cloisonnes-${
       i + 1
     }.webp`,
   })),

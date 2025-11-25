@@ -9,15 +9,15 @@ export interface Work {
 
 export const seriesData: Record<string, Work[]> = {
 
-  compartimentes: Array.from({ length: 27 }, (_, i) => ({
+  cloisonnes: Array.from({ length: 27 }, (_, i) => ({
     title: `Cloisonné #${i + 1}`,
-    image: `/1969-1994-Compartimentes/pierre-arnould-artiste-compartimentes-${
+    image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-${
       i + 1
     }.jpg`,
-    style: "Compartimentés",
+    style: "Cloisonnés",
     description: "Description de l'œuvre (Cloisonnés)",
     year: "2025",
-    lien: "compartimentes",
+    lien: "cloisonnes",
   })),
 
   tondos: Array.from({ length: 57 }, (_, i) => ({

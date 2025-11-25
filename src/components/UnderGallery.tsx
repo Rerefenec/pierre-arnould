@@ -24,9 +24,9 @@ const galleryItems: GalleryItem[] = [
   {
     title: "Cloisonnés",
     image:
-      "/1969-1994-Compartimentes/pierre-arnould-artiste-compartimentes-11.jpg",
+      "/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-11.jpg",
     description: "La structure du fragment...",
-    lien: "/compartimentes",
+    lien: "/cloisonnes",
   },
 ];
 
@@ -76,7 +76,7 @@ export default function UnderGallery() {
           let orderClass = "";
           let colSpanClass = "";
 
-        if (item.title === "Compartimentés") {
+        if (item.title === "cloisonnes") {
             orderClass = "order-2 md:order-1";
             colSpanClass = "col-span-1 md:col-span-1";
           } else if (item.title === "Geometriques") {
