@@ -23,14 +23,11 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
   const [isZoomed, setIsZoomed] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // 🔹 Guardar la imagen inicial cuando se monta el componente
+  // 🔹 ✅ Guardar índice cada vez que cambie
   useEffect(() => {
-    if (!currentWork) return;
-    // 🔹 ✅ Simplemente usar el índice como ID
-    const imageId = `image-${currentIndex}`;
-    sessionStorage.setItem("lastViewedId", imageId);
-    console.log("🔹 Guardando ID:", imageId);
-  }, [currentWork, currentIndex])
+    sessionStorage.setItem("lastViewedIndex", currentIndex.toString());
+    console.log("🔹 Guardando índice:", currentIndex);
+  }, [currentIndex]);
 
   // 🔹 Zoom / fullscreen
   useEffect(() => {
@@ -69,19 +66,12 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
       if (direction === "next") newIndex = (currentIndex + 1) % worksCount;
       else newIndex = (currentIndex - 1 + worksCount) % worksCount;
 
-      // 🔹 ✅ ACTUALIZAR sessionStorage con la nueva imagen
-      const newWork = works[newIndex];
-      if (newWork) {
-        const imageId = newWork.image.replace(/\//g, "-").replace(/\./g, "-");
-        sessionStorage.setItem("lastViewedId", imageId);
-      }
-
       const newIndexUrl = newIndex + 1;
       const params = new URLSearchParams(searchParams);
       params.set("index", newIndexUrl.toString());
       router.replace(`/diaporama/${ouvres}?${params.toString()}`);
     },
-    [currentIndex, worksCount, searchParams, router, ouvres, works]
+    [currentIndex, worksCount, searchParams, router, ouvres]
   );
 
   // 🔹 Cerrar diaporama
@@ -89,17 +79,10 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
     if (document.fullscreenElement) {
       document.exitFullscreen?.();
     } else {
-      // 🔹 ✅ Asegurar que se guarde la imagen actual antes de cerrar
-      if (currentWork) {
-        const imageId = currentWork.image.replace(/\//g, "-").replace(/\./g, ".");
-        sessionStorage.setItem("lastViewedId", imageId);
-        console.log("🔹 Guardando antes de cerrar:", imageId);
-      }
-      
-      // Navegar de vuelta a la página de la serie
+      console.log("🔹 Cerrando desde índice:", currentIndex);
       router.push(`/${ouvres}`);
     }
-  }, [router, currentWork, ouvres]);
+  }, [router, currentIndex, ouvres]);
 
   // 🔹 Atajos teclado
   useEffect(() => {
@@ -132,15 +115,11 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
         onShare={handleShare}
         onClose={handleClose}
       />
-                 {" "}
-
       <main
         className={`flex flex-1 flex-col md:flex-row ${
           isZoomed ? "items-center justify-center" : "pt-0 sm:pt-16"
         }`}
       >
-                   {" "}
-
         <DiaporamaImage
           currentWork={currentWork}
           isZoomed={isZoomed}
@@ -148,7 +127,6 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
           onPrev={() => goTo("prev")}
           onExitFullscreen={() => document.exitFullscreen()}
         />
-           {" "}
 
         <DiaporamaDescription
           work={currentWork}
@@ -161,6 +139,3 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
     </div>
   );
 }
-
-
-

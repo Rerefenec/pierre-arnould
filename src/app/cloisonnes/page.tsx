@@ -1,3 +1,4 @@
+
 "use client";
 
 import Footer from "@/components/Footer";
@@ -28,6 +29,7 @@ const works: Work[] = [
 
 export default function CloisonnesPage() {
   const [failedImages, setFailedImages] = useState<number[]>([]);
+  const [isReady, setIsReady] = useState(false); // ✅ Comenzar oculto
 
   const handleImageError = (index: number) => {
     setFailedImages((prev) => [...prev, index]);
@@ -45,32 +47,36 @@ export default function CloisonnesPage() {
     }
   }, [failedImages]);
 
-  // 🔹 ✅ Función para hacer scroll a la última imagen vista
-  const scrollToLastViewed = () => {
-    const lastId = sessionStorage.getItem("lastViewedId");
-    console.log("🔹 Buscando scroll a:", lastId);
+  // 🔹 ✅ Fonction pour faire scroll à la dernière image vue
+const scrollToLastViewed = () => {
+    const lastIndex = sessionStorage.getItem("lastViewedIndex");
     
-    if (lastId) {
-      // Pequeño delay para asegurar que el DOM esté listo
-      setTimeout(() => {
-        const element = document.getElementById(`thumb-${lastId}`);
-        console.log("🔹 Elemento encontrado:", element);
-        
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-        sessionStorage.removeItem("lastViewedId");
-      }, 300);
+    if (lastIndex !== null) {
+      const idx = parseInt(lastIndex, 10);
+      const element = document.getElementById(`thumb-${idx}`);
+      
+      if (element) {
+        // ✅ Scroll instantané (essentiel quand on masque l'opacité)
+        element.scrollIntoView({ behavior: "instant", block: "center" });
+        sessionStorage.removeItem("lastViewedIndex");
+      }
+      
+      // ✅ Afficher avec fade-in après avoir donné le temps au scroll de se faire
+      // Augmenter légèrement pour la compatibilité mobile/tablette.
+      setTimeout(() => setIsReady(true), 200); // 200ms
+    } else {
+      // Si pas de scroll, on affiche immédiatement
+      setIsReady(true);
     }
-  };
-
-  // 🔹 Al montar el componente Y cada vez que la página se hace visible
+};
+  // 🔹 ✅ useEffect para ejecutar al montar
   useEffect(() => {
     scrollToLastViewed();
 
     const handleFocus = () => {
       console.log("🔹 Página enfocada");
-      scrollToLastViewed();
+      const lastIndex = sessionStorage.getItem("lastViewedIndex");
+      if (lastIndex) scrollToLastViewed();
     };
 
     window.addEventListener("focus", handleFocus);
@@ -78,18 +84,20 @@ export default function CloisonnesPage() {
   }, []);
 
   return (
-    <div>
-      <main className="overflow-x-hidden">
+    <div className="bg-black min-h-screen">
         <Hero />
+    {/* Conteneur avec la transition d'opacité */}
+    <div style={{ opacity: isReady ? 1 : 0, transition: 'opacity 0.4s ease-in-out' }}>
+      <main className="overflow-x-hidden">
 
-        {/* 🔹 Fond global noir */}
-        <div className="bg-black min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
+        {/* 🔹 Fond global noir (devient optionnel ici mais peut rester pour la structure) */}
+        <div className="text-gray-900 flex flex-col items-center justify-center md:p-6">  
           {/* 🔹 Grille des œuvres */}
           <div className="pt-8 grid grid-cols-1 md:grid-cols-3 md:gap-30 mt-10 md:mt-0">
             {works.map((work, idx) => (
               <div
                 key={idx}
-                id={`thumb-image-${idx}`}
+                id={`thumb-${idx}`}
                 className="flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out p-4 w-dvh max-w-full mb-10 md:mb-0 overflow-hidden"
               >
                 {/* Image avec limite de hauteur et centrage */}
@@ -123,6 +131,7 @@ export default function CloisonnesPage() {
         </div>
       </main>
       <Footer />
+    </div>
     </div>
   );
 }

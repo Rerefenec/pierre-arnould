@@ -47,38 +47,40 @@ export default function Hero() {
   let heroHeight = "h-[200px] sm:h-[220px] md:h-[300px] lg:h-[300px]";
 
   if (pathname === "/") {
-    heroHeight = "h-[580px]"; // page d'accueil plein écran
+    heroHeight = "h-[720px]"; // page d'accueil plein écran
   }
 
-  return (
-    <>
-      {/* 🔹 Image de fond */}
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src={heroImage}
-          alt="Pierre Arnould, plasticien"
-          fill
-          priority
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-black/40"></div>
-      </div>
+   return (
+        <>
+            {/* 🔹 Header (doit rester en haut) */}
+            <Header />
 
-      {/* 🔹 Header */}
-      <Header />
+            {/* 🔹 Section Hero avec hauteur dynamique (DEVIENT LE CONTENEUR PRINCIPAL) */}
+            <section
+                className={`${heroHeight} flex flex-col justify-center text-center text-white relative overflow-hidden`} 
+            >
+                {/* 🔹 Image de fond (maintenant un enfant direct de la section) */}
+                <div className="absolute inset-0 z-0"> 
+                    <Image
+                        src={heroImage}
+                        alt="Pierre Arnould, plasticien"
+                        fill
+                        priority
+                        className="object-cover object-center"
+                    />
+                    {/* Filtre noir */}
+                    <div className="absolute inset-0 bg-black/40"></div>
+                </div>
 
-      {/* 🔹 Section Hero avec hauteur dynamique */}
-      <section
-        className={`${heroHeight} flex flex-col justify-center text-center text-white`}
-      >
-        <h1
-          className="animate__animated animate__fadeInDown 
-    text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl
-    font-bold leading-tight text-center mt-20"
-        >
-          <span>{textHeader}</span>
-        </h1>
-      </section>
-    </>
-  );
+                {/* 🔹 Titre du Hero (z-index supérieur pour être lisible) */}
+                <h1
+                    className="animate__animated animate__fadeInDown relative z-10 
+                       text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl
+                       font-bold leading-tight text-center mt-20"
+                >
+                    <span>{textHeader}</span>
+                </h1>
+            </section>
+        </>
+    );
 }
