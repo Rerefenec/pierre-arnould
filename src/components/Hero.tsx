@@ -86,9 +86,9 @@ export default function Hero() {
                                text-[6px] sm:text-xs md:text-sm 
                                 text-gray-300 leading-relaxed animate__animated animate__fadeInUp">
                       Une exploration circulaire. Dans cette série, je me concentre sur la forme du 
-                      tondo, un cercle parfait qui invite à la contemplation. J'expérimente avec des motifs répétitifs 
+                      tondo, un cercle parfait qui invite à la contemplation. J&aposexpérimente avec des motifs répétitifs 
                       et des couleurs vives, créant des œuvres qui semblent vibrer et se déplacer. 
-                       C'est un dialogue entre la forme et la couleur, une invitation à voir au-delà du cadre.
+                       C&aposest un dialogue entre la forme et la couleur, une invitation à voir au-delà du cadre.
                   </p>
                 )}
             </section>
