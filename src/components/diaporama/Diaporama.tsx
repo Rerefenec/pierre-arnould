@@ -2,7 +2,6 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, useCallback, useRef } from "react";
-// Assurez-vous que DiaporamaHeader, DiaporamaImage, DiaporamaDescription sont correctement importés.
 import { seriesData } from "./data/seriesData";
 import { DiaporamaHeader } from "./DiaporamaHeader";
 import { DiaporamaImage } from "./DiaporamaImage";
@@ -11,105 +10,81 @@ import { DiaporamaDescription } from "./DiaporamaDescription";
 export default function Diaporama({ ouvres }: { ouvres: string }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const key = (ouvres || "").toLowerCase();  // minuscule
-const works = seriesData[key] || [];
+  const key = (ouvres || "").toLowerCase();
+  const works = seriesData[key] || [];
+  const worksCount = works.length;
 
-  const worksCount = works.length; // 🚨 IMPORTANT : Lire l'index actuel directement depuis l'URL (1-based)
-
-  const indexUrl = parseInt(searchParams.get("index") || "1", 10); // 🚨 Convertir en index de tableau (0-based) et assurer qu'il est valide
+  // 🔹 Index actual basado en URL (1-based)
+  const indexUrl = parseInt(searchParams.get("index") || "1", 10);
   let currentIndex = indexUrl - 1;
-  if (currentIndex < 0 || currentIndex >= worksCount) {
-    currentIndex = 0;
-  }
+  if (currentIndex < 0 || currentIndex >= worksCount) currentIndex = 0;
 
-  const currentWork = works[currentIndex]; // 🔹 Gestion de l'état zoom (Reste en useState car il n'est pas lié à l'URL)
-
+  const currentWork = works[currentIndex];
   const [isZoomed, setIsZoomed] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null); // 🔹 Debug : image actuelle
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  // 🔹 ✅ Guardar índice cada vez que cambie
   useEffect(() => {
-    console.log(
-      `URL de l'image actuelle (index ${indexUrl}) :`,
-      currentWork?.image
-    );
-  }, [currentWork, indexUrl]); // 🔹 Fullscreen listener
+    sessionStorage.setItem("lastViewedIndex", currentIndex.toString());
+    console.log("🔹 Guardando índice:", currentIndex);
+  }, [currentIndex]);
 
+  // 🔹 Zoom / fullscreen
   useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsZoomed(!!document.fullscreenElement);
-    };
+    const handleFullscreenChange = () => setIsZoomed(!!document.fullscreenElement);
     document.addEventListener("fullscreenchange", handleFullscreenChange);
-    return () => {
-      document.removeEventListener("fullscreenchange", handleFullscreenChange);
-    };
-  }, []); // 🔹 Zoom / fullscreen
+    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, []);
 
   const handleZoom = () => {
     const container = containerRef.current;
     if (!document.fullscreenElement) {
-      container?.requestFullscreen?.().catch((err) => console.log(err));
+      container?.requestFullscreen?.().catch(console.log);
     } else {
-      document.exitFullscreen?.().catch((err) => console.log(err));
+      document.exitFullscreen?.().catch(console.log);
     }
-  }; // 🔹 Partage (inchangé)
+  };
 
-const handleShare = () => {
-  if (!currentWork) return;
+  // 🔹 Compartir
+  const handleShare = () => {
+    if (!currentWork) return;
+    if (navigator.share) {
+      navigator
+        .share({ title: currentWork.title, text: `Découvrez l'œuvre : ${currentWork.title}`, url: window.location.href })
+        .catch(console.log);
+    } else if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(window.location.href).then(() => alert("Lien copié !")).catch(console.log);
+    } else {
+      window.prompt("Copiez ce lien :", window.location.href);
+    }
+  };
 
-  // ✅ Si le navigateur supporte navigator.share (mobile natif)
-  if (navigator.share) {
-    navigator
-      .share({
-        title: currentWork.title,
-        text: `Découvrez l'œuvre : ${currentWork.title}`,
-        url: window.location.href,
-      })
-      .catch((err) => console.log("Erreur partage :", err));
-  } 
-  // ✅ Sinon, fallback vers le copier-coller si disponible
-  else if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard
-      .writeText(window.location.href)
-      .then(() => alert("Lien copié !"))
-      .catch((err) => console.log("Impossible de copier :", err));
-  } 
-  // ✅ Dernier fallback : prompt
-  else {
-    window.prompt("Copiez ce lien :", window.location.href);
-  }
-};
-
-
-
+  // 🔹 Navegación Next / Prev
   const goTo = useCallback(
     (direction: "next" | "prev") => {
-      let new0Index;
+      let newIndex;
+      if (direction === "next") newIndex = (currentIndex + 1) % worksCount;
+      else newIndex = (currentIndex - 1 + worksCount) % worksCount;
 
-      if (direction === "next") {
-        // Logique de bouclage Next : (index + 1) % total
-        new0Index = (currentIndex + 1) % worksCount;
-      } else {
-        // Logique de bouclage Prev : (index - 1 + total) % total
-        new0Index = (currentIndex - 1 + worksCount) % worksCount;
-      } // Convertir en index 1-basé pour l'URL
-
-      const newIndexUrl = new0Index + 1;
-
-      const newParams = new URLSearchParams(searchParams);
-      newParams.set("index", newIndexUrl.toString()); // Met à jour l'URL, le composant se re-rendra et lira le nouvel indexUrl
-      router.replace(`/diaporama/${ouvres}?${newParams.toString()}`);
+      const newIndexUrl = newIndex + 1;
+      const params = new URLSearchParams(searchParams);
+      params.set("index", newIndexUrl.toString());
+      router.replace(`/diaporama/${ouvres}?${params.toString()}`);
     },
-    [currentIndex, worksCount, searchParams, router, ouvres, isZoomed]
-  ); // 🔹 Fermeture (inchangé)
+    [currentIndex, worksCount, searchParams, router, ouvres]
+  );
 
+  // 🔹 Cerrar diaporama
   const handleClose = useCallback(() => {
     if (document.fullscreenElement) {
       document.exitFullscreen?.();
     } else {
+      console.log("🔹 Cerrando desde índice:", currentIndex);
       router.push(`/${ouvres}`);
     }
-  }, [router, ouvres]); // 🔹 Clavier // NOTE : On ajoute currentIndex aux dépendances car 'goTo' utilise currentIndex
+  }, [router, currentIndex, ouvres]);
 
+  // 🔹 Atajos teclado
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") goTo("next");
@@ -122,53 +97,45 @@ const handleShare = () => {
 
   if (worksCount === 0)
     return (
-      <p className="text-center mt-18 text-white bg-black min-h-screen">
-         Oeuvre inconnue 
-      </p>
+      <p className="text-center mt-18 text-white bg-black min-h-screen">Oeuvre inconnue</p>
     );
 
- return (
-  <div
-    ref={containerRef}
-    className={
-      isZoomed
-        ? "fixed inset-0 bg-black flex items-center justify-center z-50"
-        : "fixed inset-0 bg-black flex flex-col"
-        // ☝️ Enlevé gap-4 pour mobile
-    }
-  >
-     
-      <DiaporamaHeader
-      isZoomed={isZoomed}
-      onZoom={handleZoom}
-      onShare={handleShare}
-      onClose={handleClose}
-    />
-    <main
-      className={`flex flex-1 flex-col md:flex-row ${
-        isZoomed ? "items-center justify-center" : "pt-0 sm:pt-16"
-        // ☝️ pt-0 sur mobile, pt-16 sur tablette+
-      }`}
+  return (
+    <div
+      ref={containerRef}
+      className={
+        isZoomed
+          ? "fixed inset-0 bg-black flex items-center justify-center z-50"
+          : "fixed inset-0 bg-black flex flex-col"
+      }
     >
-                       {" "}
-      <DiaporamaImage
-  currentWork={currentWork}
-  isZoomed={isZoomed}
-  onNext={() => goTo("next")}
-  onPrev={() => goTo("prev")}
-  onExitFullscreen={() => document.exitFullscreen()}
-/>
-
-      <DiaporamaDescription
-        work={currentWork}
-        index={currentIndex + 1}
-        total={worksCount}
-        ouvres={ouvres}
+      <DiaporamaHeader
         isZoomed={isZoomed}
+        onZoom={handleZoom}
+        onShare={handleShare}
+        onClose={handleClose}
       />
-                   {" "}
+      <main
+        className={`flex flex-1 flex-col md:flex-row ${
+          isZoomed ? "items-center justify-center" : "pt-0 sm:pt-16"
+        }`}
+      >
+        <DiaporamaImage
+          currentWork={currentWork}
+          isZoomed={isZoomed}
+          onNext={() => goTo("next")}
+          onPrev={() => goTo("prev")}
+          onExitFullscreen={() => document.exitFullscreen()}
+        />
+
+        <DiaporamaDescription
+          work={currentWork}
+          index={currentIndex + 1}
+          total={worksCount}
+          ouvres={ouvres}
+          isZoomed={isZoomed}
+        />
       </main>
-             {" "}
     </div>
   );
 }

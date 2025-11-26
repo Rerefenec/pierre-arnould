@@ -6,7 +6,7 @@ interface DiaporamaImageProps {
   isZoomed: boolean;
   onNext: () => void;
   onPrev: () => void;
-  onExitFullscreen?: () => void; // 🔥 para cerrar
+  onExitFullscreen?: () => void; 
 }
 
 export function DiaporamaImage({
@@ -22,10 +22,9 @@ export function DiaporamaImage({
         isZoomed ? "z-50" : "md:w-2/3 md:h-[80vh]"
       }`}
     >
-      {/* === FULLSCREEN === */}
+      {/* Fullscreen */}
       {isZoomed && (
         <>
-          {/* 🔥 Bouton fermer */}
           <button
             onClick={onExitFullscreen}
             className="absolute top-5 right-5 p-3 rounded-full bg-white/10 hover:bg-white/20 transition z-50"
@@ -46,7 +45,7 @@ export function DiaporamaImage({
             </svg>
           </button>
 
-          {/* 🔥 Flèche gauche */}
+          {/*  Flèche gauche */}
           <button
             onClick={onPrev}
             className="absolute left-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 hover:bg-white/20 transition z-50"
@@ -67,7 +66,7 @@ export function DiaporamaImage({
             </svg>
           </button>
 
-          {/* 🔥 Flèche droite */}
+          {/* Flèche droite */}
           <button
             onClick={onNext}
             className="absolute right-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 hover:bg-white/20 transition z-50"
@@ -106,7 +105,7 @@ export function DiaporamaImage({
         </>
       )}
 
-      {/* === MODE NORMAL (desktop + mobile) — tu n'y changes rien === */}
+      {/* MODE NORMAL (desktop + mobile)  */}
       {!isZoomed && (
         <>
           {/* Desktop */}

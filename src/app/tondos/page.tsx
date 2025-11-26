@@ -3,7 +3,7 @@
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import WorkImage from "@/components/WorkImage";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Work {
   title: string;
@@ -22,79 +22,110 @@ const works: Work[] = Array.from({ length: 57 }, (_, i) => ({
 
 
 export default function TondoPage() {
-  const [failedImages, setFailedImages] = useState<number[]>([]);
- 
-   const handleImageError = (index: number) => {
+const [failedImages, setFailedImages] = useState<number[]>([]);
+  const [isReady, setIsReady] = useState(false); // ✅ Comenzar oculto
+
+  const handleImageError = (index: number) => {
     setFailedImages((prev) => [...prev, index]);
   };
 
+  useEffect(() => {
+    if (failedImages.length > 0) {
+      console.log(
+        "Images échouées :",
+        failedImages.map((idx) => ({
+          index: idx + 1,
+          src: works[idx].image,
+        }))
+      );
+    }
+  }, [failedImages]);
+
+  // 🔹 ✅ Fonction pour faire scroll à la dernière image vue
+const scrollToLastViewed = () => {
+    const lastIndex = sessionStorage.getItem("lastViewedIndex");
+    
+    if (lastIndex !== null) {
+      const idx = parseInt(lastIndex, 10);
+      const element = document.getElementById(`thumb-${idx}`);
+      
+      if (element) {
+        // ✅ Scroll instantané (essentiel quand on masque l'opacité)
+        element.scrollIntoView({ behavior: "instant", block: "center" });
+        sessionStorage.removeItem("lastViewedIndex");
+      }
+      
+      // ✅ Afficher avec fade-in après avoir donné le temps au scroll de se faire
+      // Augmenter légèrement pour la compatibilité mobile/tablette.
+      setTimeout(() => setIsReady(true), 200); // 200ms
+    } else {
+      // Si pas de scroll, on affiche immédiatement
+      setIsReady(true);
+    }
+};
+  // 🔹 ✅ useEffect para ejecutar al montar
+  useEffect(() => {
+    scrollToLastViewed();
+
+    const handleFocus = () => {
+      console.log("🔹 Página enfocada");
+      const lastIndex = sessionStorage.getItem("lastViewedIndex");
+      if (lastIndex) scrollToLastViewed();
+    };
+
+    window.addEventListener("focus", handleFocus);
+    return () => window.removeEventListener("focus", handleFocus);
+  }, []);
+
   return (
-    <div>
-      <main className="overflow-x-hidden">
+    <div className="bg-black min-h-screen">
         <Hero />
+    {/* Conteneur avec la transition d'opacité */}
+    <div style={{ opacity: isReady ? 1 : 0, transition: 'opacity 0.4s ease-in-out' }}>
+      <main className="overflow-x-hidden">
 
-        {/* Afficher les images avec erreurs */}
-        {failedImages.length > 0 && (
-          <div className="bg-red-50 border-l-4 border-red-500 p-4 m-6">
-            <p className="font-semibold text-red-800">
-              Images qui n&apos;ont pas pu être chargées :
-            </p>
-            <ul className="list-disc list-inside text-red-700 mt-2">
-              {failedImages.map((idx) => (
-                <li key={idx}>
-                  Tondo {idx + 1}:{" "}
-                  <code className="bg-red-100 px-2 py-1 rounded text-sm">
-                    {works[idx].image}
-                  </code>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {/* 🔹 Fond global noir (devient optionnel ici mais peut rester pour la structure) */}
+        <div className="text-gray-900 flex flex-col items-center justify-center md:p-6">  
+          {/* 🔹 Grille des œuvres */}
+          <div className="pt-8 grid grid-cols-1 md:grid-cols-3 md:gap-30 mt-10 md:mt-0">
+            {works.map((work, idx) => (
+              <div
+                key={idx}
+                id={`thumb-${idx}`}
+                className="flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out p-4 w-dvh max-w-full mb-10 md:mb-0 overflow-hidden"
+              >
+                {/* Image avec limite de hauteur et centrage */}
+                <div className="aspect-square w-full flex items-center justify-center bg-black/20 mb-4">
+                  <WorkImage
+                    src={work.image}
+                    alt={work.title}
+                    title={work.title}
+                    className="object-contain"
+                    workSeries={SERIES_KEY}
+                    workIndex={idx}
+                    onError={() => handleImageError(idx)}
+                  />
+                </div>
 
-       {/* 🔹 Fond global noir */}
-               <div className="bg-black min-h-screen text-gray-900 flex flex-col items-center justify-center pt-10">
-                 {/* 🔹 Grille des œuvres */}
-<div className="grid grid-cols-1 md:grid-cols-3 gap-20 ">
-                   {works.map((work, idx) => (
-             <div
-         key={idx}
-         className="flex flex-col rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out  w-full max-w-xs h-full"
-       >
-         {/* Image avec limite de hauteur et centrage */}
-<div
-  className="flex justify-center items-center w-full 
-    min-h-[200px] sm:min-h-[300px] md:min-h-[400px]
-    max-h-[900px] overflow-hidden"
->
-
-
-           <WorkImage
-             src={work.image}
-             alt={work.title}
-             title={work.title}
-             width={400}
-             height={400}
-             className="object-contain max-h-full max-w-full rounded-md"
-             workSeries={SERIES_KEY}
-             workIndex={idx}
-             onError={() => handleImageError(idx)}
-           />
-         </div>
-
-  {/* Informations de l'œuvre toujours en bas */}
-  <div className="mt-auto w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-2">
-    <h2 className="text-white text-center font-semibold">{work.title}</h2>
-    <p className="text-gray-400 text-sm text-center">{work.style}</p>
-    <p className="text-gray-500 text-center mt-1">{work.description}</p>
-  </div>
-</div>
-
+                {/* Informations de l'œuvre toujours en bas */}
+                <div className="mt-auto w-70 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-3 md:p-4 flex flex-col items-center justify-center">
+                  <h2 className="text-white text-center font-semibold text-sm md:text-base lg:text-lg">
+                    {work.title}
+                  </h2>
+                  <p className="text-gray-400 text-xs md:text-sm lg:text-base">
+                    {work.style}
+                  </p>
+                  <p className="text-gray-500 wrap-break-word overflow-hidden line-clamp-3 w-full text-xs md:text-sm lg:text-base">
+                    {work.description}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </main>
       <Footer />
+    </div>
     </div>
   );
 }
