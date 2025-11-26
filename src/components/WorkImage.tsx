@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-
 interface WorkImageProps {
   src: string;
   alt: string;
@@ -13,6 +12,7 @@ interface WorkImageProps {
   onLoad?: () => void;
   workSeries: string;
   workIndex: number;
+  priority?: boolean; // ← NUEVO
 }
 
 export default function WorkImage({
@@ -24,6 +24,7 @@ export default function WorkImage({
   onLoad,
   workSeries,
   workIndex,
+  priority = false, // default false
 }: WorkImageProps) {
   const router = useRouter();
   const [hasError, setHasError] = useState(false);
@@ -44,32 +45,20 @@ export default function WorkImage({
 
   const handleClick = () => {
     const targetIndex = workIndex + 1;
-    console.log(`🔍 Click sur image - workIndex: ${workIndex}, targetIndex: ${targetIndex}, série: ${workSeries}`);
-    console.log(`📍 Navigation vers: /diaporama/${workSeries}?index=${targetIndex}`);
     router.push(`/diaporama/${workSeries}?index=${targetIndex}`);
   };
 
   return (
-    // Es CRUCIAL que este padre de Image (o su abuelo en la página principal) sea 'relative'
-    <div className="relative group cursor-pointer w-full h-full" onClick={handleClick}> 
-      
-      {/* Loader: Utiliza absolute inset-0 para llenar el contenedor padre dimensionado */}
+    <div className="relative group cursor-pointer w-full h-full" onClick={handleClick}>
       {isLoading && !hasError && (
-        <div
-          className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-md animate-pulse"
-        >
-          <div className="text-center">
-            <div className="w-8 h-8 border-4 border-gray-300 border-t-gray-600 rounded-full animate-spin mx-auto" />
-            <p className="text-xs text-gray-500 mt-2">Chargement...</p>
-          </div>
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-md animate-pulse">
+          <div className="w-8 h-8 border-4 border-gray-300 border-t-gray-600 rounded-full animate-spin mx-auto" />
+          <p className="text-xs text-gray-500 mt-2">Chargement...</p>
         </div>
       )}
 
-      {/* Image avec erreur: Utiliza absolute inset-0 para llenar el contenedor padre dimensionado */}
       {hasError ? (
-        <div
-          className="absolute inset-0 flex items-center justify-center bg-gray-200 rounded-md"
-        >
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-200 rounded-md">
           <div className="text-center p-4">
             <span className="text-4xl">🖼️</span>
             <p className="text-xs text-gray-600 mt-2">Image non trouvée</p>
@@ -81,22 +70,17 @@ export default function WorkImage({
           <Image
             src={src}
             alt={alt}
-            fill={true} // Ocupa todo el contenedor padre
-            sizes="(max-width: 768px) 100vw, 33vw" // Obligatorio con 'fill'
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
             className={`${className} transition-all duration-300 group-hover:opacity-90 group-hover:scale-[1.02]`}
             onError={handleError}
             onLoad={handleLoad}
+            priority={priority} 
           />
-          
-          {/* Overlay au survol */}
+
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 rounded-md flex items-center justify-center opacity-0 group-hover:opacity-100">
             <div className="text-zinc-400 text-center">
-              <svg
-                className="w-12 h-12 mx-auto mb-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"

@@ -13,7 +13,6 @@ interface Work {
 }
 
 const SERIES_KEY = "baroques";
-
 const works: Work[] = [
   ...Array.from({ length: 23 }, (_, i) => ({
     title: `Baroques ${i + 1}`,

@@ -29,6 +29,17 @@ export const seriesData: Record<string, Work[]> = {
     lien: "tondos",
   })),
 
+   baroques: Array.from({ length: 23 }, (_, i) => ({
+    title: `Baroques #${i + 1}`,
+    image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-${
+      i + 1
+    }.jpg`,
+    style: "baroques",
+    description: "Description de l'œuvre (Baroque)",
+    year: "2025",
+    lien: "baroques",
+  })),
+
   geometrique: Array.from({ length: 24 }, (_, i) => ({
     title: `Geometrique #${i + 1}`,
     image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-${
@@ -40,15 +51,6 @@ export const seriesData: Record<string, Work[]> = {
     lien: "geometrique",
   })),
 
-   baroque: Array.from({ length: 23 }, (_, i) => ({
-    title: `Baroque #${i + 1}`,
-    image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-${
-      i + 1
-    }.jpg`,
-    style: "baroque",
-    description: "Description de l'œuvre (Baroque)",
-    year: "2025",
-    lien: "baroque",
-  })),
+  
 
 };

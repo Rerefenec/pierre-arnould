@@ -33,34 +33,65 @@ export default function CloisonnesPage() {
     setFailedImages((prev) => [...prev, index]);
   };
 
-useEffect(() => {
-  if (failedImages.length > 0) {
-    console.log(
-      "Images échouées :",
-      failedImages.map((idx) => ({
-        index: idx + 1,
-        src: works[idx].image,
-      }))
-    );
-  }
-}, [failedImages]);
+  useEffect(() => {
+    if (failedImages.length > 0) {
+      console.log(
+        "Images échouées :",
+        failedImages.map((idx) => ({
+          index: idx + 1,
+          src: works[idx].image,
+        }))
+      );
+    }
+  }, [failedImages]);
 
-return (
+  // 🔹 ✅ Función para hacer scroll a la última imagen vista
+  const scrollToLastViewed = () => {
+    const lastId = sessionStorage.getItem("lastViewedId");
+    console.log("🔹 Buscando scroll a:", lastId);
+    
+    if (lastId) {
+      // Pequeño delay para asegurar que el DOM esté listo
+      setTimeout(() => {
+        const element = document.getElementById(`thumb-${lastId}`);
+        console.log("🔹 Elemento encontrado:", element);
+        
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        sessionStorage.removeItem("lastViewedId");
+      }, 300);
+    }
+  };
+
+  // 🔹 Al montar el componente Y cada vez que la página se hace visible
+  useEffect(() => {
+    scrollToLastViewed();
+
+    const handleFocus = () => {
+      console.log("🔹 Página enfocada");
+      scrollToLastViewed();
+    };
+
+    window.addEventListener("focus", handleFocus);
+    return () => window.removeEventListener("focus", handleFocus);
+  }, []);
+
+  return (
     <div>
       <main className="overflow-x-hidden">
         <Hero />
 
         {/* 🔹 Fond global noir */}
         <div className="bg-black min-h-screen text-gray-900 flex flex-col items-center justify-center md:p-6">
-          {" "}
           {/* 🔹 Grille des œuvres */}
           <div className="pt-8 grid grid-cols-1 md:grid-cols-3 md:gap-30 mt-10 md:mt-0">
-            {" "}
             {works.map((work, idx) => (
-             <div
-  key={idx}
-  className="flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out p-4 w-dvh max-w-full mb-10 md:mb-0 overflow-hidden"
->
+              <div
+                key={idx}
+                id={`thumb-image-${idx}`}
+                className="flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out p-4 w-dvh max-w-full mb-10 md:mb-0 overflow-hidden"
+              >
                 {/* Image avec limite de hauteur et centrage */}
                 <div className="aspect-square w-full flex items-center justify-center bg-black/20 mb-4">
                   <WorkImage
