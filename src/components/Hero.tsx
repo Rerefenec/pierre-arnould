@@ -76,10 +76,21 @@ export default function Hero() {
                 <h1
                     className="animate__animated animate__fadeInDown relative z-10 
                        text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl
-                       font-bold leading-tight text-center mt-20"
+                       font-bold leading-tight "
                 >
                     <span>{textHeader}</span>
                 </h1>
+                {/* 🔹 Texte descriptif pour Tondos */}
+                {pathname === "/tondos" && (
+                  <p className=" absolute bottom-0 mt-4  
+                               text-[6px] sm:text-xs md:text-sm 
+                                text-gray-300 leading-relaxed animate__animated animate__fadeInUp">
+                      Une exploration circulaire. Dans cette série, je me concentre sur la forme du 
+                      tondo, un cercle parfait qui invite à la contemplation. J'expérimente avec des motifs répétitifs 
+                      et des couleurs vives, créant des œuvres qui semblent vibrer et se déplacer. 
+                       C'est un dialogue entre la forme et la couleur, une invitation à voir au-delà du cadre.
+                  </p>
+                )}
             </section>
         </>
     );
