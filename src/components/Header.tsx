@@ -44,7 +44,7 @@ export default function Header() {
 <nav className="hidden md:flex space-x-6 whitespace-nowrap">
             <Link href="/">Home</Link>
             <Link href="/collections">Collections</Link>
-            <Link href="/A propos">À propos</Link>
+            <Link href="/apropos">À propos</Link>
             <Link href="/faqs">FAQs</Link>
           </nav>
 

@@ -8,15 +8,19 @@ export default function Hero() {
   const pathname = usePathname();
 
   // 🔹 Image selon la page
-  let heroImage = "/details/bg.jpg";
-  if (pathname === "/tondos") {
-    heroImage = "/details/pierre-arnould-artist-tondo-detail-01.jpg";
-  } else if (pathname === "/geometrique") {
-    heroImage =
-      "/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-16.jpg";
-  } else if (pathname === "/cloisonnes") {
-    heroImage = "/details/pierre-arnould-artist-cloisonnes-detail-4.jpg";
-  }
+ let heroImage: string | null = "/details/bg.jpg";
+
+if (pathname === "/tondos") {
+  heroImage = "/details/pierre-arnould-artist-tondo-detail-01.jpg";
+} else if (pathname === "/geometrique") {
+  heroImage = "/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-16.jpg";
+} else if (pathname === "/cloisonnes") {
+  heroImage = "/details/pierre-arnould-artist-cloisonnes-detail-4.jpg";
+} else if (pathname === "/apropos") {
+  heroImage = null; // AUCUNE IMAGE
+}
+
+
 
   console.log("🖼️ Current pathname:", pathname);
   console.log("🖼️ Loading image:", heroImage);
@@ -33,6 +37,8 @@ export default function Hero() {
     textHeader = <>Cloisonnés et Géométriques</>;
   } else if (pathname === "/collections") {
     textHeader = <>Collections</>;
+   } else if (pathname === "/apropos") {
+    textHeader = <>À propos</>;  
   } else {
     textHeader = (
       <>
@@ -46,9 +52,10 @@ export default function Hero() {
   // 🔹 Hauteur du Hero selon la page
   let heroHeight = "h-[200px] sm:h-[220px] md:h-[300px] lg:h-[300px]";
 
-  if (pathname === "/") {
-    heroHeight = "h-[720px]"; // page d'accueil plein écran
-  }
+ if (pathname === "/") {
+  heroHeight = "h-[720px] md:h-[800px] lg:h-screen";
+}
+
 
    return (
         <>
@@ -61,13 +68,15 @@ export default function Hero() {
             >
                 {/* 🔹 Image de fond (maintenant un enfant direct de la section) */}
                 <div className="absolute inset-0 z-0"> 
-                    <Image
-                        src={heroImage}
-                        alt="Pierre Arnould, plasticien"
-                        fill
-                        priority
-                        className="object-cover object-center"
-                    />
+                    {heroImage && (
+                      <Image
+                          src={heroImage}
+                          alt="Pierre Arnould, plasticien"
+                          fill
+                          priority
+                          className="object-cover object-center"
+                      />
+                    )}
                     {/* Filtre noir */}
                     <div className="absolute inset-0 bg-black/40"></div>
                 </div>
