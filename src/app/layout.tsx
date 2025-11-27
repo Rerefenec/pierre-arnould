@@ -59,12 +59,12 @@ export default function RootLayout({
           /> */}
 
             {/*Cinzel */}
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
             <link
               href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&display=swap"
               rel="stylesheet"
-            />
+            /> */}
 
             {/* zalando */}
             {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -98,12 +98,12 @@ export default function RootLayout({
           /> */}
 
           {/* rubik mono one */}
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
             href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap"
             rel="stylesheet"
-          />
+          /> */}
 
              {/* oxygen mono one */}
                <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -112,6 +112,127 @@ export default function RootLayout({
             href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap"
             rel="stylesheet"
           />
+
+              {/* lexend giga */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap"
+            rel="stylesheet"
+          /> */}
+
+              {/* julius sans one */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap"
+            rel="stylesheet"
+          /> */}
+
+                 {/* balsamiq sans */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet"
+          /> */}
+
+                  {/* azeret mono */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+          /> */}
+
+                  {/* armata */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Armata&display=swap"
+            rel="stylesheet"
+          /> */}
+
+                  {/* lexend peta */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100..900&display=swap"
+            rel="stylesheet"
+          /> */}
+
+                      {/* tilt neon */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap"
+            rel="stylesheet"
+          /> */}
+
+                     {/* kode mono */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap"
+            rel="stylesheet"
+          /> */}
+
+                        {/* cutive */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Cutive&display=swap"
+            rel="stylesheet"
+          /> */}
+
+                         {/* cody star */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&display=swap"
+            rel="stylesheet"
+          /> */}
+
+                             {/* raleway dots */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap"
+            rel="stylesheet"
+          /> */}
+
+                             {/* Anta */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Anta&display=swap"
+            rel="stylesheet"
+          /> */}
+
+                              {/* tourney */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Tourney:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+          /> */}
+
+                              {/* bitcount grid single */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap"
+            rel="stylesheet"
+          /> */}
+
+                              {/* bruno ace */}
+               {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap"
+            rel="stylesheet"
+          /> */}
+
       </head>
       <body>{children}</body>
     </html>
