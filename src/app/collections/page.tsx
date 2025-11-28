@@ -8,33 +8,30 @@ import SideBar from "@/components/SideBar";
 import Footer from "@/components/Footer";
 import GalleryCollections from "@/components/GalleryCollections";
 import Header from "@/components/Header";
+import { seriesData } from "@/components/diaporama/data/seriesData";
 
 // --- Données gallery ---
-const galleryItems = [
-  ...Array.from({ length: 24 }, (_, i) => ({
-    title: `Geometrique ${i + 1}`,
-    style: "Géometriques",
-    image: `/2021-2025-Geometriques-mini/pierre-arnould-artiste-geometrique-${i + 1}.webp`,
-  })),
 
-  ...Array.from({ length: 23 }, (_, i) => ({
-    title: `Baroque ${i + 1}`,
-    style: "Baroques",
-    image: `/2021-2025-Baroques-mini/pierre-arnould-artiste-baroque-${i + 1}.webp`,
-  })),
+const galleryItems = Object.entries(seriesData).flatMap(([serie, works]) =>
+  works.map((work, index) => {
+    const miniImage = work.image
+      .replace("/1969-1994-Cloisonnes/", "/1969-1994-Cloisonnes-mini/")
+      .replace("/1995-2020-Tondos/", "/1995-2020-Tondos-mini/")
+      .replace("/2021-2025-Baroques/", "/2021-2025-Baroques-mini/")
+      .replace("/2021-2025-Geometriques/", "/2021-2025-Geometriques-mini/")
+      .replace(".jpg", ".webp")
+      .replace(".png", ".webp");
 
-  ...Array.from({ length: 57 }, (_, i) => ({
-    title: `Tondo ${i + 1}`,
-    style: "Tondos",
-    image: `/1995-2020-Tondos-mini/pierre-arnould-artiste-tondo-${i + 1}.webp`,
-  })),
-
-  ...Array.from({ length: 27 }, (_, i) => ({
-    title: `Cloisonnes ${i + 1}`,
-    style: "Cloisonnés",
-    image: `/1969-1994-Cloisonnes-mini/pierre-arnould-artiste-cloisonnes-${i + 1}.webp`,
-  })),
-];
+    return {
+      title: work.title,
+      style: work.style,
+      image: miniImage,
+      lien: work.lien,
+      index,
+      serie,
+    };
+  })
+);
 
 const styles = [
   "Géometriques",

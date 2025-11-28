@@ -54,7 +54,7 @@ export default function GalleryCollections({
               height={400}
               className="object-cover rounded-md w-full h-60"
             />
-            <h3 className="mt-2 text-center font-semibold">{item.title}</h3>
+            <h3 className="mt-2 text-center font-semibold text-neutral-500 ">{item.title}</h3>
           </div>
         ))}
       </div>

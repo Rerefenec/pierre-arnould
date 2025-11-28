@@ -48,13 +48,13 @@ export default function SearchBar({
         {/* 🔍 Recherche */}
         <input
           type="text"
-          placeholder="Rechercher un artwork..."
+          placeholder="Rechercher une œuvre ..."
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
             setCurrentPage(1); // ⭐ reset page
           }}
-          className="w-full p-3 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-white"
+          className="w-full p-3 border border-gray-300 rounded-md placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-white"
         />
 
         {/* Mobile : filtre styles */}
