@@ -13,7 +13,6 @@ interface CollectionDiaporamaProps {
   onClose?: () => void;
 }
 
-
 export default function CollectionDiaporama({
   ouvres,
   initialIndex: initialIndexProp,
@@ -24,8 +23,12 @@ export default function CollectionDiaporama({
   const key = (ouvres || "").toLowerCase();
   const works = seriesData[key] || [];
   const worksCount = works.length;
-  const initialIndex = initialIndexProp ?? parseInt(searchParams.get("index") || "1", 10) - 1;
-let [currentIndex, setCurrentIndex] = useState(initialIndex >= 0 && initialIndex < worksCount ? initialIndex : 0);
+  const initialIndex =
+    initialIndexProp ?? parseInt(searchParams.get("index") || "1", 10) - 1;
+const [currentIndex] = useState(
+  initialIndex >= 0 && initialIndex < worksCount ? initialIndex : 0
+);
+
 
   const currentWork = works[currentIndex];
   const [isZoomed, setIsZoomed] = useState(false);
@@ -74,17 +77,16 @@ let [currentIndex, setCurrentIndex] = useState(initialIndex >= 0 && initialIndex
     }
   };
 
- const handleClose = () => {
-  if (isZoomed && document.fullscreenElement) {
-    document.exitFullscreen?.();
-    setIsZoomed(false);
-  } else if (onClose) {
-    onClose(); // revient à la page Collections
-  } else {
-    router.back();
-  }
-};
-
+  const handleClose = () => {
+    if (isZoomed && document.fullscreenElement) {
+      document.exitFullscreen?.();
+      setIsZoomed(false);
+    } else if (onClose) {
+      onClose(); // revient à la page Collections
+    } else {
+      router.back();
+    }
+  };
 
   if (worksCount === 0) {
     return (

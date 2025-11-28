@@ -3,7 +3,6 @@
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import UnderGallery from "@/components/UnderGallery";
-import UnderHero from "@/components/UnderHero";
 
 export default function HomePage() {
   return (
@@ -13,7 +12,7 @@ export default function HomePage() {
         <div className="relative">
 
       {/* <Hero /> */}
-      <UnderHero />
+      <Hero />
       </div>
       {/* Fondo de la galería en blanco para cubrir progresivamente el Hero */}
       <div className="relative pt-26 pb-1 bg-black ">
