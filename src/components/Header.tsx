@@ -45,7 +45,7 @@ export default function Header() {
             <Link href="/">Home</Link>
             <Link href="/collections">Collections</Link>
             <Link href="/apropos">À propos</Link>
-            <Link href="/faqs">FAQs</Link>
+            <Link href="/contact">Contact</Link>
           </nav>
 
           {/* Mobile button */}

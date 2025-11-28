@@ -17,6 +17,8 @@ if (pathname === "/tondos") {
 } else if (pathname === "/cloisonnes") {
   heroImage = "/details/pierre-arnould-artist-cloisonnes-detail-4.jpg";
 } else if (pathname === "/apropos") {
+  heroImage = null; 
+} else if (pathname === "/contact") {
   heroImage = null; // AUCUNE IMAGE
 }
 
@@ -39,7 +41,9 @@ if (pathname === "/tondos") {
     textHeader = <>Collections</>;
    } else if (pathname === "/apropos") {
     textHeader = <>À propos</>;  
-  } else {
+  } else if (pathname === "/contact") {
+    textHeader = <>Contact</>;  
+  }else {
     textHeader = (
       <>
         Pierre Arnould
