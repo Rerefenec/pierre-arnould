@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useState } from "react";
 
 type GalleryItem = {
   title: string;
@@ -11,30 +10,40 @@ interface GalleryCollectionsProps {
   items: GalleryItem[];
   selectedStyle: string | null;
   query: string;
+
+  // ⭐ pagination contrôlée depuis parent
+  currentPage: number;
+  setCurrentPage: (page: number) => void;
 }
 
-export default function GalleryCollections({ items, selectedStyle, query }: GalleryCollectionsProps) {
-  const [currentPage, setCurrentPage] = useState(1);
+export default function GalleryCollections({
+  items,
+  selectedStyle,
+  query,
+  currentPage,
+  setCurrentPage,
+}: GalleryCollectionsProps) {
   const itemsPerPage = 6;
 
-  // 🔹 Filtrer les items selon style et recherche
+  // Filtrage
   const filteredItems = items.filter(
     (item) =>
       (!selectedStyle || item.style === selectedStyle) &&
       item.title.toLowerCase().includes(query.toLowerCase())
   );
 
-  // 🔹 Pagination
+  // Pagination
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = filteredItems.slice(startIndex, startIndex + itemsPerPage);
 
-  const goPrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
-  const goNext = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  const goPrev = () => setCurrentPage(Math.max(currentPage - 1, 1));
+  const goNext = () => setCurrentPage(Math.min(currentPage + 1, totalPages));
 
   return (
     <div className="flex flex-col w-full">
-      {/* 🔹 Grille centrée */}
+
+      {/* Grille */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4 justify-items-center">
         {currentItems.map((item) => (
           <div key={item.title} className="relative cursor-pointer flex flex-col items-center">
@@ -45,12 +54,12 @@ export default function GalleryCollections({ items, selectedStyle, query }: Gall
               height={400}
               className="object-cover rounded-md w-full h-60"
             />
-            <h3 className="mt-2 text-center font-semibold">{item.title}</h3>
+            <h3 className="mt-2 text-center font-semibold text-neutral-500 ">{item.title}</h3>
           </div>
         ))}
       </div>
 
-      {/* 🔹 Pagination */}
+      {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex justify-center items-center mt-6 space-x-4">
           <button
