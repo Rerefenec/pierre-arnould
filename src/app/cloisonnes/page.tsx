@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import WorkImage from "@/components/WorkImage";
 import { useState, useEffect } from "react";
 // 🎯 1. Importer la structure et les données depuis la source unique
-import { Work, seriesData } from "@/components/diaporama/data/seriesData"; 
+import { Work, seriesData } from "@/app/data/seriesData"; 
 
 // 🔹 Clé de série pour le diaporama
 const SERIES_KEY = "cloisonnes";

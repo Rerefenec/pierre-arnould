@@ -8,7 +8,7 @@ import SideBar from "@/components/SideBar";
 import Footer from "@/components/Footer";
 import GalleryCollections from "@/components/GalleryCollections";
 import Header from "@/components/Header";
-import { seriesData } from "@/components/diaporama/data/seriesData";
+import { seriesData } from "@/app/data/seriesData";
 import CollectionDiaporama from "@/components/diaporama/CollectionDiaporama";
 
 const galleryItems = Object.entries(seriesData).flatMap(([serie, works]) =>

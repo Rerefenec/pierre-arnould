@@ -1,26 +1,14 @@
-// const withPWA = require('next-pwa')({
-//   dest: 'public',
-//   disable: false, // Cambia esto a false
-//   // process.env.NODE_ENV === 'development', // Desactiva en desarrollo
-//   register: true,
-//   skipWaiting: true,
-// });
-
-// module.exports = withPWA({
-//   // Tu configuración existente
-// });
-// esta config es para build y no para dev
-
-
-// next.config.ts
+// next.config.js (or .ts)
 const withPWA = require('next-pwa')({
   dest: 'public',
-  disable: process.env.NODE_ENV === 'development', // Desactiva en desarrollo
+  // Recommended: Disable PWA features during development
+  disable: process.env.NODE_ENV === 'development',
   register: true,
   skipWaiting: true,
 });
 
 module.exports = withPWA({
+  // Your standard Next.js configuration goes here
   reactStrictMode: true,
+  // ... other configs like images, output, etc.
 });
-// esta config es para dev y no build 
