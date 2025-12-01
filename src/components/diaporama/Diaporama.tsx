@@ -109,6 +109,8 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
           : "fixed inset-0 bg-black flex flex-col"
       }
     >
+                 {" "}
+
       <DiaporamaHeader
         isZoomed={isZoomed}
         onZoom={handleZoom}
@@ -120,6 +122,8 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
           isZoomed ? "items-center justify-center" : "pt-0 sm:pt-16"
         }`}
       >
+                   {" "}
+
         <DiaporamaImage
           currentWork={currentWork}
           isZoomed={isZoomed}
@@ -127,6 +131,8 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
           onPrev={() => goTo("prev")}
           onExitFullscreen={() => document.exitFullscreen()}
         />
+
+           {" "}
 
         <DiaporamaDescription
           work={currentWork}

@@ -1,5 +1,4 @@
 import { Work } from "./data/seriesData";
-import { useRouter } from "next/navigation";
 
 interface DiaporamaDescriptionProps {
   work: Work;
@@ -12,25 +11,11 @@ export function DiaporamaDescription({
   work,
   index,
   total,
-  ouvres,
   isZoomed,
 }: DiaporamaDescriptionProps) {
-  const router = useRouter();
 
   if (isZoomed) return null;
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: work.title,
-        text: `Découvrez l'œuvre : ${work.title}`,
-        url: window.location.href,
-      });
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert("Lien copié !");
-    }
-  };
 
   return (
     <>

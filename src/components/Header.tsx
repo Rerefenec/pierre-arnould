@@ -70,8 +70,8 @@ export default function Header() {
         <nav className="flex flex-col items-center py-6 space-y-5 text-lg">
           <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
           <Link href="/collections" onClick={() => setMenuOpen(false)}>Collections</Link>
-          <Link href="/A propos" onClick={() => setMenuOpen(false)}>À propos</Link>
-          <Link href="/faqs" onClick={() => setMenuOpen(false)}>FAQs</Link>
+          <Link href="/apropos" onClick={() => setMenuOpen(false)}>À propos</Link>
+          <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
         </nav>
       </div>
     </>
