@@ -22,7 +22,8 @@ const FOLDER_TO_KEY_MAP: Record<string, string> = {
 
 // ✅ No explicit type for context
 export async function GET(request: NextRequest, context: any) {
-  const { slug } = context.params; // Next.js infers this
+  const { params } = context;
+    const { slug } = context.params; // Next.js infers this
 
   const slugWithoutExtension = slug.replace(".xml", "");
   const match = slugWithoutExtension.match(/^([a-z0-9\-]+)-(\d+)$/);
