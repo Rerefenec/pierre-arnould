@@ -27,16 +27,25 @@ const FOLDER_TO_KEY_MAP: Record<string, string> = {
   "2021-2025-geometriques": "geometrique",
 };
 
-// ✅ CORRECTION: params est maintenant une Promise dans Next.js 15+
+// ✅ DÉFINIR le type des paramètres
+type RouteParams = {
+  slug: string;
+};
+
+type RouteContext = {
+  params: Promise<RouteParams>;
+};
+
+// ✅ CORRECTION: Utilisation du type défini
 export async function GET(
   request: Request,
-  context: { params: Promise<{ slug: string }> }
+  { params }: RouteContext
 ) {
   // ✅ Il faut await params
-  const params = await context.params;
+  const resolvedParams = await params;
 
-  // Le reste de votre logique utilise maintenant params.slug
-  const slugWithoutExtension = params.slug.replace(".xml", "");
+  // Le reste de votre logique utilise maintenant resolvedParams.slug
+  const slugWithoutExtension = resolvedParams.slug.replace(".xml", "");
   
   // Expression régulière pour extraire le nom complet de la série (y compris les années)
   // et le numéro de lot final.
