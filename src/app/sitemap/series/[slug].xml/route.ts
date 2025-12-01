@@ -20,59 +20,66 @@ const FOLDER_TO_KEY_MAP: Record<string, string> = {
   "2021-2025-geometriques": "geometrique",
 };
 
-// ✅ No explicit type for context
-export async function GET(request: NextRequest, context: any) {
-  const { params } = context;
-    const { slug } = context.params; // Next.js infers this
+// Use Next.js inferred type for GET
+export const GET = async (
+    request: NextRequest,
+    context: { params: { slug?: string } }
+): Promise<Response> => {
+    const { params } = context;
+    const slug = params?.slug;
 
-  const slugWithoutExtension = slug.replace(".xml", "");
-  const match = slugWithoutExtension.match(/^([a-z0-9\-]+)-(\d+)$/);
+    if (!slug) {
+        return new Response("Missing slug", { status: 400 });
+    }
 
-  if (!match || match.length !== 3) {
-    return new Response("Invalid sitemap format", { status: 400 });
-  }
+    const slugWithoutExtension = slug.replace(".xml", "");
+    const match = slugWithoutExtension.match(/^([a-z0-9\-]+)-(\d+)$/);
 
-  const fullFolderName = match[1];
-  const batchNumber = parseInt(match[2], 10);
-  const serieKey = FOLDER_TO_KEY_MAP[fullFolderName];
+    if (!match || match.length !== 3) {
+        return new Response("Invalid sitemap format", { status: 400 });
+    }
 
-  if (!serieKey || !seriesData[serieKey]) {
-    return new Response("Serie not recognized or data missing", { status: 404 });
-  }
+    const fullFolderName = match[1];
+    const batchNumber = parseInt(match[2], 10);
+    const serieKey = FOLDER_TO_KEY_MAP[fullFolderName];
 
-  const allWorks: Work[] = seriesData[serieKey] as Work[];
-  const start = (batchNumber - 1) * BATCH_SIZE;
-  const end = start + BATCH_SIZE;
+    if (!serieKey || !seriesData[serieKey]) {
+        return new Response("Serie not recognized or data missing", { status: 404 });
+    }
 
-  if (start >= allWorks.length || batchNumber < 1) {
-    return new Response("Batch index out of range", { status: 404 });
-  }
+    const allWorks: Work[] = seriesData[serieKey] as Work[];
+    const start = (batchNumber - 1) * BATCH_SIZE;
+    const end = start + BATCH_SIZE;
 
-  const batchWorks = allWorks.slice(start, end);
+    if (start >= allWorks.length || batchNumber < 1) {
+        return new Response("Batch index out of range", { status: 404 });
+    }
 
-  let xml = `<?xml version="1.0" encoding="UTF-8"?>
+    const batchWorks: Work[] = allWorks.slice(start, end);
+
+    let xml: string = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+                xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 `;
 
-  batchWorks.forEach((work) => {
-    const pageUrl = `${BASE_URL}/oeuvres/${work.lien}#${work.title
-      .toLowerCase()
-      .replace(/ /g, "-")
-      .replace(/'/g, "")}`;
-    const imageUrl = `${BASE_URL}${work.image}`;
+    batchWorks.forEach((work: Work): void => {
+        const pageUrl: string = `${BASE_URL}/oeuvres/${work.lien}#${work.title
+            .toLowerCase()
+            .replace(/ /g, "-")
+            .replace(/'/g, "")}`;
+        const imageUrl: string = `${BASE_URL}${work.image}`;
 
-    xml += `  <url>
-    <loc>${pageUrl}</loc>
-    <image:image>
-      <image:loc>${imageUrl}</image:loc>
-      <image:title>${work.title}</image:title>
-    </image:image>
-  </url>
+        xml += `  <url>
+        <loc>${pageUrl}</loc>
+        <image:image>
+            <image:loc>${imageUrl}</image:loc>
+            <image:title>${work.title}</image:title>
+        </image:image>
+    </url>
 `;
-  });
+    });
 
-  xml += `</urlset>`;
+    xml += `</urlset>`;
 
-  return new Response(xml, { headers: { "Content-Type": "application/xml" } });
-}
+    return new Response(xml, { headers: { "Content-Type": "application/xml" } });
+};
