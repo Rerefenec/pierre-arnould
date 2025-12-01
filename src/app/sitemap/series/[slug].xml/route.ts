@@ -1,5 +1,5 @@
-import { NextRequest } from "next/server";
 import { seriesData } from "../../../data/seriesData";
+import { NextRequest } from "next/server";
 
 export interface Work {
   title: string;
@@ -20,12 +20,8 @@ const FOLDER_TO_KEY_MAP: Record<string, string> = {
   "2021-2025-geometriques": "geometrique",
 };
 
-type RouteParams = { slug: string };
-
-export async function GET(
-  request: NextRequest,
-  context: { params: RouteParams; searchParams: URLSearchParams } // ✅ include searchParams
-) {
+export async function GET(request: NextRequest, context: any) {
+  // ✅ Let TypeScript infer types from context.params
   const { slug } = context.params;
 
   const slugWithoutExtension = slug.replace(".xml", "");
