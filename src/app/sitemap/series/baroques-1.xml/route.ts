@@ -4,12 +4,12 @@ import path from "path";
 const BASE_URL = "https://pierre-arnould.vercel.app";
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 const BATCH_SIZE = 500;
-const SERIE_NAME = "2021-2025-Baroques"; // Cambiar para cada serie
-const BATCH_NUMBER = 1;                    // Cambiar para cada batch
+const SERIE_NAME = "2021-2025-Baroques";
 
 async function getImages(dir: string): Promise<string[]> {
   const entries = await fs.readdir(dir, { withFileTypes: true });
   const imgs: string[] = [];
+  
   for (const entry of entries) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
@@ -23,34 +23,27 @@ async function getImages(dir: string): Promise<string[]> {
   return imgs;
 }
 
-export async function GET() {
+async function generateSitemaps() {
   const dir = path.join(PUBLIC_DIR, SERIE_NAME);
-  let images: string[] = [];
-  try {
-    images = await getImages(dir);
-  } catch (e) {
-    console.error("Error reading images", e);
+  const images = await getImages(dir);
+  const batches = Math.ceil(images.length / BATCH_SIZE);
+  
+  for (let batch = 1; batch <= batches; batch++) {
+    const start = (batch - 1) * BATCH_SIZE;
+    const batchImages = images.slice(start, start + BATCH_SIZE);
+    
+    let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n`;
+    
+    batchImages.forEach(url => {
+      xml += `  <url>\n    <loc>${url}</loc>\n    <image:image>\n      <image:loc>${url}</image:loc>\n    </image:image>\n  </url>\n`;
+    });
+    
+    xml += `</urlset>`;
+    
+    const outPath = path.join(PUBLIC_DIR, `sitemap-baroques-${batch}.xml`);
+    await fs.writeFile(outPath, xml);
+    console.log(`Generated ${outPath}`);
   }
-
-  const start = (BATCH_NUMBER - 1) * BATCH_SIZE;
-  const batchImages = images.slice(start, start + BATCH_SIZE);
-
-  let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-`;
-
-  batchImages.forEach(url => {
-    xml += `  <url>
-    <loc>${url}</loc>
-    <image:image>
-      <image:loc>${url}</image:loc>
-    </image:image>
-  </url>
-`;
-  });
-
-  xml += `</urlset>`;
-
-  return new Response(xml, { headers: { "Content-Type": "application/xml" } });
 }
+
+generateSitemaps().catch(console.error);
