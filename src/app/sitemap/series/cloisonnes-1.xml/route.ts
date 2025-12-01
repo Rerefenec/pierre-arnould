@@ -9,7 +9,7 @@ const BATCH_NUMBER = 1;                    // Cambiar para cada batch
 
 async function getImages(dir: string): Promise<string[]> {
   const entries = await fs.readdir(dir, { withFileTypes: true });
-  let imgs: string[] = [];
+  const imgs: string[] = [];
   for (const entry of entries) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
