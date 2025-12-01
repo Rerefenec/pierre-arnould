@@ -27,16 +27,18 @@ const FOLDER_TO_KEY_MAP: Record<string, string> = {
   "2021-2025-geometriques": "geometrique",
 };
 
-// Next.js utilise les "params" pour récupérer le slug de l'URL.
-// ✅ LIGNE CORRIGÉE
-// Next.js injecte l'objet 'context' comme deuxième argument, contenant les 'params'.
-export async function GET(request: Request, context: { params: { slug: string } }) {
-    
-    // Déstructuration pour accéder aux paramètres facilement
-    const { params } = context; 
+// ✅ CORRECTION: params est maintenant une Promise dans Next.js 15+
+export async function GET(
+  request: Request,
+  context: { params: Promise<{ slug: string }> }
+) {
+  // ✅ Il faut await params
+  const params = await context.params;
 
-    // Le reste de votre logique utilise maintenant params.slug
-    const slugWithoutExtension = params.slug.replace(".xml", "");// Expression régulière pour extraire le nom complet de la série (y compris les années)
+  // Le reste de votre logique utilise maintenant params.slug
+  const slugWithoutExtension = params.slug.replace(".xml", "");
+  
+  // Expression régulière pour extraire le nom complet de la série (y compris les années)
   // et le numéro de lot final.
   const match = slugWithoutExtension.match(/^([a-z0-9\-]+)-(\d+)$/);
 
@@ -77,7 +79,7 @@ export async function GET(request: Request, context: { params: { slug: string } 
   // 5. Générer l'XML du sitemap
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 `;
 
   batchWorks.forEach((work) => {
@@ -89,13 +91,13 @@ export async function GET(request: Request, context: { params: { slug: string } 
     // L'URL de l'image (dans le dossier public)
     const imageUrl = `${BASE_URL}${work.image}`;
 
-    xml += `  <url>
-    <loc>${pageUrl}</loc>
-    <image:image>
-      <image:loc>${imageUrl}</image:loc>
-      <image:title>${work.title}</image:title>
-    </image:image>
-  </url>
+    xml += `  <url>
+    <loc>${pageUrl}</loc>
+    <image:image>
+      <image:loc>${imageUrl}</image:loc>
+      <image:title>${work.title}</image:title>
+    </image:image>
+  </url>
 `;
   });
 
