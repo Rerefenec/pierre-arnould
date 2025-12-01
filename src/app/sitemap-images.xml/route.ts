@@ -7,7 +7,7 @@ export async function GET() {
 
   async function getImages(dir: string, root: string): Promise<string[]> {
     const entries = await fs.readdir(dir, { withFileTypes: true });
-    let imgs: string[] = [];
+    const imgs: string[] = [];
 
     for (const entry of entries) {
       const full = path.join(dir, entry.name);
