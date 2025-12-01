@@ -24,12 +24,13 @@ type RouteParams = { slug: string };
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: RouteParams } // ✅ params is NOT a Promise
+  context: { params: RouteParams; searchParams: URLSearchParams } // ✅ include searchParams
 ) {
-  const slugWithoutExtension = params.slug.replace(".xml", "");
+  const { slug } = context.params;
+
+  const slugWithoutExtension = slug.replace(".xml", "");
 
   const match = slugWithoutExtension.match(/^([a-z0-9\-]+)-(\d+)$/);
-
   if (!match || match.length !== 3) {
     return new Response("Invalid sitemap format", { status: 400 });
   }
@@ -38,11 +39,8 @@ export async function GET(
   const batchNumber = parseInt(match[2], 10);
 
   const serieKey = FOLDER_TO_KEY_MAP[fullFolderName];
-
   if (!serieKey || !seriesData[serieKey]) {
-    return new Response("Serie not recognized or data missing", {
-      status: 404,
-    });
+    return new Response("Serie not recognized or data missing", { status: 404 });
   }
 
   const allWorks: Work[] = seriesData[serieKey] as Work[];
