@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import WorkImage from "@/components/WorkImage";
 import { useState, useEffect } from "react";
-import { Work, seriesData } from "@/components/diaporama/data/seriesData"; 
+import { Work, seriesData } from "@/app/data/seriesData"; 
 
 const SERIES_KEY = "tondos";
 

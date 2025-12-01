@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Work } from "./data/seriesData";
+import { Work } from "../../app/data/seriesData";
 
 // L'interface n'inclut plus onNext et onPrev
 interface CollectionDiaporamaImageProps {

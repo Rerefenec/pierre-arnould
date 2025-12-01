@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
-import { seriesData } from "./data/seriesData";
+import { seriesData } from "../../app/data/seriesData";
 import { DiaporamaHeader } from "./DiaporamaHeader";
 import { CollectionImageDiaporama } from "./CollectionImageDiaporama";
 import { DiaporamaDescription } from "./DiaporamaDescription";

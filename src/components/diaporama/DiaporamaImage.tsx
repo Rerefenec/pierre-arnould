@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Work } from "./data/seriesData";
+import { Work } from "../../app/data/seriesData";
 
 interface DiaporamaImageProps {
   currentWork: Work;

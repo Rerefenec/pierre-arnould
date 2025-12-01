@@ -1,4 +1,4 @@
-import { Work } from "./data/seriesData";
+import { Work } from "../../app/data/seriesData";
 
 interface DiaporamaDescriptionProps {
   work: Work;

@@ -112,7 +112,7 @@ export default function GeometriqueClient() {
                                       </div>
   
                                       {/* Informations de l'œuvre (utilise work.title et work.description importés) */}
-  <div className="mt-auto w-full sm:min-w-60 sm:max-w-72 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-3 md:p-4 flex flex-col items-center justify-center">
+                                        <div className="mt-auto w-full sm:min-w-60 sm:max-w-72 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-3 md:p-4 flex flex-col items-center justify-center">
                                           <h2 className="text-white text-center font-semibold text-sm md:text-base lg:text-lg">
                                               {work.title} 
                                           </h2>
