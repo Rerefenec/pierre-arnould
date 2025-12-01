@@ -1,5 +1,5 @@
-import { seriesData } from "../../../data/seriesData";
 import { NextRequest } from "next/server";
+import { seriesData } from "../../../data/seriesData";
 
 export interface Work {
   title: string;
@@ -20,27 +20,26 @@ const FOLDER_TO_KEY_MAP: Record<string, string> = {
   "2021-2025-geometriques": "geometrique",
 };
 
+// ✅ No explicit type for context
 export async function GET(request: NextRequest, context: any) {
-  // ✅ Let TypeScript infer types from context.params
-  const { slug } = context.params;
+  const { slug } = context.params; // Next.js infers this
 
   const slugWithoutExtension = slug.replace(".xml", "");
-
   const match = slugWithoutExtension.match(/^([a-z0-9\-]+)-(\d+)$/);
+
   if (!match || match.length !== 3) {
     return new Response("Invalid sitemap format", { status: 400 });
   }
 
   const fullFolderName = match[1];
   const batchNumber = parseInt(match[2], 10);
-
   const serieKey = FOLDER_TO_KEY_MAP[fullFolderName];
+
   if (!serieKey || !seriesData[serieKey]) {
     return new Response("Serie not recognized or data missing", { status: 404 });
   }
 
   const allWorks: Work[] = seriesData[serieKey] as Work[];
-
   const start = (batchNumber - 1) * BATCH_SIZE;
   const end = start + BATCH_SIZE;
 
