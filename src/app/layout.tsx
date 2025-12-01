@@ -9,7 +9,7 @@ const oxygenMono = Oxygen_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pierre-Arnould",
+  title: "Pierre-Arnould-artiste",
   description: "Site officiel de Pierre-Arnould",
 };
 
