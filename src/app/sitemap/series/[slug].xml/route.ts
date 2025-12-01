@@ -28,13 +28,14 @@ const FOLDER_TO_KEY_MAP: Record<string, string> = {
 };
 
 // Next.js utilise les "params" pour récupérer le slug de l'URL.
-export async function GET(
-  request: Request,
-  { params }: { params: { slug: string } }
-) {
-  // Le slug est '1995-2020-tondos-1.xml'. Nous voulons '1995-2020-tondos' et '1'.
-  const slugWithoutExtension = params.slug.replace(".xml", "");
-
+// ✅ LIGNE CORRIGÉE
+// Next.js injecte l'objet 'context' comme deuxième argument, contenant les 'params'.
+export async function GET(request: Request, context: { params: { slug: string } }) {
+// Nous déstructurons 'params' à partir de 'context' pour faciliter la lecture du code.
+    const { params } = context; 
+    
+    // Le reste de votre logique utilise maintenant params.slug
+    const slugWithoutExtension = params.slug.replace(".xml", "");
   // Expression régulière pour extraire le nom complet de la série (y compris les années)
   // et le numéro de lot final.
   const match = slugWithoutExtension.match(/^([a-z0-9\-]+)-(\d+)$/);
