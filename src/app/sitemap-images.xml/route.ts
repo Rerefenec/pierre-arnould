@@ -17,7 +17,7 @@ const BATCH_SIZE = 500;
 
 async function getImages(dir: string, root: string): Promise<string[]> {
   const entries = await fs.readdir(dir, { withFileTypes: true });
-  let imgs: string[] = [];
+  const imgs: string[] = [];
 
   for (const entry of entries) {
     const full = path.join(dir, entry.name);
@@ -37,7 +37,7 @@ async function getImages(dir: string, root: string): Promise<string[]> {
 
 export async function GET() {
   // Recoger imágenes de todas las series
-  let allImages: Record<string, string[]> = {};
+  const allImages: Record<string, string[]> = {};
 
   for (const serie of SERIES) {
     const dir = path.join(PUBLIC_DIR, serie);
