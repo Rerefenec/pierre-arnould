@@ -16,7 +16,7 @@ async function getImages(dir: string): Promise<string[]> {
     if (entry.isDirectory()) {
       imgs.push(...await getImages(full));
     } else {
-      const isImage = /\.(jpg|jpeg|png|gif|webp|svg|avif)$/i.test(entry.name);
+      const isImage = /\.(webp|avif)$/i.test(entry.name);
 
       // chemin relatif
       const rel = path
