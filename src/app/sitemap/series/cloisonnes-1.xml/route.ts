@@ -1,10 +1,8 @@
 import { seriesData, type Work } from "@/app/data/seriesData";
 
 const BASE_URL = "https://pierre-arnould.vercel.app";
-const PUBLIC_DIR = path.join(process.cwd(), "public");
 const BATCH_SIZE = 500;
-const SERIE_NAME = "1969-1994-Cloisonnes"; // Cambiar para cada serie
-const BATCH_NUMBER = 1;                    // Cambiar para cada batch
+const BATCH_NUMBER = 1; // Cambiar para cada batch
 
 async function getImages(): Promise<string[]> {
   const works: Work[] = seriesData.cloisonnes || [];
