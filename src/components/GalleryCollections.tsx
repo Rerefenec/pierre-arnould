@@ -52,9 +52,9 @@ export default function GalleryCollections({
             <Image
               src={item.image}
               alt={item.title}
-              width={400}
-              height={400}
-              className="object-cover rounded-md w-full h-60"
+              width={500}
+              height={500}
+              className="object-contain rounded-md w-full h-60"
             />
             <h3 className="mt-2 text-center font-semibold text-neutral-500">{item.title}</h3>
           </div>

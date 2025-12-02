@@ -25,7 +25,8 @@ const galleryItems = Object.entries(seriesData).flatMap(([serie, works]) =>
   })
 );
 
-const styles = ["Géometriques", "Baroques", "Tondos", "Cloisonnés", "Toutes les œuvres"];
+const styles = ["Géometrique", "Baroques", "Tondos", "Cloisonnés", "Toutes les œuvres"];
+
 
 export default function Collections() {
   const [query, setQuery] = useState("");

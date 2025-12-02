@@ -701,10 +701,10 @@ export const seriesData: Record<string, Work[]> = {
   baroques: Array.from({ length: 23 }, (_, i) => ({
     title: `Baroques #${i + 1}`,
     image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-${i + 1}.jpg`,
-    style: "baroques",
+    style: "Baroques",
     description: `[À personnaliser] Description de l'œuvre Baroque n°${
       i + 1
-    }. Caractérisé par un style opulent et des formes exubérantes qui rappellent l'esthétique baroque, tout en conservant une abstraction moderne.`,
+    }`,
     year: "2025",
     lien: "baroques",
   })),
@@ -717,10 +717,10 @@ export const seriesData: Record<string, Work[]> = {
     image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-${
       i + 1
     }.jpg`,
-    style: "geometrique",
+    style: "Géometrique",
     description: `[À personnaliser] Description de l'œuvre Géométrique n°${
       i + 1
-    }. Une série mettant l'accent sur la structure, les lignes pures et l'interaction des couleurs dans des compositions rigoureuses.`,
+    }`,
     year: "2025",
     lien: "geometrique",
   })),
