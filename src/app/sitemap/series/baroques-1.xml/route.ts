@@ -12,16 +12,31 @@ async function getImages(dir: string): Promise<string[]> {
   
   for (const entry of entries) {
     const full = path.join(dir, entry.name);
+
     if (entry.isDirectory()) {
       imgs.push(...await getImages(full));
-    } else if (/\.(jpg|jpeg|png|gif|webp|svg|avif)$/i.test(entry.name) &&
-               !entry.name.toLowerCase().includes("-mini")) {
-      const rel = path.relative(PUBLIC_DIR, full).replace(/\\/g, "/");
-      imgs.push(`${BASE_URL}/${rel}`);
+    } else {
+      const isImage = /\.(jpg|jpeg|png|gif|webp|svg|avif)$/i.test(entry.name);
+
+      // chemin relatif
+      const rel = path
+        .relative(PUBLIC_DIR, full)
+        .replace(/\\/g, "/");
+
+      // ❌ exclure les JPG du diaporama
+      const isDiaporama = rel.startsWith("diaporama/");
+
+      // ❌ exclure les JPG (optionnel si tu veux garder uniquement les webp)
+      const isJpg = /\.(jpg|jpeg)$/i.test(entry.name);
+
+      if (isImage && !isDiaporama && !isJpg) {
+        imgs.push(`${BASE_URL}/${rel}`);
+      }
     }
   }
   return imgs;
 }
+
 
 async function generateSitemaps() {
   const dir = path.join(PUBLIC_DIR, SERIE_NAME);
