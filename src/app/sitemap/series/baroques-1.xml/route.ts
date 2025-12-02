@@ -1,3 +1,4 @@
+import { seriesData, Work } from "@/app/data/seriesData";
 import { promises as fs } from "fs";
 import path from "path";
 
@@ -6,33 +7,25 @@ const PUBLIC_DIR = path.join(process.cwd(), "public");
 const BATCH_SIZE = 500;
 const SERIE_NAME = "2021-2025-Baroques";
 
-async function getImages(dir: string): Promise<string[]> {
-  const entries = await fs.readdir(dir, { withFileTypes: true });
-  const imgs: string[] = [];
-  
-  for (const entry of entries) {
-    const full = path.join(dir, entry.name);
+// Build image URLs from the canonical data source (seriesData) instead of scanning the
+// filesystem. This avoids bundling large public assets into the serverless function
+// and keeps the lambda small. We produce the mini WebP thumbnails used around the site.
+async function getImages(_dir: string): Promise<string[]> {
+  const serieKey = "baroques";
+  const works = seriesData[serieKey] || [];
 
-    if (entry.isDirectory()) {
-      imgs.push(...await getImages(full));
-    } else {
-      // Only include .webp images for this sitemap
-      const isImage = /\.webp$/i.test(entry.name);
+  const imgs = works.map((w: Work, i: number) => {
+    // original images in seriesData are .jpg under /2021-2025-Baroques/
+    // we want the mini .webp thumbnails: /2021-2025-Baroques-mini/..-<n>.webp
+    const webpPath = w.image
+      .replace("/2021-2025-Baroques/", "/2021-2025-Baroques-mini/")
+      .replace(/\.jpe?g$/i, ".webp")
+      .replace(/\\/g, "/");
 
-      // chemin relatif
-      const rel = path
-        .relative(PUBLIC_DIR, full)
-        .replace(/\\/g, "/");
+    return `${BASE_URL}${webpPath}`;
+  });
 
-      // Exclude diaporama folder items, keep only webp
-      const isDiaporama = rel.startsWith("diaporama/");
-
-      if (isImage && !isDiaporama) {
-        imgs.push(`${BASE_URL}/${rel}`);
-      }
-    }
-  }
-  return imgs;
+    return imgs;
 }
 
 
