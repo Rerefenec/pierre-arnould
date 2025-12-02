@@ -1,25 +1,35 @@
-import { seriesData, type Work } from "@/app/data/seriesData";
+import { promises as fs } from "fs";
+import path from "path";
 
 const BASE_URL = "https://pierre-arnould.vercel.app";
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 const BATCH_SIZE = 500;
-const SERIE_NAME = "2021-2025-Geometriques"; // Cambiar para cada serie
+const SERIE_NAME = "1995-2020-Tondos"; // Cambiar para cada serie
 const BATCH_NUMBER = 1;                    // Cambiar para cada batch
 
-async function getImages(): Promise<string[]> {
-  const works: Work[] = seriesData.geometrique || [];
-  return works.map(w => {
-    const webp = w.image.replace("/2021-2025-Geometriques/", "/2021-2025-Geometriques-mini/").replace(/\.[a-zA-Z]+$/i, ".webp");
-    return `${BASE_URL}${webp}`;
-  });
+async function getImages(dir: string): Promise<string[]> {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  const imgs: string[] = [];
+  for (const entry of entries) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      imgs.push(...await getImages(full));
+    } else if (/\.(jpg|jpeg|png|gif|webp|svg|avif)$/i.test(entry.name) &&
+               !entry.name.toLowerCase().includes("-mini")) {
+      const rel = path.relative(PUBLIC_DIR, full).replace(/\\/g, "/");
+      imgs.push(`${BASE_URL}/${rel}`);
+    }
+  }
+  return imgs;
 }
 
 export async function GET() {
+  const dir = path.join(PUBLIC_DIR, SERIE_NAME);
   let images: string[] = [];
   try {
-    images = await getImages();
+    images = await getImages(dir);
   } catch (e) {
-    console.error("Error building images from seriesData", e);
+    console.error("Error reading images", e);
   }
 
   const start = (BATCH_NUMBER - 1) * BATCH_SIZE;
