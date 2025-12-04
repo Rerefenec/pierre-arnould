@@ -6,6 +6,8 @@ import WorkImage from "@/components/WorkImage";
 import { useState, useEffect } from "react";
 // 🎯 1. Importer la structure et les données depuis la source unique
 import { Work, seriesData } from "@/app/data/seriesData"; 
+import { usePathname } from "next/navigation";
+
 
 // 🔹 Clé de série pour le diaporama
 const SERIES_KEY = "cloisonnes";
@@ -21,6 +23,8 @@ const works: Work[] = seriesData[SERIES_KEY].map((work, i) => ({
 }));
 
 export default function CloisonnesClient() {
+      const pathname = usePathname();
+    
     const [failedImages, setFailedImages] = useState<number[]>([]);
     const [isReady, setIsReady] = useState(false); // ✅ Commence à false (invisible)
 
@@ -82,6 +86,29 @@ export default function CloisonnesClient() {
             {/* 🎯 HERO : Placé en dehors du conteneur de transition pour rester visible immédiatement */}
             <Hero /> 
 
+ {pathname === "/cloisonnes" && (
+  <div
+    className="
+      relative 
+      -mt-10 sm:-mt-14 md:-mt-15   /* remonte sur le Hero */
+      bg-black/60 
+      backdrop-blur-sm 
+      text-gray-200 
+      text-justify
+      px-4 py-6 
+      max-w-6xl mx-auto 
+      rounded-xl 
+      shadow-lg
+    "
+  >
+   La structure du fragment. Ici, je travaille la texture et la construction.
+    J&apos;assemble de petits morceaux de bois ou de carton en une mosaïque brute et 
+    uniforme. Ces œuvres transforment des matériaux récupérés en une surface tactile 
+    et architecturale qui juxtapose l'ordre de la grille et le chaos du matériau
+
+  </div>
+)}
+La structure du fragment. Ici, je travaille la texture et la construction. J'assemble de petits morceaux de bois ou de carton en une mosaïque brute et uniforme. Ces œuvres transforment des matériaux récupérés en une surface tactile et architecturale qui juxtapose l'ordre de la grille et le chaos du matériau
             {/* Conteneur avec la transition d'opacité (applique le fade-in au reste du contenu) */}
             <div style={{ opacity: isReady ? 1 : 0, transition: 'opacity 0.4s ease-in-out' }}>
                 <main className="overflow-x-hidden">

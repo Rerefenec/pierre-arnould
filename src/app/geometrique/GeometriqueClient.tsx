@@ -4,6 +4,8 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import WorkImage from "@/components/WorkImage";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+
 
 interface Work {
   title: string;
@@ -24,6 +26,7 @@ const works: Work[] = [
 ];
 
 export default function GeometriqueClient() {
+      const pathname = usePathname();
    const [failedImages, setFailedImages] = useState<number[]>([]);
       const [isReady, setIsReady] = useState(false); // ✅ Commence à false (invisible)
   
@@ -84,6 +87,28 @@ export default function GeometriqueClient() {
               
               {/* 🎯 HERO : Placé en dehors du conteneur de transition pour rester visible immédiatement */}
               <Hero /> 
+
+                 {pathname === "/geometrique" && (
+  <div
+    className="
+      relative 
+      -mt-10 sm:-mt-14 md:-mt-18   /* remonte sur le Hero */
+      bg-black/60 
+      backdrop-blur-sm 
+      text-gray-200 
+      text-justify
+      px-4 py-6 
+      max-w-6xl mx-auto 
+      rounded-xl 
+      shadow-lg
+    "
+  >
+    La fusion conceptuelle. Cette phase marque une synthèse de toutes mes méthodes. 
+    J&apos;y utilise la symétrie, souvent inspirée des rosaces ou des mandales, pour créer
+     des installations complexes. Je superpose reliefs, textures et couleurs pour 
+     évoquer des mécanismes anciens ou des visions de l&apos;équilibre parfait.
+  </div>
+)}
   
               {/* Conteneur avec la transition d'opacité (applique le fade-in au reste du contenu) */}
               <div style={{ opacity: isReady ? 1 : 0, transition: 'opacity 0.4s ease-in-out' }}>

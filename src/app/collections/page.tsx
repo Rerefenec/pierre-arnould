@@ -34,7 +34,12 @@ export default function Collections() {
   const [openDiaporama, setOpenDiaporama] = useState<{ serie: string; index: number } | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [isVisible, setIsVisible] = useState(false);
-  const [shuffledGalleryItems] = useState(() => [...galleryItems].sort(() => Math.random() - 0.5));
+const [shuffledGalleryItems, setShuffledGalleryItems] = useState(galleryItems);
+
+useEffect(() => {
+  // Shuffle ONLY on the client
+  setShuffledGalleryItems([...galleryItems].sort(() => Math.random() - 0.5));
+}, []);
 
   const resetFilters = () => { setQuery(""); setSelectedStyle(null); setCurrentPage(1); };
   const filteredCount = shuffledGalleryItems.filter(

@@ -5,6 +5,8 @@ import Hero from "@/components/Hero";
 import WorkImage from "@/components/WorkImage";
 import { useState, useEffect } from "react";
 import { Work, seriesData } from "@/app/data/seriesData"; 
+import { usePathname } from "next/navigation";
+
 
 const SERIES_KEY = "tondos";
 
@@ -14,6 +16,8 @@ const works: Work[] = seriesData[SERIES_KEY].map((work, i) => ({
 }));
 
 export default function TondosClient() {
+  const pathname = usePathname();
+
  const [failedImages, setFailedImages] = useState<number[]>([]);
     const [isReady, setIsReady] = useState(false);
 
@@ -66,6 +70,31 @@ export default function TondosClient() {
     return (
         <div className="bg-black min-h-screen">
             <Hero />
+   
+   {pathname === "/tondos" && (
+  <div
+    className="
+      relative 
+      -mt-10 sm:-mt-14 md:-mt-15   /* remonte sur le Hero */
+      bg-black/60 
+      backdrop-blur-sm 
+      text-gray-200 
+      text-justify
+      px-4 py-6 
+      max-w-6xl mx-auto 
+      rounded-xl 
+      shadow-lg
+    "
+  >
+    Une exploration circulaire. Dans cette série, je me concentre sur la forme du 
+    tondo, un cercle parfait qui invite à la contemplation. J&apos;expérimente avec des 
+    motifs répétitifs et des couleurs vives, créant des œuvres qui semblent vibrer 
+    et se déplacer. C&apos;est un dialogue entre la forme et la couleur, une invitation 
+    à voir au-delà du cadre.
+  </div>
+)}
+
+
 
             <div style={{ opacity: isReady ? 1 : 0, transition: 'opacity 0.4s ease-in-out' }}>
                 <main className="overflow-x-hidden">

@@ -38,8 +38,10 @@ if (pathname === "/tondos") {
   } else if (pathname === "/cloisonnes+geometriques") {
     textHeader = <>Cloisonnés et Géométriques</>;
   } else if (pathname === "/collections") {
-    textHeader = <>Collections</>;
-   } else if (pathname === "/apropos") {
+    textHeader = <>Collections</>; 
+    } else if (pathname === "/geometrique") {
+    textHeader = <>Géométriques</>; } 
+    else if (pathname === "/apropos") {
     textHeader = <>À propos</>;  
   } else if (pathname === "/contact") {
     textHeader = <>Contact</>;  
@@ -93,17 +95,7 @@ if (pathname === "/tondos") {
                 >
                     <span>{textHeader}</span>
                 </h1>
-                {/* 🔹 Texte descriptif pour Tondos */}
-                {pathname === "/tondos" && (
-                  <p className=" absolute bottom-0 mt-4  
-                               text-[6px] sm:text-xs md:text-sm 
-                                text-gray-300 leading-relaxed animate__animated animate__fadeInUp">
-                      Une exploration circulaire. Dans cette série, je me concentre sur la forme du 
-                      tondo, un cercle parfait qui invite à la contemplation. J&apos;expérimente avec des motifs répétitifs 
-                      et des couleurs vives, créant des œuvres qui semblent vibrer et se déplacer. 
-                       C&apos;est un dialogue entre la forme et la couleur, une invitation à voir au-delà du cadre.
-                  </p>
-                )}
+                
             </section>
         </>
     );
