@@ -103,7 +103,7 @@ export default function BaroquesClient() {
     "
         >
           Une exubérance maîtrisée. Dans cette série baroque, je joue avec la
-          surcharge, la tension et le mouvement. Les formes s'entremêlent,
+          surcharge, la tension et le mouvement. Les formes s&apos;entremêlent,
           s&apos;empilent et se répondent comme les éléments d&apos;un mécanisme
           organique. J&apos;associe reliefs, textures métalliques et couleurs
           contrastées pour créer des compositions intenses, presque théâtrales.

@@ -104,11 +104,11 @@ export default function CloisonnesClient() {
    La structure du fragment. Ici, je travaille la texture et la construction.
     J&apos;assemble de petits morceaux de bois ou de carton en une mosaïque brute et 
     uniforme. Ces œuvres transforment des matériaux récupérés en une surface tactile 
-    et architecturale qui juxtapose l'ordre de la grille et le chaos du matériau
+    et architecturale qui juxtapose l&apos;ordre de la grille et le chaos du matériau
 
   </div>
 )}
-La structure du fragment. Ici, je travaille la texture et la construction. J'assemble de petits morceaux de bois ou de carton en une mosaïque brute et uniforme. Ces œuvres transforment des matériaux récupérés en une surface tactile et architecturale qui juxtapose l'ordre de la grille et le chaos du matériau
+La structure du fragment. Ici, je travaille la texture et la construction. J&apos;assemble de petits morceaux de bois ou de carton en une mosaïque brute et uniforme. Ces œuvres transforment des matériaux récupérés en une surface tactile et architecturale qui juxtapose l'ordre de la grille et le chaos du matériau
             {/* Conteneur avec la transition d'opacité (applique le fade-in au reste du contenu) */}
             <div style={{ opacity: isReady ? 1 : 0, transition: 'opacity 0.4s ease-in-out' }}>
                 <main className="overflow-x-hidden">
