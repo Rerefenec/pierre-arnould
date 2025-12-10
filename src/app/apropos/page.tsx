@@ -14,7 +14,7 @@ export default function AproposPage() {
         {/* IMAGEN IZQUIERDA */}
         <div className="relative w-full h-[400px] rounded-xl overflow-hidden">
           <Image
-            src="/lui.png"
+            src="/portrait-pierre-arnould.jpg"
             alt="Portrait de Pierre Arnould"
             fill
             className="object-cover"

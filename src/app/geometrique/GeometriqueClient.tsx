@@ -5,25 +5,28 @@ import Footer from "@/components/Footer";
 import WorkImage from "@/components/WorkImage";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-
-
-interface Work {
-  title: string;
-  style: string;
-  image: string;
-  description: string;
-}
+import { seriesData, type Work as SeriesWork } from "@/app/data/seriesData";
 
 const SERIES_KEY = "geometrique";
 
-const works: Work[] = [
-  ...Array.from({ length: 24 }, (_, i) => ({
-    title: `Geometrique ${i + 1}`,
-    style: "geometrique",
-    image: `/2021-2025-Geometriques-mini/pierre-arnould-artiste-geometrique-${i + 1}.webp`,
-    description: "..",
-  })),
-];
+// Use seriesData.geometrique as the canonical source of works, fall back to a
+// placeholder list if the data isn't present for some reason. Convert image
+// paths to the `-mini/*.webp` thumbnails used sitewide.
+const works: SeriesWork[] = ((seriesData.geometrique as SeriesWork[]) ||
+    Array.from({ length: 24 }, (_, i) => ({
+        title: `Geometrique ${i + 1}`,
+        style: "geometrique",
+        image: `/2021-2025-Geometriques-mini/pierre-arnould-artiste-geometrique-${i + 1}.webp`,
+        description: "..",
+        year: "",
+        lien: "geometrique",
+    })))
+    .map((w) => ({
+        ...w,
+        image: w.image
+            .replace("/2021-2025-Geometriques/", "/2021-2025-Geometriques-mini/")
+            .replace(/\.[a-zA-Z]+$/i, ".webp"),
+    }));
 
 export default function GeometriqueClient() {
       const pathname = usePathname();
