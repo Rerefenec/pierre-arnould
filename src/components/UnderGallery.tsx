@@ -14,12 +14,7 @@ export interface GalleryItem {
 }
 
 const galleryItems: GalleryItem[] = [
-  {
-    title: "Geometriques",
-    image: "/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-13.jpg",
-    description: "La fusion conceptuelle...",
-    lien: "/geometrique",
-  },
+ 
 
   {
     title: "Cloisonnés",
@@ -27,6 +22,12 @@ const galleryItems: GalleryItem[] = [
       "/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-11.jpg",
     description: "La structure du fragment...",
     lien: "/cloisonnes",
+  },
+   {
+    title: "Géométriques",
+    image: "/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-13.jpg",
+    description: "La fusion conceptuelle...",
+    lien: "/geometrique",
   },
 ];
 
