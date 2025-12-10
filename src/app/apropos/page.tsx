@@ -34,8 +34,8 @@ export default function AproposPage() {
             Ce qui le distingue particulièrement est sa capacité à transformer
             des matériaux recyclés en créations esthétiques et sensibles. Dans
             un contexte où l’impact environnemental est plus que jamais au cœur
-            des préoccupations, pourquoi ne pas réinventer nos “déchets” en les
-            mettant au service de quelque chose de beau ?
+            des préoccupations, pourquoi ne pas réinventer nos objets abandonnés en les
+            mettant au service d'une vision artistique ?
           </p>
         </div>
       </section>
