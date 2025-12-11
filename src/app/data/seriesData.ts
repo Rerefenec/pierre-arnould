@@ -759,22 +759,23 @@ export const seriesData: Record<string, Work[]> = {
       year: "2023",
       lien: "baroques",
     },
-     {
-      title: "Astronef",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-8.jpg`,
-      style: "Baroque",
-      description: "technique mixte 35x50 cm",
-      year: "2023",
-      lien: "baroques",
-    },
- {
+    {
       title: "Rotor hydrique",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-9.jpg`,
+      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-8.jpg`,
       style: "Baroque",
       description: "technique mixte 30x38 cm",
       year: "2021",
       lien: "baroques",
     },
+     {
+      title: "Astronef",
+      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-9.jpg`,
+      style: "Baroque",
+      description: "technique mixte 35x50 cm",
+      year: "2023",
+      lien: "baroques",
+    },
+ 
  {
       title: "Pico Pico",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-10.jpg`,
@@ -831,22 +832,23 @@ export const seriesData: Record<string, Work[]> = {
       year: "2013",
       lien: "baroques",
     },
-     {
-      title: "Yoruba",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-17.jpg`,
-      style: "Baroque",
-      description: "technique mixte 35x70 cm",
-      year: "2090",
-      lien: "baroques",
-    },
-     {
+        {
       title: "N'dédélé",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-18.jpg`,
+      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-17.jpg`,
       style: "Baroque",
       description: "technique mixte 30x50 cm",
       year: "2022",
       lien: "baroques",
     },
+     {
+      title: "Yoruba",
+      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-18.jpg`,
+      style: "Baroque",
+      description: "technique mixte 35x70 cm",
+      year: "2090",
+      lien: "baroques",
+    },
+ 
      {
       title: "Tribalisme",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-19.jpg`,
