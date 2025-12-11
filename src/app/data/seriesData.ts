@@ -704,7 +704,7 @@ export const seriesData: Record<string, Work[]> = {
   baroques: [
  {
       title: "Arbre à palabres",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-1.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-1.jpg`,
       style: "Baroque",
       description: "technique mixte 20x30 cm",
       year: "1979",
@@ -712,7 +712,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Dédale",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-2.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-2.jpg`,
       style: "Baroque",
       description: "technique mixte 20x30 cm",
       year: "2011",
@@ -720,7 +720,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Port d'attaches",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-3.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-3.jpg`,
       style: "Baroque",
       description: "technique mixte 50x50 cm",
       year: "2024",
@@ -729,7 +729,7 @@ export const seriesData: Record<string, Work[]> = {
 
  {
       title: "Jeu de pistes",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-4.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-4.jpg`,
       style: "Baroque",
       description: "technique mixte 100x100 cm",
       year: "1979",
@@ -737,7 +737,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Composition Jaune",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-5.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-5.jpg`,
       style: "Baroque",
       description: "technique mixte 40x70 cm",
       year: "2002",
@@ -745,7 +745,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Imagine",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-6.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-6.jpg`,
       style: "Baroque",
       description: "technique mixte 30x40 cm",
       year: "2022",
@@ -753,7 +753,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Hyménoptère",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-7.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-7.jpg`,
       style: "Baroque",
       description: "technique mixte 40x44 cm",
       year: "2023",
@@ -761,7 +761,7 @@ export const seriesData: Record<string, Work[]> = {
     },
     {
       title: "Rotor hydrique",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-8.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-8.jpg`,
       style: "Baroque",
       description: "technique mixte 30x38 cm",
       year: "2021",
@@ -769,7 +769,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Astronef",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-9.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-9.jpg`,
       style: "Baroque",
       description: "technique mixte 35x50 cm",
       year: "2023",
@@ -778,7 +778,7 @@ export const seriesData: Record<string, Work[]> = {
  
  {
       title: "Pico Pico",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-10.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-10.jpg`,
       style: "Baroque",
       description: "technique mixte 35x55 cm",
       year: "2023",
@@ -786,7 +786,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Récup' dorée",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-11.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-11.jpg`,
       style: "Baroque",
       description: "technique mixte 50x80 cm",
       year: "1998",
@@ -794,7 +794,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Patterne beige",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-12.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-12.jpg`,
       style: "Baroque",
       description: "technique mixte 50x80 cm",
       year: "1999",
@@ -802,7 +802,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Lépidoptère cornu",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-13.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-13.jpg`,
       style: "Baroque",
       description: "technique mixte 35x55 cm",
       year: "2008",
@@ -810,7 +810,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Labyrinthe terra",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-14.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-14.jpg`,
       style: "Baroque",
       description: "technique mixte 45x70 cm",
       year: "1990",
@@ -818,7 +818,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Dancing chisel",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-15.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-15.jpg`,
       style: "Baroque",
       description: "technique mixte 30x40 cm",
       year: "2001",
@@ -826,7 +826,7 @@ export const seriesData: Record<string, Work[]> = {
     },
  {
       title: "Masque sénoufo",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-16.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-16.jpg`,
       style: "Baroque",
       description: "technique mixte 40x60 cm",
       year: "2013",
@@ -834,7 +834,7 @@ export const seriesData: Record<string, Work[]> = {
     },
         {
       title: "N'dédélé",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-17.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-17.jpg`,
       style: "Baroque",
       description: "technique mixte 30x50 cm",
       year: "2022",
@@ -842,7 +842,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Yoruba",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-18.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-18.jpg`,
       style: "Baroque",
       description: "technique mixte 35x70 cm",
       year: "2090",
@@ -851,7 +851,7 @@ export const seriesData: Record<string, Work[]> = {
  
      {
       title: "Tribalisme",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-19.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-19.jpg`,
       style: "Baroque",
       description: "technique mixte 30x90 cm",
       year: "2013",
@@ -859,7 +859,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Ashanti",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-20.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-20.jpg`,
       style: "Baroque",
       description: "technique mixte 35x70 cm",
       year: "2024",
@@ -867,7 +867,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Primitivisme",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-21.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-21.jpg`,
       style: "Baroque",
       description: "technique mixte 30x80 cm",
       year: "2023",
@@ -875,7 +875,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Aborigène",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-22.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-22.jpg`,
       style: "Baroque",
       description: "technique mixte 25x65 cm",
       year: "2023",
@@ -883,7 +883,7 @@ export const seriesData: Record<string, Work[]> = {
     },
      {
       title: "Trigono spacial",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-23.jpg`,
+      image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-23.jpg`,
       style: "Baroque",
       description: "technique mixte 100x90 cm",
       year: "1989",

@@ -6,11 +6,13 @@ type GalleryItem = {
   style: string;
   serie: string;
   index: number;
+  lien: string;
 };
 
 interface GalleryCollectionsProps {
   items: GalleryItem[];
   selectedStyle: string | null;
+  selectedLien?: string | null;
   query: string;
   currentPage: number;
   setCurrentPage: (page: number) => void;
@@ -20,6 +22,7 @@ interface GalleryCollectionsProps {
 export default function GalleryCollections({
   items,
   selectedStyle,
+  selectedLien,
   query,
   currentPage,
   setCurrentPage,
@@ -27,11 +30,11 @@ export default function GalleryCollections({
 }: GalleryCollectionsProps) {
   const itemsPerPage = 6;
 
-  const filteredItems = items.filter(
-    (item) =>
-      (!selectedStyle || item.style === selectedStyle) &&
-      item.title.toLowerCase().includes(query.toLowerCase())
-  );
+  const filteredItems = items.filter((item) => {
+    const matchesStyle = selectedLien ? item.lien === selectedLien : true;
+    const matchesQuery = item.title.toLowerCase().includes(query.toLowerCase());
+    return matchesStyle && matchesQuery;
+  });
 
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;

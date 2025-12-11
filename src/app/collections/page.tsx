@@ -25,7 +25,15 @@ const galleryItems = Object.entries(seriesData).flatMap(([serie, works]) =>
   })
 );
 
-const styles = ["Géometrique", "Baroques", "Tondos", "Cloisonnés", "Toutes les œuvres"];
+const styles = ["Géométrique", "Baroques", "Tondos", "Cloisonnés", "Toutes les œuvres"];
+
+const styleToLien: Record<string, string | null> = {
+  "Géométrique": "geometrique",
+  "Baroques": "baroques",
+  "Tondos": "tondos",
+  "Cloisonnés": "cloisonnes",
+  "Toutes les œuvres": null,
+};
 
 
 export default function Collections() {
@@ -42,8 +50,9 @@ useEffect(() => {
 }, []);
 
   const resetFilters = () => { setQuery(""); setSelectedStyle(null); setCurrentPage(1); };
+  const selectedLien = selectedStyle ? styleToLien[selectedStyle as string] || null : null;
   const filteredCount = shuffledGalleryItems.filter(
-    (item) => (!selectedStyle || item.style === selectedStyle) && item.title.toLowerCase().includes(query.toLowerCase())
+    (item) => (!selectedLien || item.lien === selectedLien) && item.title.toLowerCase().includes(query.toLowerCase())
   ).length;
 
   const scrollToTop = () => { window.scrollTo({ top: 0, behavior: "smooth" }); };
@@ -96,6 +105,7 @@ useEffect(() => {
            <GalleryCollections
   items={shuffledGalleryItems}
   selectedStyle={selectedStyle}
+  selectedLien={selectedLien}
   query={query}
   currentPage={currentPage}
   setCurrentPage={setCurrentPage}
