@@ -14,8 +14,8 @@ export default function AproposPage() {
         {/* IMAGEN IZQUIERDA */}
         <div className="relative w-full h-[400px] rounded-xl overflow-hidden">
           <Image
-            src="/"
-            alt="Portrait de Pierre Arnould"
+            src="/dessins-photos/pierre-arnould-dessin1.jpg"
+            alt="dessin de Pierre Arnould artiste plasticien"
             fill
             className="object-cover"
           />
@@ -28,6 +28,8 @@ export default function AproposPage() {
             pierrearnould@gmail.com
             <br />
             07 81 87 12 15
+            <br />
+            Atelier principal à Perpignan, France
           </p>
           
         </div>

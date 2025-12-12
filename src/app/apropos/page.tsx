@@ -15,7 +15,7 @@ export default function AproposPage() {
         <div className="relative w-full h-[400px] rounded-xl overflow-hidden">
           <Image
             src="/portrait-pierre-arnould.jpg"
-            alt="Portrait de Pierre Arnould"
+            alt="Portrait de Pierre Arnould artiste plasticien"
             fill
             className="object-cover"
           />
@@ -40,13 +40,67 @@ export default function AproposPage() {
         </div>
       </section>
 
+{/* section 1 bis quelques dessins et documents */}
+<div className="text-4xl font-bold text-center ">Premiers travaux</div>
+     <div className="text-1xl font-bold text-center">Dessins à l'encre sur papier</div>
+<section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-16 items-center">
+
+   <div className="relative w-full h-[400px]  overflow-hidden">
+          <Image
+            src="/dessins-photos/pierre-arnould-dessin2.jpg"
+            alt="dessin de Pierre Arnould artiste plasticien"
+            fill
+            className="object-contain"
+          />
+    </div>
+
+      <div className="relative w-full h-[400px]  overflow-hidden">
+          <Image
+            src="/dessins-photos/pierre-arnould-dessin3.jpg"
+            alt="dessin de Pierre Arnould artiste plasticien"
+            fill
+            className="object-contain"
+            />
+    </div> 
+
+         <div className="relative w-full h-[400px]  overflow-hidden">
+          <Image
+            src="/dessins-photos/pierre-arnould-dessin4.jpg"
+            alt="dessin de Pierre Arnould artiste plasticien"
+            fill
+            className="object-contain"
+          />
+    </div> 
+   <div className="relative w-full h-[400px]  overflow-hidden">
+          <Image
+            src="/dessins-photos/pierre-arnould-dessin5.jpg"
+            alt="dessin de Pierre Arnould artiste plasticien"
+            fill
+            className="object-contain"
+          />
+    </div>
+
+</section>
+
+<div className="max-w-2xl mx-auto px-6 py-10">
+  <div className="flex justify-center">
+    <Image
+      src="/dessins-photos/pierre-arnould-affiche.jpg"
+      alt="dessin de Pierre Arnould artiste plasticien"
+      width={800}
+      height={600}
+      className="object-contain max-w-[350px] md:max-w-[500px] h-auto mx-auto"
+    />
+  </div>
+</div>
+
       {/* --------------- SECTION 2 : Vidéo “Double vie” --------------- */}
       <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
         {/* TEXTO IZQUIERDA */}
         <div className="space-y-6 order-2 md:order-1 text-justify">
           <h2 className="text-4xl font-bold">Une double vie</h2>
           <p className="text-lg text-gray-300 leading-relaxed">
-            Artiste le soir et professionnel de santé le jour, il mène une
+            Praticien le jour et plasticien le soir, il mène une
             véritable double vie créative — une tension qui nourrit son travail.
           </p>
 
@@ -77,7 +131,7 @@ export default function AproposPage() {
           <p className="text-lg text-gray-300 leading-relaxed">
              Son atelier est bien plus qu’un espace de création : c’est un véritable
     laboratoire où il transforme les objets du quotidien en œuvres tridimensionnelles. 
-    Détestant le gaspillage, il est constamment surpris par le volume de ce que nous jetons chaque jour. 
+    Il est constamment surpris par le volume de ce que nous jetons chaque jour. 
     À partir de ces matériaux recyclés, il crée des pièces combinant différentes matières et formes, 
     jouant avec les effets optiques pour donner naissance à des objets à la fois beaux et surprenants.
   </p>

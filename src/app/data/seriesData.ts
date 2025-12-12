@@ -912,7 +912,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-1.jpg`,
       style: "Géométriques",
       description: "technique mixte 50x50 cm",
-      year: "1993",
+      year: "2025",
       lien: "geometrique",
     },
  {
@@ -920,7 +920,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-2.jpg`,
       style: "Géométriques",
       description: "technique mixte 40x40 cm",
-      year: "1993",
+      year: "1969",
       lien: "geometrique",
     },
  {
@@ -928,7 +928,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-3.jpg`,
       style: "Géométriques",
       description: "technique mixte 80x80 cm",
-      year: "1993",
+      year: "1999",
       lien: "geometrique",
     },
      {
@@ -936,7 +936,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-4.jpg`,
       style: "Géométriques",
       description: "technique mixte 80x80 cm",
-      year: "1993",
+      year: "1999",
       lien: "geometrique",
     },
  {
@@ -944,7 +944,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-5.jpg`,
       style: "Géométriques",
       description: "technique mixte 40x40 cm",
-      year: "1993",
+      year: "2010",
       lien: "geometrique",
     },
  {
@@ -952,7 +952,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-6.jpg`,
       style: "Géométriques",
       description: "technique mixte 40x40 cm",
-      year: "1993",
+      year: "1997",
       lien: "geometrique",
     },
      {
@@ -960,23 +960,16 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-7.jpg`,
       style: "Géométriques",
       description: "technique mixte 90x90 cm",
-      year: "1993",
+      year: "1991",
       lien: "geometrique",
     },
-     {
-      title: "Germination",
-      image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-2.jpg`,
-      style: "Géométriques",
-      description: "technique mixte 40x40 cm",
-      year: "1993",
-      lien: "geometrique",
-    },
+
      {
       title: "Zoulou",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-8.jpg`,
       style: "Géométriques",
       description: "technique mixte 90x90 cm",
-      year: "1993",
+      year: "1988",
       lien: "geometrique",
     },
      {
@@ -984,7 +977,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-9.jpg`,
       style: "Géométriques",
       description: "technique mixte 45x45 cm",
-      year: "1993",
+      year: "2025",
       lien: "geometrique",
     },
      {
@@ -992,7 +985,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-10.jpg`,
       style: "Géométriques",
       description: "technique mixte 45x45 cm",
-      year: "1993",
+      year: "2025",
       lien: "geometrique",
     },
      {
@@ -1000,7 +993,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-11.jpg`,
       style: "Géométriques",
       description: "technique mixte 35x35 cm",
-      year: "1993",
+      year: "2020",
       lien: "geometrique",
     },
      {
@@ -1008,7 +1001,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-12.jpg`,
       style: "Géométriques",
       description: "technique mixte 40x40 cm",
-      year: "1993",
+      year: "2000",
       lien: "geometrique",
     },
      {
@@ -1016,7 +1009,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-13.jpg`,
       style: "Géométriques",
       description: "technique mixte 40x50 cm",
-      year: "1993",
+      year: "1967",
       lien: "geometrique",
     },
      {
@@ -1024,7 +1017,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-14.jpg`,
       style: "Géométriques",
       description: "technique mixte 50x55 cm",
-      year: "1993",
+      year: "1992",
       lien: "geometrique",
     },
      {
@@ -1032,7 +1025,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-15.jpg`,
       style: "Géométriques",
       description: "technique mixte 40x40 cm",
-      year: "1993",
+      year: "1998",
       lien: "geometrique",
     },
      {
@@ -1040,7 +1033,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-16.jpg`,
       style: "Géométriques",
       description: "technique mixte 90x90 cm",
-      year: "1993",
+      year: "1995",
       lien: "geometrique",
     },
      {
@@ -1048,7 +1041,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-17.jpg`,
       style: "Géométriques",
       description: "technique mixte 25x45 cm",
-      year: "1993",
+      year: "2025",
       lien: "geometrique",
     },
      {
@@ -1056,7 +1049,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-18.jpg`,
       style: "Géométriques",
       description: "technique mixte 30x30 cm",
-      year: "1993",
+      year: "1990",
       lien: "geometrique",
     },
      {
@@ -1064,7 +1057,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-19.jpg`,
       style: "Géométriques",
       description: "technique mixte 35x35 cm",
-      year: "1993",
+      year: "2001",
       lien: "geometrique",
     },
      {
@@ -1072,7 +1065,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-20.jpg`,
       style: "Géométriques",
       description: "technique mixte 80x80 cm",
-      year: "1993",
+      year: "1996",
       lien: "geometrique",
     },
      {
@@ -1080,7 +1073,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-21.jpg`,
       style: "Géométriques",
       description: "technique mixte 35x45 cm",
-      year: "1993",
+      year: "1992",
       lien: "geometrique",
     },
      {
@@ -1088,7 +1081,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-22.jpg`,
       style: "Géométriques",
       description: "technique mixte 50x75 cm",
-      year: "1993",
+      year: "1989",
       lien: "geometrique",
     },
      {
@@ -1096,7 +1089,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-23.jpg`,
       style: "Géométriques",
       description: "technique mixte 40x60 cm",
-      year: "1993",
+      year: "2020",
       lien: "geometrique",
     },
      {
@@ -1104,7 +1097,7 @@ export const seriesData: Record<string, Work[]> = {
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-24.jpg`,
       style: "Géométriques",
       description: "technique mixte 40x75 cm",
-      year: "1993",
+      year: "1978",
       lien: "geometrique",
     },
   ],
