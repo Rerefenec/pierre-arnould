@@ -69,6 +69,9 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
       const newIndexUrl = newIndex + 1;
       const params = new URLSearchParams(searchParams);
       params.set("index", newIndexUrl.toString());
+      // keep the current work title in the URL so metadata and share links include it
+      const newTitle = works[newIndex]?.title;
+      if (newTitle) params.set("title", newTitle);
       router.replace(`/diaporama/${ouvres}?${params.toString()}`);
     },
     [currentIndex, worksCount, searchParams, router, ouvres]
@@ -80,6 +83,7 @@ export default function Diaporama({ ouvres }: { ouvres: string }) {
       document.exitFullscreen?.();
     } else {
       console.log("🔹 Cerrando desde índice:", currentIndex);
+      // remove index/title when closing
       router.push(`/${ouvres}`);
     }
   }, [router, currentIndex, ouvres]);

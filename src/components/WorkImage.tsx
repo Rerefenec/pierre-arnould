@@ -45,7 +45,10 @@ export default function WorkImage({
 
   const handleClick = () => {
     const targetIndex = workIndex + 1;
-    router.push(`/diaporama/${workSeries}?index=${targetIndex}`);
+    const params = new URLSearchParams();
+    params.set("index", String(targetIndex));
+    if (title) params.set("title", title);
+    router.push(`/diaporama/${workSeries}?${params.toString()}`);
   };
 
   return (

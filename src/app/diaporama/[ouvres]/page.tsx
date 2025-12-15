@@ -7,7 +7,11 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   const base = seriesKey.replace(/s$/i, '');
   const resolvedSearch: Record<string,string> | undefined = searchParams ? await searchParams : undefined;
   const index = (resolvedSearch && resolvedSearch.index) ? resolvedSearch.index : '1';
-  const title = `Diaporama-${base}-${index}-pierre-arnould-artiste`;
+  // Prefer the per-image title if provided in the URL
+  const imageTitle = resolvedSearch && resolvedSearch.title ? resolvedSearch.title : undefined;
+  const title = imageTitle
+    ? `Diaporama — ${imageTitle} — Pierre-Arnould` 
+    : `Diaporama-${base}-${index}-pierre-arnould-artiste`;
 
   return {
     title,
