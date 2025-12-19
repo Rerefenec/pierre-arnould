@@ -43,18 +43,18 @@ export default function AproposPage() {
 {/* section 1 bis quelques dessins et documents */}
 <div className="text-4xl font-bold text-center ">Premiers travaux</div>
      <div className="text-1xl font-bold text-center">Dessins à l'encre sur papier</div>
-<section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-16 items-center">
+<section className="max-w-8xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-16 items-center">
 
    <div className="relative w-full h-[400px]  overflow-hidden">
           <Image
-            src="/dessins-photos/pierre-arnould-dessin2.jpg"
+            src="/dessins-photos/pierre-arnould-dessin6.jpg"
             alt="dessin de Pierre Arnould artiste plasticien"
             fill
             className="object-contain"
           />
     </div>
 
-      <div className="relative w-full h-[400px]  overflow-hidden">
+      <div className="relative w-full h-[300px]  overflow-hidden">
           <Image
             src="/dessins-photos/pierre-arnould-dessin3.jpg"
             alt="dessin de Pierre Arnould artiste plasticien"

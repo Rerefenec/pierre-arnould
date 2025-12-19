@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { seriesData } from "@/app/data/seriesData";
 interface WorkImageProps {
   src: string;
   alt: string;
@@ -51,6 +52,18 @@ export default function WorkImage({
     router.push(`/diaporama/${workSeries}?${params.toString()}`);
   };
 
+  const computedAlt = (() => {
+    const s = seriesData[workSeries];
+    const w = s && s[workIndex];
+    if (w) {
+      const parts = [w.title];
+      if (w.description) parts.push(w.description);
+      const yearPart = w.year ? `Pierre Arnould (${w.year})` : "Pierre Arnould";
+      return `${parts.join(" — ")} — ${yearPart}`;
+    }
+    return alt || title || "Image — Pierre Arnould";
+  })();
+
   return (
     <div className="relative group cursor-pointer w-full h-full" onClick={handleClick}>
       {isLoading && !hasError && (
@@ -72,7 +85,7 @@ export default function WorkImage({
         <>
           <Image
             src={src}
-            alt={alt}
+            alt={computedAlt}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
             className={`${className} transition-all duration-300 group-hover:opacity-90 group-hover:scale-[1.02]`}

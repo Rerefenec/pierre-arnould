@@ -1,8 +1,8 @@
 import { dirname } from "path";
-import { fileURLToPath } from "url";
+import { fileToPath } from "";
 import { FlatCompat } from "@eslint/eslintrc";
 
-const __filename = fileURLToPath(import.meta.url);
+const __filename = fileToPath(import.meta.);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({

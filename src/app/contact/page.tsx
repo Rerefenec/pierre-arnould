@@ -12,12 +12,12 @@ export default function AproposPage() {
       {/* --------------- SECTION 1 : Portrait + Biographie --------------- */}
       <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
         {/* IMAGEN IZQUIERDA */}
-        <div className="relative w-full h-[400px] rounded-xl overflow-hidden">
+        <div className="relative w-full h-[400px] overflow-hidden">
           <Image
-            src="/dessins-photos/pierre-arnould-dessin1.jpg"
+            src="/dessins-photos/pierre-arnould-dessin2.jpg"
             alt="dessin de Pierre Arnould artiste plasticien"
             fill
-            className="object-cover"
+            className="object-contain"
           />
         </div>
 
@@ -25,9 +25,9 @@ export default function AproposPage() {
         <div className="space-y-6 text-justify">
           <h2 className="text-4xl font-bold">            Pierre Arnould </h2>
           <p className="text-lg leading-relaxed text-gray-300">
-            pierrearnould@gmail.com
+            pierre.arnould2@wanadoo.fr
             <br />
-            07 81 87 12 15
+           
             <br />
             Atelier principal à Perpignan, France
           </p>
