@@ -1,7 +1,7 @@
 export interface Work {
   title: string;
   image: string;
-  style: string;
+  
   description: string;
   year: string;
   lien: string;
@@ -16,7 +16,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: " Jungle Mystique",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-1.jpg`,
-      style: "Cloisonnés",
+      
       description: "Relief pigmenté sur panneau, patine 50x75 cm",
       year: "1980",
       lien: "cloisonnes",
@@ -24,7 +24,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Entrée du Labyrinthe",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-2.jpg`,
-      style: "Cloisonnés",
+      
       description: "Relief, résine/enduit, peintures métalliques sur bois 60x80 cm",
       year: "1982",
       lien: "cloisonnes",
@@ -32,7 +32,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Guerrier Géométrique",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-3.jpg`,
-      style: "Cloisonnés",
+      
       description: "Technique mixte en relief, finition martelée 50x75 cm",
       year: "1985",
       lien: "cloisonnes",
@@ -40,7 +40,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "L'Archétype",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-4.jpg`,
-      style: "Cloisonnés",
+      
       description: "Terre texturée, pigments et feuilles de métal",
       year: "1986",
       lien: "cloisonnes",
@@ -48,7 +48,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "L'Éclatement Central",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-5.jpg`,
-      style: "Cloisonnés",
+      
       description: "Technique mixte sur panneau 80x60 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -56,7 +56,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Le Dédale Tribal",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-6.jpg`,
-      style: "Cloisonnés",
+      
       description: "Pigments or et bleu nuit sur bois 90x65 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -64,7 +64,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Formes de la Métamorphose",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-7.jpg`,
-      style: "Cloisonnés",
+      
       description: "Relief pigmenté sur panneau 50x75 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -72,7 +72,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Machine de Rêve Ocre",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-8.jpg`,
-      style: "Cloisonnés",
+      
       description: "Pigments et feuilles de métal sur bois 45x45 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -80,7 +80,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Profil du Guerrier Féminin",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-9.jpg`,
-      style: "Cloisonnés",
+      
       description: "Relief cloisonné sur panneau 41x54 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -88,7 +88,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Égérie Géométrique",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-10.jpg`,
-      style: "Cloisonnés",
+      
       description: "Relief pigmenté sur panneau 41x54 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -96,7 +96,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Jungle Cellulaire",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-11.jpg`,
-      style: "Cloisonnés",
+      
       description: "Patine et reliefs sur bois 50x75 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -104,7 +104,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Mosaïque Fractale Brune",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-12.jpg`,
-      style: "Cloisonnés",
+      
       description: "Reliefs cloisonnés sur panneau 50x75 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -112,7 +112,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Gardien Solaire",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-13.jpg`,
-      style: "Cloisonnés",
+      
       description: "Technique mixte sur panneau 30x3 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -120,7 +120,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Éruption Flora-Mécanique",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-14.jpg`,
-      style: "Cloisonnés",
+      
       description: "Relief pigmenté et métal sur panneau 80x60 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -128,7 +128,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Vol de l'Insecte Mécanique",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-15.jpg`,
-      style: "Cloisonnés",
+      
       description: "Relief cloisonné sur panneau 40x65 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -136,7 +136,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Reggane",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-16.jpg`,
-      style: "Cloisonnés",
+      
       description: "Technique de mosaïque en relief sur panneau 50x75 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -144,7 +144,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Tunnel de Lumière Dorée",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-17.jpg`,
-      style: "Cloisonnés",
+      
       description: "Reliefs pigmentés et laqués 45x75 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -152,7 +152,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Grande Cérémonie",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-18.jpg`,
-      style: "Cloisonnés",
+      
       description: "Reliefs pigmentés sur panneau 40x65 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -160,7 +160,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Coupe de Mitochondrie Bleue",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-19.jpg`,
-      style: "Cloisonnés",
+      
       description: "Reliefs cloisonnés sur panneau 35x50 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -168,7 +168,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Duel Solaire",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-20.jpg`,
-      style: "Cloisonnés",
+      
       description: "Terre texturée, pigments et feuilles de métal 60x100 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -176,7 +176,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Structure Subatomique Jaune",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-21.jpg`,
-      style: "Cloisonnés",
+      
       description: "Reliefs laqués sur panneau 30x55 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -184,7 +184,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Fragmentarium Végétal",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-22.jpg`,
-      style: "Cloisonnés",
+      
       description: "Reliefs patinés sur panneau 90x180 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -192,7 +192,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Trois Niveaux du Temps",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-23.jpg`,
-      style: "Cloisonnés",
+      
       description: "Reliefs pigmentés sur panneau 45x90 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -200,7 +200,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Urgence Rouge (The Red Emergency)",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-24.jpg`,
-      style: "Cloisonnés",
+      
       description: "Reliefs pigmentés et encadrés 85x60 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -208,7 +208,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Spectre du Totem",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-25.jpg`,
-      style: "Cloisonnés",
+      
       description: "Reliefs et paillettes sur fond noir 40x80 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -216,7 +216,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Essence de l'Oiseau-Soleil",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-26.jpg`,
-      style: "Cloisonnés",
+      
       description: "Reliefs laqués sur panneau 110x30 cm",
       year: "1986",
       lien: "cloisonnes",
@@ -224,7 +224,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Harmonie des Bulles (d'aprés le baiser de Klimt)",
       image: `/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-27.jpg`,
-      style: "Cloisonnés",
+      
       description: "Pigments et patine bronze sur panneau 80x30 cm.",
       year: "1986",
       lien: "cloisonnes",
@@ -240,7 +240,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Paléo-Bolide",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-1.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 90 cm",
       year: "2003",
       lien: "tondos",
@@ -248,7 +248,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Engrenage Galactique",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-2.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 90 cm",
       year: "2004",
       lien: "tondos",
@@ -256,7 +256,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Planisphère Végétal",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-3.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 110 cm",
       year: "2002",
       lien: "tondos",
@@ -264,7 +264,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Disque de Poussière Ocre",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-4.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 100 cm",
       year: "2002",
       lien: "tondos",
@@ -272,7 +272,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Phaistos Bis",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-5.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 60 cm",
       year: "1992",
       lien: "tondos",
@@ -280,7 +280,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Marsupialement Votre",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-6.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 65 cm",
       year: "1995",
       lien: "tondos",
@@ -288,7 +288,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "La 27ème Arcane",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-7.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 69 cm",
       year: "1994",
       lien: "tondos",
@@ -296,7 +296,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Roue Cosmique",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-8.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 60 cm",
       year: "1996",
       lien: "tondos",
@@ -304,7 +304,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Jubilé Beige",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-9.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 65 cm",
       year: "1998",
       lien: "tondos",
@@ -312,7 +312,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Profil d'Élémental",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-10.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 65 cm",
       year: "1988",
       lien: "tondos",
@@ -320,7 +320,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Pavois Zapotec",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-11.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 60 cm",
       year: "1990",
       lien: "tondos",
@@ -328,7 +328,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Mandala Vert",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-12.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 60 cm",
       year: "1991",
       lien: "tondos",
@@ -336,7 +336,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Tondo Rondo",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-13.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 60 cm",
       year: "1990",
       lien: "tondos",
@@ -344,7 +344,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Cadran Solaire Maya",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-14.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 80 cm",
       year: "1986",
       lien: "tondos",
@@ -352,7 +352,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Like Ciceron",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-15.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 61 cm",
       year: "1991",
       lien: "tondos",
@@ -360,7 +360,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Mandala Jaune Décalé",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-16.jpg`,
-      style: "Tondos",
+     
       description: "technique mixte Ø 65 cm",
       year: "1994",
       lien: "tondos",
@@ -368,7 +368,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Rondache National",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-17.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 63 cm",
       year: "1995",
       lien: "tondos",
@@ -376,7 +376,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "UFO Vert Acide",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-18.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 63 cm",
       year: "1986",
       lien: "tondos",
@@ -384,7 +384,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Corps céleste Psychopompe",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-19.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 80 cm",
       year: "1989",
       lien: "tondos",
@@ -392,7 +392,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Symbiose du Plongeur",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-20.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte 63x72 cm",
       year: "1992",
       lien: "tondos",
@@ -400,7 +400,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Triple Fusion Cellulaire",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-21.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 110 cm",
       year: "1989",
       lien: "tondos",
@@ -408,7 +408,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Tombé des Nues",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-22.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 63 cm",
       year: "1984",
       lien: "tondos",
@@ -416,7 +416,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Rapport d'Autopsie Céleste",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-23.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 110 cm",
       year: "2000",
       lien: "tondos",
@@ -424,7 +424,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Électro-Encéphalogramme",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-24.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 85 cm",
       year: "1984",
       lien: "tondos",
@@ -432,7 +432,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Anatomie de l'Orange Mécanique",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-25.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 90 cm",
       year: "1981",
       lien: "tondos",
@@ -440,7 +440,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Horloge de la Mitose",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-26.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 70 cm",
       year: "1996",
       lien: "tondos",
@@ -448,7 +448,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Mandala Anesthésique",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-27.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 60 cm",
       year: "1988",
       lien: "tondos",
@@ -456,7 +456,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Stroboscodisc",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-28.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 70 cm",
       year: "1989",
       lien: "tondos",
@@ -464,7 +464,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Un dimanche à la Campagne",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-29.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 68 cm",
       year: "1999",
       lien: "tondos",
@@ -472,7 +472,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Tarmac Maya",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-30.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 75 cm",
       year: "1986",
       lien: "tondos",
@@ -480,7 +480,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Trois Langues à Couper",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-31.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 71 cm",
       year: "1993",
       lien: "tondos",
@@ -488,7 +488,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Entrée en Matière",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-32.jpg`,
-      style: "Tondos",
+     
       description: "technique mixte Ø 60 cm",
       year: "1994",
       lien: "tondos",
@@ -496,7 +496,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Concertino numéro 5",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-33.jpg`,
-      style: "Tondos",
+    
       description: "technique mixte Ø 65 cm",
       year: "1994",
       lien: "tondos",
@@ -504,7 +504,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Egide",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-34.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 65 cm",
       year: "1991",
       lien: "tondos",
@@ -512,7 +512,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Empreinte sur Lune Sombre",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-35.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 40 cm",
       year: "1979",
       lien: "tondos",
@@ -520,7 +520,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Didouilles",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-36.jpg`,
-      style: "Tondos",
+     
       description: "technique mixte Ø 68 cm",
       year: "1991",
       lien: "tondos",
@@ -528,7 +528,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Orbites et Signes Perdus",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-37.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 90 cm",
       year: "1986",
       lien: "tondos",
@@ -536,7 +536,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Cosmic Ethnic",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-38.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 65 cm",
       year: "1988",
       lien: "tondos",
@@ -544,7 +544,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Tip Top Marbré",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-39.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 65 cm",
       year: "1990",
       lien: "tondos",
@@ -552,7 +552,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Objet Trouvé Triploïde",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-40.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 90 cm",
       year: "2000",
       lien: "tondos",
@@ -560,7 +560,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Circuits Végétaux de l'ADN",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-41.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 45 cm",
       year: "2001",
       lien: "tondos",
@@ -568,7 +568,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Sujet à Caution",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-42.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 90 cm",
       year: "2002",
       lien: "tondos",
@@ -576,7 +576,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Écran de Surveillance Virale",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-43.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 60 cm",
       year: "1999",
       lien: "tondos",
@@ -584,7 +584,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Quadrant des Mouvements Premiers",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-44.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 50 cm",
       year: "1995",
       lien: "tondos",
@@ -592,7 +592,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Triade Hyperboréenne",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-45.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 110 cm",
       year: "1997",
       lien: "tondos",
@@ -600,7 +600,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Lune Noire et Crépuscule Tribal",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-46.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 100 cm",
       year: "1990",
       lien: "tondos",
@@ -608,7 +608,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Bouclier Cardiaque",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-47.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 40x40 cm",
       year: "2025",
       lien: "tondos",
@@ -616,7 +616,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Labyrinthe Toxique",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-48.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 45 cm",
       year: "1997",
       lien: "tondos",
@@ -624,7 +624,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Aura des Organes Doubles",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-49.jpg`,
-      style: "Tondos",
+   
       description: "technique mixte Ø 75 cm",
       year: "1991",
       lien: "tondos",
@@ -632,7 +632,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Archétype de la Roue à Énergie",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-50.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 110 cm",
       year: "1994",
       lien: "tondos",
@@ -640,7 +640,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Micro-Chirurgie Flottante",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-51.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 55 cm",
       year: "2004",
       lien: "tondos",
@@ -648,7 +648,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Vestiges d'une Cité Sous-Marine",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-52.jpg`,
-      style: "Tondos",
+     
       description: "technique mixte Ø 80 cm",
       year: "2000",
       lien: "tondos",
@@ -656,7 +656,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Garde du Corps Céleste",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-53.jpg`,
-      style: "Tondos",
+     
       description: "technique mixte Ø 85 cm",
       year: "1998",
       lien: "tondos",
@@ -664,7 +664,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Talisman de la Double Hélice",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-54.jpg`,
-      style: "Tondos",
+     
       description: "technique mixte Ø 55 cm",
       year: "2014",
       lien: "tondos",
@@ -672,7 +672,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Bolide d'argent",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-55.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 80 cm",
       year: "1995",
       lien: "tondos",
@@ -680,7 +680,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Ventilation cellulaire",
       image: `/1995-2020-Tondos/pierre-arnould-artiste-tondo-56.jpg`,
-      style: "Tondos",
+      
       description: "technique mixte Ø 81 cm",
       year: "1993",
       lien: "tondos",
@@ -705,7 +705,7 @@ export const seriesData: Record<string, Work[]> = {
  {
       title: "Arbre à palabres",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-1.jpg`,
-      style: "Baroque",
+      
       description: "technique mixte 20x30 cm",
       year: "1979",
       lien: "baroques",
@@ -713,7 +713,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Dédale",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-2.jpg`,
-      style: "Baroque",
+      
       description: "technique mixte 20x30 cm",
       year: "2011",
       lien: "baroques",
@@ -721,7 +721,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Port d'attaches",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-3.jpg`,
-      style: "Baroque",
+      
       description: "technique mixte 50x50 cm",
       year: "2024",
       lien: "baroques",
@@ -730,7 +730,7 @@ export const seriesData: Record<string, Work[]> = {
  {
       title: "Jeu de pistes",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-4.jpg`,
-      style: "Baroque",
+     
       description: "technique mixte 100x100 cm",
       year: "1979",
       lien: "baroques",
@@ -738,7 +738,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Composition Jaune",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-5.jpg`,
-      style: "Baroque",
+     
       description: "technique mixte 40x70 cm",
       year: "2002",
       lien: "baroques",
@@ -746,7 +746,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Imagine",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-6.jpg`,
-      style: "Baroque",
+     
       description: "technique mixte 30x40 cm",
       year: "2022",
       lien: "baroques",
@@ -754,7 +754,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Hyménoptère",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-7.jpg`,
-      style: "Baroque",
+      
       description: "technique mixte 40x44 cm",
       year: "2023",
       lien: "baroques",
@@ -762,7 +762,7 @@ export const seriesData: Record<string, Work[]> = {
     {
       title: "Rotor hydrique",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-8.jpg`,
-      style: "Baroque",
+      
       description: "technique mixte 30x38 cm",
       year: "2021",
       lien: "baroques",
@@ -770,7 +770,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Astronef",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-9.jpg`,
-      style: "Baroque",
+      
       description: "technique mixte 35x50 cm",
       year: "2023",
       lien: "baroques",
@@ -779,7 +779,7 @@ export const seriesData: Record<string, Work[]> = {
  {
       title: "Pico Pico",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-10.jpg`,
-      style: "Baroque",
+      
       description: "technique mixte 35x55 cm",
       year: "2023",
       lien: "baroques",
@@ -787,7 +787,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Récup' dorée",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-11.jpg`,
-      style: "Baroque",
+    
       description: "technique mixte 50x80 cm",
       year: "1998",
       lien: "baroques",
@@ -795,7 +795,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Patterne beige",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-12.jpg`,
-      style: "Baroque",
+     
       description: "technique mixte 50x80 cm",
       year: "1999",
       lien: "baroques",
@@ -803,7 +803,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Lépidoptère cornu",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-13.jpg`,
-      style: "Baroque",
+      
       description: "technique mixte 35x55 cm",
       year: "2008",
       lien: "baroques",
@@ -811,7 +811,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Labyrinthe terra",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-14.jpg`,
-      style: "Baroque",
+      
       description: "technique mixte 45x70 cm",
       year: "1990",
       lien: "baroques",
@@ -819,7 +819,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Dancing chisel",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-15.jpg`,
-      style: "Baroque",
+      
       description: "technique mixte 30x40 cm",
       year: "2001",
       lien: "baroques",
@@ -827,7 +827,7 @@ export const seriesData: Record<string, Work[]> = {
  {
       title: "Masque sénoufo",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-16.jpg`,
-      style: "Baroque",
+      
       description: "technique mixte 40x60 cm",
       year: "2013",
       lien: "baroques",
@@ -835,7 +835,7 @@ export const seriesData: Record<string, Work[]> = {
         {
       title: "N'dédélé",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-17.jpg`,
-      style: "Baroque",
+     
       description: "technique mixte 30x50 cm",
       year: "2022",
       lien: "baroques",
@@ -843,7 +843,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Yoruba",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-18.jpg`,
-      style: "Baroque",
+   
       description: "technique mixte 35x70 cm",
       year: "2090",
       lien: "baroques",
@@ -852,7 +852,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Tribalisme",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-19.jpg`,
-      style: "Baroque",
+      
       description: "technique mixte 30x90 cm",
       year: "2013",
       lien: "baroques",
@@ -860,7 +860,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Ashanti",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-20.jpg`,
-      style: "Baroque",
+     
       description: "technique mixte 35x70 cm",
       year: "2024",
       lien: "baroques",
@@ -868,7 +868,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Primitivisme",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-21.jpg`,
-      style: "Baroque",
+     
       description: "technique mixte 30x80 cm",
       year: "2023",
       lien: "baroques",
@@ -876,7 +876,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Aborigène",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-22.jpg`,
-      style: "Baroque",
+    
       description: "technique mixte 25x65 cm",
       year: "2023",
       lien: "baroques",
@@ -884,7 +884,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Trigono spacial",
       image: `/2021-2025-Baroques/pierre-arnould-artiste-baroque-23.jpg`,
-      style: "Baroque",
+     
       description: "technique mixte 100x90 cm",
       year: "1989",
       lien: "baroques",
@@ -910,7 +910,7 @@ export const seriesData: Record<string, Work[]> = {
  {
       title: "Fraise vanille",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-1.jpg`,
-      style: "Géométriques",
+    
       description: "technique mixte 50x50 cm",
       year: "2025",
       lien: "geometrique",
@@ -918,7 +918,7 @@ export const seriesData: Record<string, Work[]> = {
  {
       title: "Germination",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-2.jpg`,
-      style: "Géométriques",
+    
       description: "technique mixte 40x40 cm",
       year: "1969",
       lien: "geometrique",
@@ -926,7 +926,7 @@ export const seriesData: Record<string, Work[]> = {
  {
       title: "Octo-ventilo",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-3.jpg`,
-      style: "Géométriques",
+     
       description: "technique mixte 80x80 cm",
       year: "1999",
       lien: "geometrique",
@@ -934,7 +934,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Byzance",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-4.jpg`,
-      style: "Géométriques",
+    
       description: "technique mixte 80x80 cm",
       year: "1999",
       lien: "geometrique",
@@ -942,7 +942,7 @@ export const seriesData: Record<string, Work[]> = {
  {
       title: "Mayapolis",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-5.jpg`,
-      style: "Géométriques",
+     
       description: "technique mixte 40x40 cm",
       year: "2010",
       lien: "geometrique",
@@ -950,7 +950,7 @@ export const seriesData: Record<string, Work[]> = {
  {
       title: "Hokkaido zen",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-6.jpg`,
-      style: "Géométriques",
+    
       description: "technique mixte 40x40 cm",
       year: "1997",
       lien: "geometrique",
@@ -958,7 +958,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Gotic",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-7.jpg`,
-      style: "Géométriques",
+      
       description: "technique mixte 90x90 cm",
       year: "1991",
       lien: "geometrique",
@@ -967,7 +967,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Zoulou",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-8.jpg`,
-      style: "Géométriques",
+    
       description: "technique mixte 90x90 cm",
       year: "1988",
       lien: "geometrique",
@@ -975,7 +975,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Forum",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-9.jpg`,
-      style: "Géométriques",
+     
       description: "technique mixte 45x45 cm",
       year: "2025",
       lien: "geometrique",
@@ -983,7 +983,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Temple sacrificiel",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-10.jpg`,
-      style: "Géométriques",
+     
       description: "technique mixte 45x45 cm",
       year: "2025",
       lien: "geometrique",
@@ -991,7 +991,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Bauhaus",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-11.jpg`,
-      style: "Géométriques",
+     
       description: "technique mixte 35x35 cm",
       year: "2020",
       lien: "geometrique",
@@ -999,7 +999,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Epimedic",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-12.jpg`,
-      style: "Géométriques",
+     
       description: "technique mixte 40x40 cm",
       year: "2000",
       lien: "geometrique",
@@ -1007,7 +1007,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Architectonic",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-13.jpg`,
-      style: "Géométriques",
+    
       description: "technique mixte 40x50 cm",
       year: "1967",
       lien: "geometrique",
@@ -1015,7 +1015,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Pacific Maori ",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-14.jpg`,
-      style: "Géométriques",
+     
       description: "technique mixte 50x55 cm",
       year: "1992",
       lien: "geometrique",
@@ -1023,7 +1023,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Message planette rouge",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-15.jpg`,
-      style: "Géométriques",
+     
       description: "technique mixte 40x40 cm",
       year: "1998",
       lien: "geometrique",
@@ -1031,7 +1031,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Echiquier andalou",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-16.jpg`,
-      style: "Géométriques",
+     
       description: "technique mixte 90x90 cm",
       year: "1995",
       lien: "geometrique",
@@ -1039,7 +1039,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Temple d'albatre",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-17.jpg`,
-      style: "Géométriques",
+    
       description: "technique mixte 25x45 cm",
       year: "2025",
       lien: "geometrique",
@@ -1047,7 +1047,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Parcours-piège",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-18.jpg`,
-      style: "Géométriques",
+      
       description: "technique mixte 30x30 cm",
       year: "1990",
       lien: "geometrique",
@@ -1055,7 +1055,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Dans l'armurerie",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-19.jpg`,
-      style: "Géométriques",
+     
       description: "technique mixte 35x35 cm",
       year: "2001",
       lien: "geometrique",
@@ -1063,7 +1063,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Embarquement comète",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-20.jpg`,
-      style: "Géométriques",
+     
       description: "technique mixte 80x80 cm",
       year: "1996",
       lien: "geometrique",
@@ -1071,7 +1071,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Braille Tetris",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-21.jpg`,
-      style: "Géométriques",
+      
       description: "technique mixte 35x45 cm",
       year: "1992",
       lien: "geometrique",
@@ -1079,7 +1079,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Composition au carré",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-22.jpg`,
-      style: "Géométriques",
+      
       description: "technique mixte 50x75 cm",
       year: "1989",
       lien: "geometrique",
@@ -1087,7 +1087,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Composition au moule à gateau",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-23.jpg`,
-      style: "Géométriques",
+      
       description: "technique mixte 40x60 cm",
       year: "2020",
       lien: "geometrique",
@@ -1095,7 +1095,7 @@ export const seriesData: Record<string, Work[]> = {
      {
       title: "Composition tressée",
       image: `/2021-2025-Geometriques/pierre-arnould-artiste-geometrique-24.jpg`,
-      style: "Géométriques",
+     
       description: "technique mixte 40x75 cm",
       year: "1978",
       lien: "geometrique",

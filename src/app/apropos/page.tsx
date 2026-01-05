@@ -50,7 +50,7 @@ export default function AproposPage() {
             src="/dessins-photos/pierre-arnould-dessin6.jpg"
             alt="dessin de Pierre Arnould artiste plasticien"
             fill
-            className="object-contain"
+            className="object-contain"                  
           />
     </div>
 
