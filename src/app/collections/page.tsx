@@ -21,7 +21,7 @@ const galleryItems = Object.entries(seriesData).flatMap(([serie, works]) =>
       .replace(".jpg", ".webp")
       .replace(".png", ".webp");
 
-    return { title: work.title, style: work.style, image: miniImage, lien: work.lien, index, serie };
+    return { title: work.title, image: miniImage, lien: work.lien, index, serie };
   })
 );
 

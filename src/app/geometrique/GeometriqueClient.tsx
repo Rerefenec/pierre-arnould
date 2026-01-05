@@ -144,9 +144,7 @@ export default function GeometriqueClient() {
                                           <h2 className="text-white text-center font-semibold text-sm md:text-base lg:text-lg">
                                               {work.title} 
                                           </h2>
-                                          <p className="mt-1 text-gray-400 text-xs md:text-sm lg:text-base">
-                                              {work.style}
-                                          </p>
+                                      
                                           <p className="mt-1 text-center text-gray-500 wrap-break-word overflow-hidden line-clamp-3 w-full text-xs md:text-sm lg:text-base">
                                               {work.description} 
                                           </p>

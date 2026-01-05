@@ -3,7 +3,7 @@ import Image from "next/image";
 type GalleryItem = {
   title: string;
   image: string;
-  style: string;
+
   serie: string;
   index: number;
   lien: string;
