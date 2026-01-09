@@ -11,6 +11,18 @@ import Header from "@/components/Header";
 import { seriesData } from "@/app/data/seriesData";
 import CollectionDiaporama from "@/components/diaporama/CollectionDiaporama";
 
+/* =======================
+   Utils
+======================= */
+const normalize = (text: string) =>
+  text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+
+/* =======================
+   Data
+======================= */
 const galleryItems = Object.entries(seriesData).flatMap(([serie, works]) =>
   works.map((work, index) => {
     const miniImage = work.image
@@ -21,50 +33,82 @@ const galleryItems = Object.entries(seriesData).flatMap(([serie, works]) =>
       .replace(".jpg", ".webp")
       .replace(".png", ".webp");
 
-    return { title: work.title, image: miniImage, lien: work.lien, index, serie };
+    return {
+      title: work.title,
+      image: miniImage,
+      lien: work.lien,
+      index, 
+      serie,
+    };
   })
 );
 
-const styles = ["Géométrique", "Baroques", "Tondos", "Cloisonnés", "Toutes les œuvres"];
+const styles = [
+  "Géométrique",
+  "Baroques",
+  "Tondos",
+  "Cloisonnés",
+  "Toutes les œuvres",
+];
 
 const styleToLien: Record<string, string | null> = {
-  "Géométrique": "geometrique",
-  "Baroques": "baroques",
-  "Tondos": "tondos",
-  "Cloisonnés": "cloisonnes",
+  Géométrique: "geometrique",
+  Baroques: "baroques",
+  Tondos: "tondos",
+  Cloisonnés: "cloisonnes",
   "Toutes les œuvres": null,
 };
-
 
 export default function Collections() {
   const [query, setQuery] = useState("");
   const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
-  const [openDiaporama, setOpenDiaporama] = useState<{ serie: string; index: number } | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [openDiaporama, setOpenDiaporama] = useState<{
+    serie: string;
+    index: number;
+  } | null>(null);
   const [isVisible, setIsVisible] = useState(false);
-const [shuffledGalleryItems, setShuffledGalleryItems] = useState(galleryItems);
+  const [shuffledGalleryItems, setShuffledGalleryItems] =
+    useState(galleryItems);
 
-useEffect(() => {
-  // Shuffle ONLY on the client
-  setShuffledGalleryItems([...galleryItems].sort(() => Math.random() - 0.5));
-}, []);
+  /* Shuffle once on client */
+  useEffect(() => {
+    setShuffledGalleryItems(
+      [...galleryItems].sort(() => Math.random() - 0.5)
+    );
+  }, []);
 
-  const resetFilters = () => { setQuery(""); setSelectedStyle(null); setCurrentPage(1); };
-  const selectedLien = selectedStyle ? styleToLien[selectedStyle as string] || null : null;
-  const filteredCount = shuffledGalleryItems.filter(
-    (item) => (!selectedLien || item.lien === selectedLien) && item.title.toLowerCase().includes(query.toLowerCase())
-  ).length;
+  const selectedLien = selectedStyle
+    ? styleToLien[selectedStyle]
+    : null;
 
-  const scrollToTop = () => { window.scrollTo({ top: 0, behavior: "smooth" }); };
+  /* ✅ SINGLE FILTER SOURCE */
+  const filteredItems = shuffledGalleryItems.filter(
+    (item) =>
+      (!selectedLien || item.lien === selectedLien) &&
+      normalize(item.title).includes(normalize(query))
+  );
 
+  const filteredCount = filteredItems.length;
+
+  const resetFilters = () => {
+    setQuery("");
+    setSelectedStyle(null);
+    setCurrentPage(1);
+  };
+
+  /* Scroll button */
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      const atBottom = Math.abs(documentHeight - (scrollTop + windowHeight)) < 5;
+      const atBottom =
+        Math.abs(documentHeight - (scrollTop + windowHeight)) < 5;
       setIsVisible(atBottom);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -74,74 +118,78 @@ useEffect(() => {
       <Header />
 
       <section className="mt-32 sm:mt-24 md:mt-32 xl:mt-40">
-        <h1 className="text-white text-center animate__animated animate__fadeInDown text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+        <h1 className="text-white text-center text-5xl font-bold mb-8">
           Collections
         </h1>
 
         <div className="px-4 sm:px-6 md:px-10 xl:px-20">
           <SearchBar
             query={query}
-            setQuery={(v) => { setQuery(v); setCurrentPage(1); }}
+            setQuery={(v) => {
+              setQuery(v);
+              setCurrentPage(1);
+            }}
             filteredCount={filteredCount}
-            resetFilters={() => { resetFilters(); setCurrentPage(1); }}
+            resetFilters={resetFilters}
             styles={styles}
             selectedStyle={selectedStyle}
-            setSelectedStyle={(style) => { setSelectedStyle(style); setCurrentPage(1); }}
+            setSelectedStyle={(style) => {
+              setSelectedStyle(style);
+              setCurrentPage(1);
+            }}
             setCurrentPage={setCurrentPage}
           />
         </div>
 
-        <div className="flex flex-col lg:flex-row relative bg-black px-2 sm:px-6 md:px-10 xl:px-16 2xl:px-32">
-          <aside className="lg:w-1/5 mb-6 lg:mb-0 lg:pr-8 hidden lg:block">
+        <div className="flex flex-col lg:flex-row px-6">
+          <aside className="hidden lg:block lg:w-1/5">
             <SideBar
               styles={styles}
               selectedStyle={selectedStyle}
-              setSelectedStyle={(style) => { setSelectedStyle(style); setCurrentPage(1); }}
+              setSelectedStyle={(style) => {
+                setSelectedStyle(style);
+                setCurrentPage(1);
+              }}
               setCurrentPage={setCurrentPage}
             />
           </aside>
 
           <section className="flex-1">
-           <GalleryCollections
-  items={shuffledGalleryItems}
-  selectedStyle={selectedStyle}
-  selectedLien={selectedLien}
-  query={query}
-  currentPage={currentPage}
-  setCurrentPage={setCurrentPage}
-  onImageClick={(item) => setOpenDiaporama({ serie: item.serie, index: item.index })}
-/>
-
+            <GalleryCollections
+              items={filteredItems}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              onImageClick={(item) =>
+                setOpenDiaporama({
+                  serie: item.serie,
+                  index: item.index, 
+                })
+              }
+            />
           </section>
         </div>
       </section>
 
       {isVisible && (
         <button
-          onClick={scrollToTop}
-          className="fixed bottom-33 right-6 z-50 bg-white text-black p-3 rounded-full shadow-lg hover:bg-gray-300 transition-all duration-100"
-          aria-label="Remonter en haut de page"
+          onClick={() =>
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }
+          className="fixed bottom-6 right-6 bg-white text-black p-3 rounded-full"
         >
-          <ArrowUp className="w-6 h-6" />
+          <ArrowUp />
         </button>
       )}
 
-{openDiaporama && (
-  <div className="fixed inset-0 z-9999">
-    <CollectionDiaporama
-      ouvres={openDiaporama.serie}
-      initialIndex={openDiaporama.index} // <-- passer l'index initial
-      onClose={() => setOpenDiaporama(null)} // <-- pour fermer proprement
-    />
-  </div>
-)}
+      {openDiaporama && (
+        <CollectionDiaporama
+          ouvres={openDiaporama.serie}
+          initialIndex={openDiaporama.index}
+          onClose={() => setOpenDiaporama(null)}
+        />
+      )}
 
-
-
-
-      <footer className="relative bg-black mt-10 px-2 sm:px-6 md:px-10 xl:px-16 2xl:px-32">
-        <Footer />
-      </footer>
+      <Footer />
     </main>
   );
 }

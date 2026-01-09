@@ -3,17 +3,13 @@ import Image from "next/image";
 type GalleryItem = {
   title: string;
   image: string;
-
   serie: string;
-  index: number;
+  index: number; 
   lien: string;
 };
 
 interface GalleryCollectionsProps {
   items: GalleryItem[];
-  selectedStyle: string | null;
-  selectedLien?: string | null;
-  query: string;
   currentPage: number;
   setCurrentPage: (page: number) => void;
   onImageClick?: (item: GalleryItem) => void;
@@ -21,27 +17,23 @@ interface GalleryCollectionsProps {
 
 export default function GalleryCollections({
   items,
-  selectedStyle,
-  selectedLien,
-  query,
   currentPage,
   setCurrentPage,
   onImageClick,
 }: GalleryCollectionsProps) {
   const itemsPerPage = 6;
 
-  const filteredItems = items.filter((item) => {
-    const matchesStyle = selectedLien ? item.lien === selectedLien : true;
-    const matchesQuery = item.title.toLowerCase().includes(query.toLowerCase());
-    return matchesStyle && matchesQuery;
-  });
-
-  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+  const totalPages = Math.ceil(items.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentItems = filteredItems.slice(startIndex, startIndex + itemsPerPage);
+  const currentItems = items.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
-  const goPrev = () => setCurrentPage(Math.max(currentPage - 1, 1));
-  const goNext = () => setCurrentPage(Math.min(currentPage + 1, totalPages));
+  const goPrev = () =>
+    setCurrentPage(Math.max(currentPage - 1, 1));
+  const goNext = () =>
+    setCurrentPage(Math.min(currentPage + 1, totalPages));
 
   return (
     <div className="flex flex-col w-full">
@@ -49,7 +41,7 @@ export default function GalleryCollections({
         {currentItems.map((item) => (
           <div
             key={item.title}
-            className="relative cursor-pointer flex flex-col items-center"
+            className="cursor-pointer flex flex-col items-center"
             onClick={() => onImageClick?.(item)}
           >
             <Image
@@ -59,18 +51,16 @@ export default function GalleryCollections({
               height={500}
               className="object-contain rounded-md w-full h-60"
             />
-            <h3 className="mt-2 text-center font-semibold text-neutral-500">{item.title}</h3>
+            <h3 className="mt-2 text-center font-semibold text-neutral-500">
+              {item.title}
+            </h3>
           </div>
         ))}
       </div>
 
       {totalPages > 1 && (
         <div className="flex justify-center items-center mt-6 space-x-4">
-          <button
-            onClick={goPrev}
-            disabled={currentPage === 1}
-            className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
-          >
+          <button onClick={goPrev} disabled={currentPage === 1}>
             ← Précédent
           </button>
           <span className="text-white">
@@ -79,7 +69,6 @@ export default function GalleryCollections({
           <button
             onClick={goNext}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
           >
             Suivant →
           </button>

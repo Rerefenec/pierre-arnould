@@ -28,8 +28,7 @@ const galleryItems: GalleryItem[] = [
   },
   {
     title: "Cloisonnés et Géométriques",
-    image:
-      "/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-11.jpg",
+    image: "/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-11.jpg",
     description: "La structure du fragment...",
     lien: "/cloisonnes+geometriques",
   },
