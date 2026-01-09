@@ -23,7 +23,7 @@ export default function AproposPage() {
 
         {/* TEXTO DERECHA */}
         <div className="space-y-6 text-justify">
-          <h2 className="text-4xl font-bold">À propos de l’artiste</h2>
+          <h2 className="text-4xl font-bold text-center">À propos de l’artiste</h2>
           <p className="text-lg leading-relaxed text-gray-300">
             Pierre Arnould est un plasticien français dont le travail s’inscrit
             dans une recherche constante autour de la matière, du volume et du
@@ -40,51 +40,46 @@ export default function AproposPage() {
         </div>
       </section>
 
-{/* section 1 bis quelques dessins et documents */}
-<div className="text-center space-y-2 mb-16">
+<div className="text-center space-y-2">
   <h2 className="text-4xl font-bold">Premiers travaux</h2>
-  <p className="text-lg font-bold">
-    Dessins à l'encre sur papier
-  </p>
+  <p className="text-lg font-bold">Dessins à l'encre sur papier</p>
+
+  <div className="grid grid-cols-1 items-center md:grid-cols-4 gap-10 m-6">
+  
+    <Image
+      src="/dessins-photos/pierre-arnould-dessin3.jpg"
+      alt="dessin de Pierre Arnould artiste plasticien"
+      width={400}
+      height={400}
+      className="object-contain"
+    />
+  
+      <Image
+      src="/dessins-photos/pierre-arnould-dessin6.jpg"
+      alt="dessin de Pierre Arnould artiste plasticien"
+      width={350}
+      height={400}
+      className="object-contain"
+    />
+    <Image
+      src="/dessins-photos/pierre-arnould-dessin5.jpg"
+      alt="dessin de Pierre Arnould artiste plasticien"
+      width={400}
+      height={400}
+      className="object-contain"
+    />
+     
+    <Image
+      src="/dessins-photos/pierre-arnould-dessin4.jpg"
+      alt="dessin de Pierre Arnould artiste plasticien"
+      width={400}
+      height={400}
+      className="object-contain"
+    />
+  </div>
 </div>
-<section className="max-w-8xl mx-auto px-0 md:px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10 items-center">
 
-   <div className="relative w-full h-[70vh] md:h-[400px] overflow-hidden">
-          <Image
-            src="/dessins-photos/pierre-arnould-dessin6.jpg"
-            alt="dessin de Pierre Arnould artiste plasticien"
-            fill
-            className="object-contain"                  
-          />
-    </div>
 
-      <div className="relative w-full h-[70vh] md:h-[400px] overflow-hidden">
-          <Image
-            src="/dessins-photos/pierre-arnould-dessin3.jpg"
-            alt="dessin de Pierre Arnould artiste plasticien"
-            fill
-            className="object-contain"
-            />
-    </div> 
-
-         <div className="relative w-full h-[70vh] md:h-[400px] overflow-hidden">
-          <Image
-            src="/dessins-photos/pierre-arnould-dessin4.jpg"
-            alt="dessin de Pierre Arnould artiste plasticien"
-            fill
-            className="object-contain"
-          />
-    </div> 
-   <div className="relative w-full h-[70vh] md:h-[400px] overflow-hidden">
-          <Image
-            src="/dessins-photos/pierre-arnould-dessin5.jpg"
-            alt="dessin de Pierre Arnould artiste plasticien"
-            fill
-            className="object-contain"
-          />
-    </div>
-
-</section>
 
 <div className="max-w-2xl mx-auto px-6 py-10">
   <div className="flex justify-center">
