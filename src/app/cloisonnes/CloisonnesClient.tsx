@@ -54,7 +54,7 @@ export default function CloisonnesClient() {
 
             if (element) {
                 // ✅ Scroll instantané (pour éviter le saut visible, car l'opacité est à 0)
-                element.scrollIntoView({ behavior: "instant", block: "center" });
+                element.scrollIntoView({ behavior: "smooth", block: "center" });
                 sessionStorage.removeItem("lastViewedIndex");
             }
 
@@ -141,7 +141,7 @@ La structure du fragment. Ici, je travaille la texture et la construction. J&apo
                                             {work.title} 
                                         </h2>
                                      
-                                        <p className="mt-1 text-center text-gray-500 wrap-break-word overflow-hidden line-clamp-3 w-full text-xs md:text-sm lg:text-base">
+                                        <p className="mt-1 text-center text-gray-500 wrap-break-word overflow-hidden  w-full text-xs md:text-sm lg:text-base">
                                             {work.description} 
                                         </p>
                                     </div>

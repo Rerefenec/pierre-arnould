@@ -45,7 +45,7 @@ export default function TondosClient() {
             const element = document.getElementById(`thumb-${idx}`);
 
             if (element) {
-                element.scrollIntoView({ behavior: "instant", block: "center" });
+                element.scrollIntoView({ behavior: "smooth", block: "center" });
                 sessionStorage.removeItem("lastViewedIndex");
             }
 
@@ -124,7 +124,7 @@ export default function TondosClient() {
                                             {work.title} 
                                         </h2>
                                       
-                                        <p className="mt-1 text-center text-gray-500 wrap-break-word overflow-hidden line-clamp-3 w-full text-xs md:text-sm lg:text-base">
+                                        <p className="mt-1 text-center text-gray-500 wrap-break-word overflow-hidden w-full text-xs md:text-sm lg:text-base">
                                             {work.description} 
                                         </p>
                                     </div>
