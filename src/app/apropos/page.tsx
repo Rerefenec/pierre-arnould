@@ -41,11 +41,15 @@ export default function AproposPage() {
       </section>
 
 {/* section 1 bis quelques dessins et documents */}
-<div className="text-4xl font-bold text-center ">Premiers travaux</div>
-     <div className="text-1xl font-bold text-center">Dessins à l'encre sur papier</div>
-<section className="max-w-8xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-16 items-center">
+<div className="text-center space-y-2 mb-16">
+  <h2 className="text-4xl font-bold">Premiers travaux</h2>
+  <p className="text-lg font-bold">
+    Dessins à l'encre sur papier
+  </p>
+</div>
+<section className="max-w-8xl mx-auto px-0 md:px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10 items-center">
 
-   <div className="relative w-full h-[400px]  overflow-hidden">
+   <div className="relative w-full h-[70vh] md:h-[400px] overflow-hidden">
           <Image
             src="/dessins-photos/pierre-arnould-dessin6.jpg"
             alt="dessin de Pierre Arnould artiste plasticien"
@@ -54,7 +58,7 @@ export default function AproposPage() {
           />
     </div>
 
-      <div className="relative w-full h-[300px]  overflow-hidden">
+      <div className="relative w-full h-[70vh] md:h-[400px] overflow-hidden">
           <Image
             src="/dessins-photos/pierre-arnould-dessin3.jpg"
             alt="dessin de Pierre Arnould artiste plasticien"
@@ -63,7 +67,7 @@ export default function AproposPage() {
             />
     </div> 
 
-         <div className="relative w-full h-[400px]  overflow-hidden">
+         <div className="relative w-full h-[70vh] md:h-[400px] overflow-hidden">
           <Image
             src="/dessins-photos/pierre-arnould-dessin4.jpg"
             alt="dessin de Pierre Arnould artiste plasticien"
@@ -71,7 +75,7 @@ export default function AproposPage() {
             className="object-contain"
           />
     </div> 
-   <div className="relative w-full h-[400px]  overflow-hidden">
+   <div className="relative w-full h-[70vh] md:h-[400px] overflow-hidden">
           <Image
             src="/dessins-photos/pierre-arnould-dessin5.jpg"
             alt="dessin de Pierre Arnould artiste plasticien"
@@ -89,7 +93,7 @@ export default function AproposPage() {
       alt="dessin de Pierre Arnould artiste plasticien"
       width={800}
       height={600}
-      className="object-contain max-w-[350px] md:max-w-[500px] h-auto mx-auto"
+      className="   object-contain w-full max-w-full md:max-w-[500px] h-auto mx-auto"
     />
   </div>
 </div>

@@ -22,7 +22,7 @@ export default function AproposPage() {
         </div>
 
         {/* TEXTO DERECHA */}
-        <div className="space-y-6 text-justify">
+        <div className="space-y-6 text-center md:text-justify">
           <h2 className="text-4xl font-bold">            Pierre Arnould </h2>
           <p className="text-lg leading-relaxed text-gray-300">
             pierre.arnould2@wanadoo.fr
