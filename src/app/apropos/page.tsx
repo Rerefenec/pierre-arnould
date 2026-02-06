@@ -201,7 +201,7 @@ export default function AproposPage() {
             Égyptiens, mais aussi des rythmes de la vie urbaine. On y retrouve
             des influences variées : la géométrie de Mondrian, les couleurs et
             volumes de Klimt, les compositions abstraites de Kandinsky, ou
-            encore l’approche contemporaine de Carlos Bougatti.
+            encore l’approche contemporaine de Carlos Bugatti.
           </p>
 
           <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
