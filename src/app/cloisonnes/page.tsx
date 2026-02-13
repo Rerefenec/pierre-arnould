@@ -5,7 +5,7 @@ export const metadata = {
     title: "Cloisonnés — Pierre Arnould",
     description: "Cloisonnés (1969–1994) par Pierre Arnould — œuvres fines et détails dorés typiques de la période.",
     type: "website",
-    url: "https://pierre-arnould.vercel.app/cloisonnes",
+    url: "https://pierrearnould.com/cloisonnes",
     images: ["/1969-1994-Cloisonnes/pierre-arnould-artiste-cloisonnes-1.jpg"],
   },
   twitter: {

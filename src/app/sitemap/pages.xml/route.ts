@@ -1,5 +1,5 @@
 export async function GET() {
-  const base = "https://pierre-arnould.vercel.app";
+  const base = "https://pierrearnould.com";
 
   const pages = [
     "",

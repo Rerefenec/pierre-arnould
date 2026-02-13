@@ -3,7 +3,7 @@
 // ⚠️ ASSUREZ-VOUS QUE CE CHEMIN EST CORRECT :
 import { seriesData } from '../../data/seriesData'; 
 
-const BASE_URL = "https://pierre-arnould.vercel.app";
+const BASE_URL = "https://pierrearnould.com";
 const BATCH_SIZE = 500;
 
 // Créez un MAP pour lier les clés de votre objet data aux noms de dossiers/URL complets.

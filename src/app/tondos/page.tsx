@@ -5,7 +5,7 @@ export const metadata = {
     title: "Tondos — Pierre-Arnould",
     description: "Tondos (1995–2020) par Pierre Arnould — série de peintures rondes et études chromatiques.",
     type: "website",
-    url: "https://pierre-arnould.vercel.app/tondos",
+    url: "https://pierrearnould.com/tondos",
     images: ["/1995-2020-Tondos/pierre-arnould-artiste-tondo-1.jpg"],
   },
   twitter: {

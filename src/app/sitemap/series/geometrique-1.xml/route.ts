@@ -1,6 +1,6 @@
 import { seriesData, type Work } from "@/app/data/seriesData";
 
-const BASE_URL = "https://pierre-arnould.vercel.app";
+const BASE_URL = "https://pierrearnould.com";
 const BATCH_SIZE = 500;
 const BATCH_NUMBER = 1; // Cambiar pour chaque batch
 

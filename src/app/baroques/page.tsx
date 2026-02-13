@@ -5,7 +5,7 @@ export const metadata = {
     title: "Baroques — Pierre Arnould",
     description: "Baroques (2021–2025) par Pierre Arnould — compositions riches et baroques explorant mouvement et couleur.",
     type: "website",
-    url: "https://pierre-arnould.vercel.app/baroques",
+    url: "https://pierrearnould.com/baroques",
     images: ["/2021-2025-Baroques/pierre-arnould-artiste-baroque-1.jpg"],
   },
   twitter: {

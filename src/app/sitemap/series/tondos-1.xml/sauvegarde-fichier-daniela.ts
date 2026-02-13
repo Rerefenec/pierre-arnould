@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 
-const BASE_URL = "https://pierre-arnould.vercel.app";
+const BASE_URL = "https://pierrearnould.com";
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 const BATCH_SIZE = 500;
 const SERIE_NAME = "1995-2020-Tondos"; // Cambiar para cada serie

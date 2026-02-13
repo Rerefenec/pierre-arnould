@@ -1,7 +1,7 @@
 // Clean, serverless-friendly sitemap route: no fs, no path, no disk access
 import { seriesData, type Work } from "@/app/data/seriesData";
 
-const BASE_URL = "https://pierre-arnould.vercel.app";
+const BASE_URL = "https://pierrearnould.com";
 const BATCH_SIZE = 500;
 const BATCH_NUMBER = 1;
 

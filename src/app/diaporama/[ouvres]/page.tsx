@@ -30,8 +30,8 @@ export default async function DiaporamaPage({ params, searchParams }: { params: 
   const safeIndex = Math.min(Math.max(index, 1), works.length || 1);
   const work = works[safeIndex - 1] || works[0] || { title: ouvres, description: "", image: "/", year: "" };
 
-  const imageUrl = `https://pierre-arnould.vercel.app${work.image}`;
-  const pageUrl = `https://pierre-arnould.vercel.app/diaporama/${ouvres}?index=${safeIndex}${titleParam ? `&title=${encodeURIComponent(titleParam)}` : ""}`;
+  const imageUrl = `https://pierrearnould.com${work.image}`;
+  const pageUrl = `https://pierrearnould.com/diaporama/${ouvres}?index=${safeIndex}${titleParam ? `&title=${encodeURIComponent(titleParam)}` : ""}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -40,7 +40,7 @@ export default async function DiaporamaPage({ params, searchParams }: { params: 
     description: work.description || `Image ${safeIndex} de la série ${ouvres} par Pierre Arnould`,
     contentUrl: imageUrl,
     url: pageUrl,
-    author: { "@type": "Person", name: "Pierre Arnould", url: "https://pierre-arnould.vercel.app" },
+    author: { "@type": "Person", name: "Pierre Arnould", url: "https://pierrearnould.com" },
     inLanguage: "fr",
     datePublished: work.year || undefined,
   };
